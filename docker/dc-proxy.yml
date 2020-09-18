@@ -16,7 +16,7 @@ services:
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/localhost.tpl:/tmp/localhost.tpl
-      - ../projects:/usr/share/nginx/html
+      - ../${MG_THEME_DIR:-theme}:/usr/share/nginx/html
     command: >
       /bin/bash -c "envsubst \"`for v in $$(compgen -v);do printf '$${%s} ' $$v;done`'\"
       < /tmp/localhost.tpl
