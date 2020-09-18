@@ -1,15 +1,26 @@
-# Theming workflow
+# Molgenis Theme
 
-Projects in the **projects** directory use a common theming
-format and SCSS build tool. This makes themes more consistent
-and easier to maintain. During development, one can use the
-Nginx proxy (docker) to apply themes on remote Molgenis
-websites or on a locally running Molgenis stack.
+This is the base SCSS theme for Molgenis. All Molgenis themes
+should inherit from this theme. Checkout **themes/molgenis-blue**
+for an example.
+
+This repo also provides a Dockerized Nginx proxy that makes it easier
+to develop styling against remote Molgenis sites, as well as
+against a localized Molgenis stack.
+
+Last, but not least, this repo also provides a Molgenis theme service,
+that can be used to generate themes on the fly, based on just some
+variables.
 
 ## Prerequisites
 
+For the Proxy & Molgenis services:
+
 * [Docker](https://docs.docker.com/docker-for-mac/install/)
 * [Docker-compose](https://docs.docker.com/compose/install/)
+
+For theme development:
+
 * [Node.js](https://nodejs.org/dist/v14.9.0/node-v14.9.0.pkg)
 * [Yarn](https://classic.yarnpkg.com/en/docs/install/#mac-stable)
 * [Visual Studio Code](https://code.visualstudio.com/docs/setup/mac)
@@ -17,27 +28,27 @@ websites or on a locally running Molgenis stack.
 ## Basic Usage
 
 ```bash
-git clone git@github.com:molgenis/molgenis-projects.git
-cd molgenis-projects
+git clone git@github.com:molgenis/molgenis-theme.git
+cd molgenis-theme
 yarn
 # Set the default config file
-cp docker/.env.default docker/.env
+cp docker/.env.default .env
 # Build the selected theme (MG_THEME in .env)
 yarn build
 ```
 
 Congratulations! You just generated the default Molgenis theme.
 
-> The CSS files were written to **/projects/defaults/css**
+> The CSS files were written to **/theme/molgenis-blue/css**
 
-Now lets build all themes at once:
+Build all themes at once, in case the theme directory contains more than one theme:
 
 ```bash
 yarn build-all
 ```
 
-> All project directories now have their CSS files generated in
-their accompanying **projects/myproject/css** directory
+> All project directories have their CSS files generated in
+their accompanying **theme/theme-dir/css** directory
 
 ## Configuration
 
@@ -70,6 +81,16 @@ MG_HOST=http://molgenis:8080
 ```
 
 ```bash
+# Which theme to watch and/or build from the /projects dir
+MG_THEME=default
+# In case you want to use molgenis-theme in a third-party repo, with its own
+# main directory for themes; e.g. molgenis-projects/projects
+MG_THEME_DIR=theme
+# The proxied Molgenis CSS file to watch for changes
+MG_WATCHFILE=bootstrap-molgenis-blue.min.css
+```
+
+```bash
 # Static fileserver root directory
 MG_PUBLISH_ROOT=/home/molgenis/molgenis/css
 # Remote SSH host
@@ -82,13 +103,6 @@ MG_PUBLISH_PORT=50666
 MG_PUBLISH_USER=molgenis
 # CSS Versioning directory; use minor semver releases only?
 MG_PUBLISH_VERSION=4.5
-```
-
-```bash
-# Which theme to watch and/or build from the /projects dir
-MG_THEME=default
-# The proxied Molgenis CSS file to watch for changes
-MG_WATCHFILE=bootstrap-molgenis-blue.min.css
 ```
 
 ## Structure
@@ -138,14 +152,14 @@ So, when trying to fit in a new theme, please try to maintain the following work
 * Just copy an existing theme to a new directory:
 
   ```bash
-  cp -R projects/ase projects/myproject
+  cp -R theme/molgenis-blue theme/molgenis-red
   ```
 
 * Update the config to use the new theme
 
   ```bash
   # vim docker/.env
-  MG_THEME=myproject
+  MG_THEME=molgenis-red
   ```
 
 * Build the theme
@@ -158,14 +172,14 @@ So, when trying to fit in a new theme, please try to maintain the following work
 
 In this example we use a remote Molgenis host, instead of the local Molgenis setup.
 
-* Setup the proxy config in **docker/.env**
+* Setup the proxy config in the **.env** file:
 
   ```bash
   # The proxied host
   MG_HOST=https://master.dev.molgenis.org
   # The theme that is being applied on the proxied host.
-  MG_THEME=myproject
-  # The theme that is being used on - in this example - master.dev.molgenis.org
+  MG_THEME=molgenis-red
+  # The current theme that is being used on the proxy - in this example - master.dev.molgenis.org
   # Check view-source:https://master.dev.molgenis.org/ for the current theme in the <head> section
   MG_WATCHFILE=bootstrap-molgenis-blue.min.css
   ```
@@ -179,12 +193,12 @@ yarn dev
 ```
 
 * Visit http://localhost; you should see the proxied version of https://master.molgenis.org
-  using the *myproject* theme
+  using the *molgenis-red* theme
 
 * Install the Chrome [livereload extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)
   to autoreload on file-change
 
-* Switch livereload on; try changing **$mg-color-primary** in **myproject/_variables.scss**
+* Switch livereload on; try changing **$mg-color-primary** in **molgenis-red/_variables.scss**
 
   > The theme on the webpage should automatically update on save.
 

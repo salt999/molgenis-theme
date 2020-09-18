@@ -77,6 +77,7 @@ tasks.scss = new Task('scss', async function(ep) {
 
     await mkdirp(path.join(settings.dir.theme, theme, 'css'))
     const themeDir = path.join(settings.dir.theme, theme, 'scss')
+
     await Promise.all([
         scssRender(path.join(themeDir, 'theme-3.scss'), `mg-${theme}-3.css`, scssOptions),
         scssRender(path.join(themeDir, 'theme-4.scss'), `mg-${theme}-4.css`, scssOptions)

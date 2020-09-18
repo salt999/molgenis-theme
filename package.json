@@ -4,11 +4,18 @@
   "description": "Base theme for Molgenis",
   "main": "index.js",
   "bin" : {
-    "thematize" : "./thematize.js"
+    "mg-theme" : "./mg-theme.js"
   },
   "type": "module",
   "engines": {
     "node": ">=13.0.0"
+  },
+  "scripts": {
+    "build": "mg-theme build --optimize",
+    "build-all": "mg-theme build --all --optimize",
+    "dev": "mg-theme dev",
+    "proxy": "docker-compose --env-file .env --file ./docker/dc-proxy.yml up",
+    "theme": "mg-theme"
   },
   "repository": {
     "type": "git",
