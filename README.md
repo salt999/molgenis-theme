@@ -204,10 +204,8 @@ yarn dev
 
 ## Publishing
 
-This is a Proof-of-Concept workflow for theme updates, in which changes to
-themes are automatically pushed to a remote static fileserver(e.g. https://static.molgenis.org),
-which would act as a CDN to Molgenis. Hosting our own static fileserver has
-several advantages, compared to a service like Unpkg.
+This is a Proof-of-Concept workflow for theme updates, using a static fileserver.
+Hosting our own static fileserver has several advantages, compared to a service like Unpkg.
 
 * Lower latency
 * Flexibility; just host a directory; no API to deal with
@@ -246,3 +244,29 @@ Some changes to Molgenis are required:
   > There are places where the theme file is not included(login), where apps
   include their own stylesheets and where vanilla Bootstrap is loaded along
   with the themed version
+
+## Dynamic Theme Service
+
+This is a Proof-of-Concept theme service. Instead of requesting CSS files,
+a Molgenis instance may just post a set of variables to this service. The
+accompanying theme is then returned accordingly. Usage:
+
+* Start the SCSS service
+
+  ```bash
+  ./mg-theme.js serve
+  ```
+
+* Post a request body to http://localhost:8080/theme with a tool like Postman
+
+  ```json
+  {
+    "name": "molgenis-red",
+    "version": 4,
+    "mg-color-primary": "#005c8f",
+    "mg-color-primary-light": "#0069a4"
+  }
+  ```
+
+> Depending on the version (3 or 4), either the generated Bootstrap 3 or Bootstrap 4
+  version is returned. Post validation is still a bit flunky, so its easy to break.

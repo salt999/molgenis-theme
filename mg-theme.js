@@ -141,7 +141,7 @@ tasks.dev = new Task('dev', async function() {
         .command('publish', `publish theme files`, () => {}, () => {tasks.publish.start()})
         .command('scss', `build stylesheets for ${settings.MG_THEME}`, () => {}, () => {tasks.scss.start()})
         .command('serve', `start theme generator service`, () => {}, () => {
-            scssService()
+            scssService(settings)
         })
         .demandCommand()
         .help('help')
