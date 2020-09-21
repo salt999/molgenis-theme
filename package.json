@@ -10,7 +10,7 @@
     "access": "public"
   },
   "files": [
-    "css/**/*.css"
+    "css"
   ],
   "type": "module",
   "engines": {
