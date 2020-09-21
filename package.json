@@ -2,7 +2,6 @@
   "name": "@molgenis/molgenis-theme",
   "version": "1.0.0",
   "description": "Base SCSS theme for Molgenis",
-  "main": "mg-theme.js",
   "bin": {
     "mg-theme": "./mg-theme.js"
   },
@@ -11,7 +10,8 @@
   },
   "files": [
     "css/*index.json",
-    "css/*.css"
+    "css/*.css",
+    "docker"
   ],
   "type": "module",
   "engines": {
