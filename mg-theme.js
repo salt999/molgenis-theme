@@ -56,7 +56,7 @@ tasks.dev = new Task('dev', async function() {
         var app = connect()
         app.use(tinylr.middleware({app}))
         app.listen({host: '127.0.0.1', port: 35729}, () => resolve)
-        console.log(path.join(settings.dir.theme, settings.MG_THEME, '**', 'scss', '*.scss'))
+
         chokidar.watch([
             path.join(settings.dir.theme, settings.MG_THEME, '**', '*.scss'),
             path.join(settings.dir.base, 'scss', '**', '*.scss')
