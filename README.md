@@ -83,9 +83,7 @@ MG_HOST=http://molgenis:8080
 ```bash
 # Which theme to watch and/or build from the /projects dir
 MG_THEME=default
-# In case you want to use molgenis-theme in a third-party repo, with its own
-# main directory for themes; e.g. molgenis-projects/projects
-MG_THEME_DIR=theme
+
 # The proxied Molgenis CSS file to watch for changes
 MG_WATCHFILE=bootstrap-molgenis-blue.min.css
 ```

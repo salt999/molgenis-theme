@@ -80,6 +80,8 @@ tasks.dev = new Task('dev', async function() {
         settings,
     }
 
+    buildInfo(cli)
+
     yargs
         .usage('Usage: $0 [task]')
         .detectLocale(false)
@@ -89,6 +91,8 @@ tasks.dev = new Task('dev', async function() {
             if (!settings.version) {
                 settings.version = JSON.parse((await fs.readFile(path.join(settings.dir.base, 'package.json')))).version
             }
+
+
 
             if (['dev', 'scss'].includes(argv._)) {
                 tasks.dev.log(`\r\n${chalk.bold('THEME:')} ${chalk.cyan(settings.MG_THEME)}`)
@@ -103,7 +107,7 @@ tasks.dev = new Task('dev', async function() {
         })
 
         .command('build', `build project files`, () => {}, () => {tasks.build.start()})
-        .command('config', 'list build config', () => {}, () => buildInfo(cli))
+        .command('config', 'list build config', () => {}, () => {})  // Build info is shown when the task executes.
         .command('dev', `development mode`, () => {}, () => {tasks.dev.start()})
         .command('scss', `build stylesheets for ${settings.MG_THEME}`, () => {}, () => {tasks.scss.start(settings.MG_THEME)})
         .command('serve', `start theme generator service`, () => {}, () => {
