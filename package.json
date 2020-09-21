@@ -2,7 +2,7 @@
   "name": "@molgenis/molgenis-theme",
   "version": "1.0.0",
   "description": "Base theme for Molgenis",
-  "main": "index.js",
+  "main": "mg-theme.js",
   "bin": {
     "mg-theme": "./mg-theme.js"
   },
