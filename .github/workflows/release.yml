@@ -9,6 +9,7 @@ jobs:
         with:
           node-version: '14'
       - run: yarn
+      - run: yarn lint
       - name: Release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}

@@ -3,9 +3,16 @@
   "version": "1.0.0",
   "description": "Base theme for Molgenis",
   "main": "index.js",
-  "bin" : {
-    "mg-theme" : "./mg-theme.js"
+  "bin": {
+    "mg-theme": "./mg-theme.js"
   },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "scss/**/*.scss",
+    "theme/**/*.{css,scss}"
+  ],
   "type": "module",
   "engines": {
     "node": ">=13.0.0"
@@ -14,6 +21,7 @@
     "build": "mg-theme build --optimize",
     "build-all": "mg-theme build --all --optimize",
     "dev": "mg-theme dev",
+    "lint": "stylelint \"scss/**/*.scss\"",
     "proxy": "docker-compose --env-file .env --file ./docker/dc-proxy.yml up",
     "theme": "mg-theme"
   },
@@ -38,8 +46,9 @@
     "lodash": "^4.17.15",
     "node-sass": "^4.13.1",
     "node-sass-glob-importer": "^5.3.2",
-    "stylelint": "13.x.x",
-    "stylelint-order": "4.x.x",
+    "semantic-release": "^17.1.2",
+    "stylelint": "^13.7.1",
+    "stylelint-order": "^4.1.0",
     "stylelint-scss": "3.x.x",
     "tildify": "^2.0.0",
     "tiny-lr": "^1.1.1",
