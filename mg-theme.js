@@ -7,14 +7,12 @@ import connect from 'connect'
 import fs from 'fs-extra'
 
 import loadSettings from './lib/settings.js'
-import mkdirp from 'mkdirp'
 
 import path from 'path'
 
 import Task from './lib/task.js'
 import tinylr from 'tiny-lr'
 import yargs from 'yargs'
-import * as NodeSSH from 'node-ssh'
 import { scssRender } from './lib/scss.js'
 import scssService from './lib/service.js'
 
@@ -33,41 +31,13 @@ tasks.build = new Task('build', async function() {
 })
 
 
-tasks.publish = new Task('publish', async function() {
-    await tasks.build.start()
-
-    const publishRoot = path.join(settings.MG_PUBLISH_ROOT, settings.MG_PUBLISH_VERSION)
-    const ssh = new NodeSSH.NodeSSH()
-    await ssh.connect({
-        host: settings.MG_PUBLISH_HOST,
-        port: Number(settings.MG_PUBLISH_PORT),
-        username: settings.MG_PUBLISH_USER,
-        privateKey: settings.MG_PUBLISH_KEY
-    })
-
-    if (settings.all) {
-        const themes = await fs.readdir(settings.dir.theme)
-        await Promise.all(themes.map((theme) => {
-            tasks.dev.log(`${chalk.bold('publishing')} ${chalk.cyan(theme)}`)
-            return ssh.putDirectory(path.join(settings.dir.theme, theme, 'css'), path.join(publishRoot, theme))
-        }))
-    } else {
-        tasks.dev.log(`${chalk.bold('publishing')} ${chalk.cyan(settings.MG_THEME)}`)
-        await ssh.putDirectory(path.join(settings.dir.theme, settings.MG_THEME, 'css'), path.join(publishRoot, settings.MG_THEME))
-    }
-
-    ssh.dispose()
-})
-
-
 /**
  * Some Molgenis views use Bootstrap 3, others use Bootstrap 4.
  * The result should look the same with the least amount of
  * customization.
  */
 tasks.scss = new Task('scss', async function(ep) {
-    let theme
-    ep.raw ? theme = ep.raw : settings.dir.theme
+    let theme = ep.raw
 
     const scssOptions = {
         includePaths: settings.includePaths,
@@ -75,12 +45,10 @@ tasks.scss = new Task('scss', async function(ep) {
         optimize: settings.optimize,
     }
 
-    await mkdirp(path.join(settings.dir.theme, theme, 'css'))
-    const themeDir = path.join(settings.dir.theme, theme, 'scss')
-
+    const themeDir = path.join(settings.dir.theme, theme)
     await Promise.all([
-        scssRender(path.join(themeDir, 'theme-3.scss'), `mg-${theme}-3.css`, scssOptions),
-        scssRender(path.join(themeDir, 'theme-4.scss'), `mg-${theme}-4.css`, scssOptions)
+        scssRender(path.join(themeDir, 'theme-3.scss'), path.join(settings.dir.css, `mg-${theme}-3.css`), scssOptions),
+        scssRender(path.join(themeDir, 'theme-4.scss'), path.join(settings.dir.css, `mg-${theme}-4.css`), scssOptions)
     ])
 })
 
@@ -91,9 +59,9 @@ tasks.dev = new Task('dev', async function() {
         var app = connect()
         app.use(tinylr.middleware({app}))
         app.listen({host: '127.0.0.1', port: 35729}, () => resolve)
-
+        console.log(path.join(settings.dir.theme, settings.MG_THEME, '**', 'scss', '*.scss'))
         chokidar.watch([
-            path.join(settings.dir.theme, settings.MG_THEME, '**', 'scss', '*.scss'),
+            path.join(settings.dir.theme, settings.MG_THEME, '**', '*.scss'),
             path.join(settings.dir.base, 'scss', '**', '*.scss')
         ]).on('change', async(file) => {
             await tasks.scss.start(settings.MG_THEME)
@@ -105,7 +73,6 @@ tasks.dev = new Task('dev', async function() {
 
 ;(async() => {
     settings = await loadSettings()
-
 
     const cli = {
         // eslint-disable-next-line no-console
@@ -138,8 +105,7 @@ tasks.dev = new Task('dev', async function() {
         .command('build', `build project files`, () => {}, () => {tasks.build.start()})
         .command('config', 'list build config', () => {}, () => buildInfo(cli))
         .command('dev', `development mode`, () => {}, () => {tasks.dev.start()})
-        .command('publish', `publish theme files`, () => {}, () => {tasks.publish.start()})
-        .command('scss', `build stylesheets for ${settings.MG_THEME}`, () => {}, () => {tasks.scss.start()})
+        .command('scss', `build stylesheets for ${settings.MG_THEME}`, () => {}, () => {tasks.scss.start(settings.MG_THEME)})
         .command('serve', `start theme generator service`, () => {}, () => {
             scssService(settings)
         })
