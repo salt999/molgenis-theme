@@ -18,12 +18,12 @@
     "node": ">=13.0.0"
   },
   "scripts": {
-    "build": "mg-theme build --optimize",
-    "build-all": "mg-theme build --all --optimize",
-    "dev": "mg-theme dev",
+    "build": "node mg-theme.js build --optimize",
+    "build-all": "node mg-theme.js build --all --optimize",
+    "dev": "node mg-theme.js dev",
     "lint": "stylelint \"scss/**/*.scss\"",
     "proxy": "docker-compose --env-file .env --file ./docker/dc-proxy.yml up",
-    "theme": "mg-theme"
+    "theme": "node mg-theme.js"
   },
   "repository": {
     "type": "git",
