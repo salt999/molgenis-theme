@@ -22,12 +22,49 @@ const tasks = {}
 
 
 tasks.build = new Task('build', async function() {
+    const asyncTasks = []
+    asyncTasks.push(tasks.themeIndex.start())
+
     if (settings.all) {
         const themes = await fs.readdir(settings.dir.theme)
-        await Promise.all(themes.map((theme) => tasks.scss.start(theme)))
+        asyncTasks.push(themes.map((theme) => tasks.scss.start(theme)))
     } else {
-        await tasks.scss.start(settings.MG_THEME)
+        asyncTasks.push(tasks.scss.start(settings.MG_THEME))
     }
+
+    await Promise.all(asyncTasks)
+})
+
+
+tasks.themeIndex = new Task('index', async function() {
+    const themeIndex = []
+    const themes = await fs.readdir(settings.dir.theme)
+    for (const theme of themes) {
+        themeIndex.push({
+            name: theme,
+            public: true
+        })
+    }
+
+    fs.writeFile(path.join(settings.dir.css, 'index.json'), JSON.stringify(themeIndex))
+})
+
+
+tasks.dev = new Task('dev', async function() {
+    await tasks.build.start()
+    return new Promise((resolve) => {
+        var app = connect()
+        app.use(tinylr.middleware({app}))
+        app.listen({host: '127.0.0.1', port: 35729}, () => resolve)
+        console.log(path.join(settings.dir.theme, settings.MG_THEME, '**', 'scss', '*.scss'))
+        chokidar.watch([
+            path.join(settings.dir.theme, settings.MG_THEME, '**', '*.scss'),
+            path.join(settings.dir.base, 'scss', '**', '*.scss')
+        ]).on('change', async(file) => {
+            await tasks.scss.start(settings.MG_THEME)
+            tinylr.changed(settings.MG_WATCHFILE)
+        })
+    })
 })
 
 
@@ -50,24 +87,6 @@ tasks.scss = new Task('scss', async function(ep) {
         scssRender(path.join(themeDir, 'theme-3.scss'), path.join(settings.dir.css, `mg-${theme}-3.css`), scssOptions),
         scssRender(path.join(themeDir, 'theme-4.scss'), path.join(settings.dir.css, `mg-${theme}-4.css`), scssOptions)
     ])
-})
-
-
-tasks.dev = new Task('dev', async function() {
-    await tasks.build.start()
-    return new Promise((resolve) => {
-        var app = connect()
-        app.use(tinylr.middleware({app}))
-        app.listen({host: '127.0.0.1', port: 35729}, () => resolve)
-        console.log(path.join(settings.dir.theme, settings.MG_THEME, '**', 'scss', '*.scss'))
-        chokidar.watch([
-            path.join(settings.dir.theme, settings.MG_THEME, '**', '*.scss'),
-            path.join(settings.dir.base, 'scss', '**', '*.scss')
-        ]).on('change', async(file) => {
-            await tasks.scss.start(settings.MG_THEME)
-            tinylr.changed(settings.MG_WATCHFILE)
-        })
-    })
 })
 
 
@@ -109,6 +128,7 @@ tasks.dev = new Task('dev', async function() {
         .command('build', `build project files`, () => {}, () => {tasks.build.start()})
         .command('config', 'list build config', () => {}, () => {})  // Build info is shown when the task executes.
         .command('dev', `development mode`, () => {}, () => {tasks.dev.start()})
+        .command('index', `write theme index json`, () => {}, () => {tasks.themeIndex.start()})
         .command('scss', `build stylesheets for ${settings.MG_THEME}`, () => {}, () => {tasks.scss.start(settings.MG_THEME)})
         .command('serve', `start theme generator service`, () => {}, () => {
             scssService(settings)
