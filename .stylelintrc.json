@@ -1,7 +1,6 @@
 {
   "plugins": ["stylelint-order", "stylelint-scss"],
   "rules": {
-    "at-rule-disallowed-list": ["debug"],
     "at-rule-no-unknown": null,
     "at-rule-no-vendor-prefix": true,
     "block-no-empty": null,
@@ -18,13 +17,6 @@
     "declaration-block-trailing-semicolon": "always",
     "declaration-colon-space-after": "always-single-line",
     "declaration-colon-space-before": "never",
-    "declaration-property-value-disallowed-list": {
-      "border": ["none"],
-      "border-top": ["none"],
-      "border-right": ["none"],
-      "border-bottom": ["none"],
-      "border-left": ["none"]
-    },
     "function-comma-space-after": "always-single-line",
     "function-parentheses-space-inside": "never",
     "function-url-quotes": "always",

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Base SCSS theme for Molgenis",
   "bin": {
-    "mg-theme": "./mg-theme.js"
+    "mg-theme": "./cli.js"
   },
   "publishConfig": {
     "access": "public"
@@ -18,12 +18,13 @@
     "node": ">=13.0.0"
   },
   "scripts": {
-    "build": "node mg-theme.js build --optimize",
-    "build-all": "node mg-theme.js build --all --optimize",
-    "dev": "node mg-theme.js dev",
+    "build": "node cli.js build --optimize",
+    "build-all": "node cli.js build --all --optimize",
+    "dev": "node cli.js dev",
     "lint": "stylelint \"scss/**/*.scss\"",
     "proxy": "docker-compose --env-file .env --file ./docker/dc-proxy.yml up",
-    "theme": "node mg-theme.js"
+    "theme": "node cli.js",
+    "serve": "node cli.js serve"
   },
   "repository": {
     "type": "git",

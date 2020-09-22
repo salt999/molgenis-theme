@@ -82,48 +82,9 @@ MG_THEME=default
 MG_WATCHFILE=bootstrap-molgenis-blue.min.css
 ```
 
-## Structure
-
-Both Bootstrap 3 & 4 CSS is being used in Molgenis, while it transitions to Bootstrap 4.
-Make sure you check the current Molgenis page source to verify that the asserted theme
-is being used.
-
-* **theme-3.scss** is the root source-file for the generated Molgenis Bootstrap 3 theme
-* **theme-4.scss** is the root source-file for the generated Molgenis Bootstrap 4 theme
-* Theme variables go in **./theme/myproject/_variables.scss**
-* Theme-agnostic fixes should be made in the main theme at **./scss/molgenis**
-* Molgenis theme variables start with the **mg-** prefix
-* Molgenis theme variables are in **./scss/molgenis/_variables.scss**
-* Do not use Bootstrap variables in themes directly if you don't need to;
-  use the **mg-** prefixed Molgenis theme variables instead
-* Bootstrap-3 variables are in **./node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss**
-* Bootstrap-4 variables are in **./node_modules/bootstrap-scss/_variables.scss**
-* Bootstrap-3 variables are customized in **./scss/molgenis/theme-3/_variables.scss**
-* Bootstrap-4 variables are customized in **./scss/molgenis/theme-4/_variables.scss**
-* Small theme-agnostic Bootstrap-agnostic selectors are in **scss/molgenis/_custom.scss**
-* Extensive theme-agnostic Bootstrap-agnostic selectors are in **scss/molgenis/elements/_some-page-element.scss**
-
-* Small theme-agnostic Bootstrap-3 specific selectors are in **scss/molgenis/theme-3/_custom.scss**
-* Extensive theme-agnostic Bootstrap-3 specific selectors are in **scss/molgenis/theme-3/elements/_some-page-element.scss**
-* Theme-agnostic Bootstrap-4 specific selectors are in **scss/molgenis/theme-4/_custom.scss**
-* Extensive theme-agnostic Bootstrap-4 specific selectors are in **scss/molgenis/theme-4/elements/_some-page-element.scss**
-
-The setup of the themes is such, that the theme in **scss/molgenis** should
-provide sane defaults for *all* themes, and that all themes inherit their main
-settings from this base set of SCSS files. To keep everything maintainable,
-it is __essential__ that each theme has a minimal amount of custom styling.
-So, when trying to fit in a new theme, please try to maintain the following workflow order:
-
-1. Change Molgenis variables in the myproject theme
-2. Update Bootstrap variables in scss/molgenis
-3. Refactor Molgenis variables in scss/molgenis if necessary
-4. Add selectors in scss/molgenis (_custom) using Molgenis variables
-5. Add Bootstrap variables to custom theme (theme-3.scss/theme-4.scss)
-6. Add selectors to custom theme (theme-3.scss/theme-4.scss)
-
 ## Development
 
-### Start A New Theme
+### Starting A New Theme
 
 * Just copy an existing theme to a new directory:
 
@@ -144,7 +105,7 @@ So, when trying to fit in a new theme, please try to maintain the following work
   yarn build
   ```
 
-### Working with the livereload proxy
+### Working with the proxy
 
 In this example we use a remote Molgenis host, instead of the local Molgenis setup.
 
@@ -178,16 +139,60 @@ yarn dev
 
   > The theme on the webpage should automatically update on save.
 
-## Dynamic Theme Service
+## Structure & Conventions
 
-This is a Proof-of-Concept theme service. Instead of requesting CSS files,
-a Molgenis instance may just post a set of variables to this service. The
-accompanying theme is then returned accordingly. Usage:
+Both Bootstrap 3 & 4 CSS is being used in Molgenis, while it transitions to Bootstrap 4.
+Make sure you check the current Molgenis page source to verify that the asserted theme
+is being used. The setup of the themes is such, that the theme in **scss/molgenis** should
+provide sane defaults for *all* themes, and that all themes inherit their main
+settings from this base set of SCSS files. To keep everything maintainable,
+it is __essential__ that each theme has a minimal amount of custom styling.
+So, when trying to fit in a new theme, please try to maintain the following workflow order:
+
+1. Change Molgenis variables in the myproject theme
+2. Update Bootstrap variables in scss/molgenis
+3. Refactor Molgenis variables in scss/molgenis if necessary
+4. Add selectors in scss/molgenis (_custom) using Molgenis variables
+5. Add Bootstrap variables to custom theme (theme-3.scss/theme-4.scss)
+6. Add selectors to custom theme (theme-3.scss/theme-4.scss)
+
+<details>
+<summary><em>Common SCSS locations & their meaning</em></summary>
+
+```markdown
+* **theme-3.scss** is the root source-file for the generated Molgenis Bootstrap 3 theme
+* **theme-4.scss** is the root source-file for the generated Molgenis Bootstrap 4 theme
+* Theme variables go in **./theme/myproject/_variables.scss**
+* Theme-agnostic fixes should be made in the main theme at **./scss/molgenis**
+* Molgenis theme variables start with the **mg-** prefix
+* Molgenis theme variables are in **./scss/molgenis/_variables.scss**
+* Do not use Bootstrap variables in themes directly if you don't need to;
+* use the **mg-** prefixed Molgenis theme variables instead
+* Bootstrap-3 variables are in **./node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss**
+* Bootstrap-4 variables are in **./node_modules/bootstrap-scss/_variables.scss**
+* Bootstrap-3 variables are customized in **./scss/molgenis/theme-3/_variables.scss**
+* Bootstrap-4 variables are customized in **./scss/molgenis/theme-4/_variables.scss**
+* Small theme-agnostic Bootstrap-agnostic selectors are in **scss/molgenis/_custom.scss**
+* Extensive theme-agnostic Bootstrap-agnostic selectors are in **scss/molgenis/elements/_some-page-element.scss**
+* Small theme-agnostic Bootstrap-3 specific selectors are in **scss/molgenis/theme-3/_custom.scss**
+* Extensive theme-agnostic Bootstrap-3 specific selectors are in **scss/molgenis/theme-3/elements/_some-page-element.scss**
+* Theme-agnostic Bootstrap-4 specific selectors are in **scss/molgenis/theme-4/_custom.scss**
+* Extensive theme-agnostic Bootstrap-4 specific selectors are in **scss/molgenis/theme-4/elements/_some-page-element.scss**
+```
+
+</details>
+
+## Serving Themes
+
+This is a Proof-of-Concept theme service, that generates theme files on-the-fly.
+Instead of requesting CSS files, a Molgenis instance may just post a set of
+variables to this service. The accompanying theme is then returned accordingly.
+Usage:
 
 * Start the SCSS service
 
   ```bash
-  ./mg-theme.js serve
+  yarn serve
   ```
 
 * Post a request body to http://localhost:8080/theme with a tool like Postman

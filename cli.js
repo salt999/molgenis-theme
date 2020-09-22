@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import _ from 'lodash'
 import {buildInfo} from './lib/utils.js'
 import chalk from 'chalk'
 import chokidar from 'chokidar'
@@ -46,7 +45,7 @@ tasks.themeIndex = new Task('index', async function() {
         })
     }
 
-    fs.writeFile(path.join(settings.dir.css, 'index.json'), JSON.stringify(themeIndex))
+    fs.writeFile(path.join(settings.dir.css, 'themes.json'), JSON.stringify(themeIndex))
 })
 
 
