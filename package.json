@@ -9,9 +9,8 @@
     "access": "public"
   },
   "files": [
-    "css/*index.json",
-    "css/*.css",
-    "docker"
+    "css/theme.json",
+    "css/*.css"
   ],
   "type": "module",
   "engines": {
