@@ -43,11 +43,11 @@ tasks.themeFile = new Task('index', async function() {
     const themeFile = JSON.parse((await fs.readFile(path.join(settings.dir.theme, 'theme.json'))))
     const themes = await (await fs.readdir(settings.dir.theme, {withFileTypes: true})).filter((i) => i.isDirectory())
 
-    for (const themeName of themes) {
+    for (const {name: themeName} of themes) {
         if (themeFile[themeName]) {
             themeInfo.push(themeFile[themeName])
         } else {
-            themeInfo.push({name: themeName, public: false})
+            themeInfo.push({name: themeName, share: false})
         }
     }
 
