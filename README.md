@@ -79,7 +79,7 @@ MG_HOST=http://molgenis:8080
 MG_THEME=default
 
 # The proxied Molgenis CSS file to watch for changes
-MG_WATCHFILE=bootstrap-molgenis-blue.min.css
+MG_WATCH=bootstrap-molgenis-blue.min.css
 ```
 
 ## Development
@@ -118,7 +118,7 @@ In this example we use a remote Molgenis host, instead of the local Molgenis set
   MG_THEME=molgenis-red
   # The current theme that is being used on the proxy - in this example - master.dev.molgenis.org
   # Check view-source:https://master.dev.molgenis.org/ for the current theme in the <head> section
-  MG_WATCHFILE=bootstrap-molgenis-blue.min.css
+  MG_WATCH=bootstrap-molgenis-blue.min.css
   ```
 
 * Start the Nginx proxy and the dev tool

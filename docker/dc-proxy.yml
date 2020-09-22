@@ -7,7 +7,7 @@ services:
     environment:
       MG_HOST: ${MG_HOST:-https://master.dev.molgenis.org/}
       MG_THEME: ${MG_THEME:-default}
-      MG_WATCHFILE: ${MG_WATCHFILE:-bootstrap-molgenis-blue.min.css}
+      MG_WATCH: ${MG_WATCH:-bootstrap-molgenis-blue.min.css}
     image: nginx
     networks:
       - mg_projects
