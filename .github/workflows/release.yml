@@ -15,11 +15,11 @@ jobs:
 
       - name: Install packages
         run: yarn install
-      - name: Lint SCSS Stylesheets
+      - name: Lint SCSS files
         run: yarn lint
-      - name: Build all themese
+      - name: Build Molgenis themes
         run: yarn build --all
-      - name: Publish to NPM
+      - name: Publish to Npm/Unpkg
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
