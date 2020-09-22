@@ -1,0 +1,27 @@
+{
+    "ase": {
+        "name": "Allele Specific Expression (ASE)",
+        "share": "false",
+        "url": "https://molgenis15.gcc.rug.nl/"
+    },
+    "data-management": {
+        "name": "Data Management",
+        "share": "false",
+        "url": "https://molgenis23.gcc.rug.nl/"
+    },
+    "default": {
+        "name": "Molgenis Default - Blue",
+        "share": "true",
+        "url": "https://master.dev.molgenis.org/"
+    },
+    "lifecycle": {
+        "name": "LifeCycle",
+        "share": "false",
+        "url": "https://molgenis88.gcc.rug.nl/"
+    },
+    "rd-connect": {
+        "name": "RD-Connect",
+        "share": "false",
+        "url": "https://molgenis97.gcc.rug.nl/"
+    }
+}

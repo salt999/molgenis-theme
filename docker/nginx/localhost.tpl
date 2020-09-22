@@ -55,14 +55,14 @@ server {
       error_page 301 302 307 = @handle_redirect;
   }
 
-  location /css/bootstrap-3/${MG_WATCHFILE} {
+  location /css/bootstrap-3/${MG_WATCH} {
       add_header Last-Modified $date_gmt;
       add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
       root /usr/share/nginx/html/;
       rewrite ^ /css/mg-${MG_THEME}-3.css break;
   }
 
-  location /css/bootstrap-4/${MG_WATCHFILE} {
+  location /css/bootstrap-4/${MG_WATCH} {
       add_header Last-Modified $date_gmt;
       add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
       root /usr/share/nginx/html/;

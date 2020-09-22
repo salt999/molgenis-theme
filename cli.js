@@ -22,11 +22,11 @@ const tasks = {}
 
 tasks.build = new Task('build', async function() {
     const asyncTasks = []
-    asyncTasks.push(tasks.themeIndex.start())
+    asyncTasks.push(tasks.themeFile.start())
 
     if (settings.all) {
-        const themes = await fs.readdir(settings.dir.theme)
-        asyncTasks.push(themes.map((theme) => tasks.scss.start(theme)))
+        const themes = await (await fs.readdir(settings.dir.theme, {withFileTypes: true})).filter((i) => i.isDirectory())
+        asyncTasks.push(themes.map((theme) => tasks.scss.start(theme.name)))
     } else {
         asyncTasks.push(tasks.scss.start(settings.MG_THEME))
     }
@@ -35,17 +35,23 @@ tasks.build = new Task('build', async function() {
 })
 
 
-tasks.themeIndex = new Task('index', async function() {
-    const themeIndex = []
-    const themes = await fs.readdir(settings.dir.theme)
-    for (const theme of themes) {
-        themeIndex.push({
-            name: theme,
-            public: true
-        })
+/**
+ * Public index file for themes; used for dynamic theme selection.
+ */
+tasks.themeFile = new Task('index', async function() {
+    const themeInfo = []
+    const themeFile = JSON.parse((await fs.readFile(path.join(settings.dir.theme, 'theme.json'))))
+    const themes = await (await fs.readdir(settings.dir.theme, {withFileTypes: true})).filter((i) => i.isDirectory())
+
+    for (const themeName of themes) {
+        if (themeFile[themeName]) {
+            themeInfo.push(themeFile[themeName])
+        } else {
+            themeInfo.push({name: themeName, public: false})
+        }
     }
 
-    fs.writeFile(path.join(settings.dir.css, 'themes.json'), JSON.stringify(themeIndex))
+    fs.writeFile(path.join(settings.dir.css, 'theme.json'), JSON.stringify(themeInfo))
 })
 
 
@@ -61,7 +67,7 @@ tasks.dev = new Task('dev', async function() {
             path.join(settings.dir.base, 'scss', '**', '*.scss')
         ]).on('change', async(file) => {
             await tasks.scss.start(settings.MG_THEME)
-            tinylr.changed(settings.MG_WATCHFILE)
+            tinylr.changed(settings.MG_WATCH)
         })
     })
 })
@@ -92,42 +98,31 @@ tasks.scss = new Task('scss', async function(ep) {
 ;(async() => {
     settings = await loadSettings()
 
-    const cli = {
-        // eslint-disable-next-line no-console
-        log(...args) {console.log(...args)},
-        settings,
-    }
-
-    buildInfo(cli)
-
     yargs
         .usage('Usage: $0 [task]')
         .detectLocale(false)
-        .option('all', {default: false, description: 'Apply to all themes', type: 'boolean'})
-        .option('optimize', {alias: 'o', default: false, description: 'Optimize for production', type: 'boolean'})
+        .option('all', {default: false, description: 'Apply task to all themes', type: 'boolean'})
+        .option('optimize', {alias: 'o', default: false, description: 'Optimize build for production', type: 'boolean'})
         .middleware(async(argv) => {
             if (!settings.version) {
                 settings.version = JSON.parse((await fs.readFile(path.join(settings.dir.base, 'package.json')))).version
             }
 
 
-
-            if (['dev', 'scss'].includes(argv._)) {
-                tasks.dev.log(`\r\n${chalk.bold('THEME:')} ${chalk.cyan(settings.MG_THEME)}`)
-                tasks.dev.log(`${chalk.bold('MINIFY:')} ${chalk.grey(settings.optimize)}\r\n`)
-            }
-            if (argv._.includes('dev')) {
-                tasks.dev.log(`${chalk.bold('WATCH FILE:')} ${chalk.cyan(settings.MG_WATCHFILE)}`)
-            }
-
             settings.all = argv.all
             settings.optimize = argv.optimize
+
+            buildInfo({
+                // eslint-disable-next-line no-console
+                log(...args) {console.log(...args)},
+                settings,
+            })
         })
 
         .command('build', `build project files`, () => {}, () => {tasks.build.start()})
         .command('config', 'list build config', () => {}, () => {})  // Build info is shown when the task executes.
         .command('dev', `development mode`, () => {}, () => {tasks.dev.start()})
-        .command('index', `write theme index json`, () => {}, () => {tasks.themeIndex.start()})
+        .command('index', `build theme index file`, () => {}, () => {tasks.themeFile.start()})
         .command('scss', `build stylesheets for ${settings.MG_THEME}`, () => {}, () => {tasks.scss.start(settings.MG_THEME)})
         .command('serve', `start theme generator service`, () => {}, () => {
             scssService(settings)
