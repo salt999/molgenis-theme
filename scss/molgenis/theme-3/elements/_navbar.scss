@@ -9,7 +9,6 @@
 
     .navbar-nav {
         > li > a {
-            // padding: 15px 0 !important;
             padding-left: 16px;
             padding-right: 16px;
         }
@@ -26,14 +25,12 @@
 
 
         .dropdown.open > a {
-            background: $mg-color-primary-light;
-            color: $mg-color-white;
+            background: $mg-navbar-link-active-bg;
+            color: $mg-navbar-link-active-color;
         }
 
 
         .dropdown-toggle {
-            // position: relative;
-
             .caret {
                 display: none;
             }
@@ -49,19 +46,8 @@
                 margin-top: 22px;
                 position: absolute;
                 top: 0;
-
             }
         }
 
-        .dropdown-menu {
-            padding: 0;
-
-            li {
-                a:active {
-                    background: $mg-color-primary;
-                    color: $mg-color-white;
-                }
-            }
-        }
     }
 }

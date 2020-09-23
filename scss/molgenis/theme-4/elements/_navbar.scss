@@ -1,6 +1,8 @@
-.navbar-expand-md {
+.navbar {
     // Override .bg-light's important
     background: $mg-color-white !important;
+    // Use a box-shadow instead of border, because a flex navbar (Bootstrap 4)
+    // calculates height different than a float navbar (Bootstrap 3).
     border-bottom: 0 !important;
     box-shadow: $mg-box-shadow;
     height: $mg-navbar-height;
@@ -9,43 +11,47 @@
         height: 100%;
     }
 
-
     .navbar-collapse {
-        height: 50px;
+        height: $mg-navbar-height;
     }
 
     .navbar-nav {
-        height: 50px;
+        height: $mg-navbar-height;
 
         #logout-form {
             padding-right: $mg-spacer / 2;
         }
 
         .nav-item {
-            // font-weight: 600;
-            height: 50px;
-
-            &.dropdown.show {
-                background: $mg-color-primary;
-                color: $mg-color-primary-light;
-            }
-
-            &.active {
-                background: $mg-color-primary;
-
-                &:hover {
-                    color: $mg-color-primary-light;
-                }
-            }
+            height: $mg-navbar-height;
 
             &:hover {
+                background: $mg-navbar-link-hover-bg;
                 cursor: pointer;
             }
 
+            &.active {
+                background: $mg-navbar-link-active-bg;
+
+                a:hover {
+                    color: $mg-navbar-link-active-color;
+                }
+            }
+
+            &.dropdown.show {
+                background: $mg-navbar-link-active-bg;
+
+                > a {
+                    color: $mg-navbar-link-active-color;
+                }
+            }
+
+
+
             .nav-link {
                 font-weight: $mg-navbar-font-weight;
-                height: 50px;
-                line-height: 50px;
+                height: $mg-navbar-height;
+                line-height: $mg-navbar-height;
                 overflow: hidden;
                 padding-bottom: 0;
                 padding-left: 16px;
@@ -59,7 +65,6 @@
 
     }
 }
-
 
 .dropdown-toggle {
     &::after {
@@ -75,11 +80,9 @@
     }
 }
 
-
-
 .dropdown-menu {
     // Bootstrap 4 doesn't add a shadow.
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: $mg-box-shadow;
 
     a {
         height: 35px;
