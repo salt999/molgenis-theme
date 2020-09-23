@@ -23,5 +23,10 @@
         "name": "RD-Connect",
         "share": "false",
         "url": "https://molgenis97.gcc.rug.nl/"
+    },
+    "hfgp": {
+        "name": "HFGP",
+        "share": "false",
+        "url": "https://molgenis131.gcc.rug.nl/"
     }
 }
