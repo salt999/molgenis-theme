@@ -1,0 +1,36 @@
+$mg-color-primary: #10adcd;
+$mg-color-secondary: #e29924;
+
+
+
+$dropdown-link-hover-bg: #FFF;
+$dropdown-link-hover-color: $mg-color-secondary;
+$dropdown-link-active-color: $mg-color-secondary;
+
+//Bootstrap 3
+$navbar-default-link-color: $mg-color-primary;
+$navbar-default-link-hover-color: $mg-color-secondary !important;
+$navbar-default-link-hover-bg: #FFF;
+$navbar-default-link-active-color: $mg-color-secondary !important; 
+$navbar-default-link-active-bg: #FFF !important;
+
+$link-hover-color: $mg-color-secondary;
+
+
+
+
+//Bootstrap 4
+$navbar-light-color: $mg-color-primary;
+$navbar-light-hover-color: $mg-color-secondary;
+$navbar-light-hover-bg: #FFF; 
+$navbar-light-active-color: $mg-color-secondary !important;
+$navbar-light-active-bg: #FFF !important;
+$btn-primary: $mg-color-secondary; 
+
+
+
+$mg-font-base: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+$mg-font-sans-serif: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+$mg-font-mono: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+$mg-header-font: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+
