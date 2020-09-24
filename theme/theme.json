@@ -9,8 +9,13 @@
         "share": "false",
         "url": "https://molgenis23.gcc.rug.nl/"
     },
-    "default": {
+    "molgenis-blue": {
         "name": "Molgenis Default - Blue",
+        "share": "true",
+        "url": "https://master.dev.molgenis.org/"
+    },
+    "molgenis-green": {
+        "name": "Molgenis Default - Green",
         "share": "true",
         "url": "https://master.dev.molgenis.org/"
     },

@@ -1,7 +1,7 @@
 # Molgenis Theme
 
 This is the base SCSS theme for Molgenis. All Molgenis themes
-inherit from this theme. Checkout **theme/default**
+inherit from this theme. Checkout **theme/molgenis-blue**
 for an example. The base theme also provides a Dockerized
 Nginx proxy that makes it easier to develop styling against
 remote Molgenis sites and localized Molgenis stacks.
@@ -31,7 +31,7 @@ cp .env.defaults .env
 yarn build
 ```
 
-Congratulations! You just generated the default Molgenis theme.
+Congratulations! You just generated the default molgenis-blue theme.
 
 > The CSS files were written to the **css** directory
 
@@ -76,7 +76,7 @@ MG_HOST=http://molgenis:8080
 
 ```bash
 # Which theme to watch and/or build from the /projects dir
-MG_THEME=default
+MG_THEME=molgenis-blue
 
 # The proxied Molgenis CSS file to watch for changes
 MG_WATCH=bootstrap-molgenis-blue.min.css
@@ -89,7 +89,7 @@ MG_WATCH=bootstrap-molgenis-blue.min.css
 * Just copy an existing theme to a new directory:
 
   ```bash
-  cp -R theme/default theme/molgenis-red
+  cp -R theme/molgenis-blue theme/molgenis-red
   ```
 
 * Update the config to use the new theme
