@@ -37,7 +37,7 @@ server {
       add_header Last-Modified $date_gmt;
       add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
       root /usr/share/nginx/html/;
-      rewrite ^ /css/mg-${MG_THEME}-4.css break;
+      rewrite ^ /css/mg-${MG_THEME_LOCAL}-4.css break;
   }
 
    # HACK: Override a legacy hardcoded Bootstrap 3 theme with our own (login)
@@ -45,7 +45,7 @@ server {
       add_header Last-Modified $date_gmt;
       add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
       root /usr/share/nginx/html/;
-      rewrite ^ /css/mg-${MG_THEME}-3.css break;
+      rewrite ^ /css/mg-${MG_THEME_LOCAL}-3.css break;
   }
 
   location /@molgenis-ui/ {
@@ -55,37 +55,37 @@ server {
       error_page 301 302 307 = @handle_redirect;
   }
 
-  location /css/bootstrap-3/${MG_WATCH} {
+  location /css/bootstrap-3/${MG_THEME_PROXY} {
       add_header Last-Modified $date_gmt;
       add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
       root /usr/share/nginx/html/;
-      rewrite ^ /css/mg-${MG_THEME}-3.css break;
+      rewrite ^ /css/mg-${MG_THEME_LOCAL}-3.css break;
   }
 
-  location /css/bootstrap-4/${MG_WATCH} {
+  location /css/bootstrap-4/${MG_THEME_PROXY} {
       add_header Last-Modified $date_gmt;
       add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
       root /usr/share/nginx/html/;
-      rewrite ^ /css/mg-${MG_THEME}-4.css break;
+      rewrite ^ /css/mg-${MG_THEME_LOCAL}-4.css break;
   }
 
-  location /css/bootstrap-3/mg-${MG_THEME}-3.css.map {
+  location /css/bootstrap-3/mg-${MG_THEME_LOCAL}-3.css.map {
     add_header Last-Modified $date_gmt;
     add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
     root /usr/share/nginx/html/;
-    rewrite ^ /css/mg-${MG_THEME}-3.css.map break;
+    rewrite ^ /css/mg-${MG_THEME_LOCAL}-3.css.map break;
   }
 
-  location /css/bootstrap-4/mg-${MG_THEME}-4.css.map {
+  location /css/bootstrap-4/mg-${MG_THEME_LOCAL}-4.css.map {
     add_header Last-Modified $date_gmt;
     add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
     root /usr/share/nginx/html/;
-    rewrite ^ /css/mg-${MG_THEME}-4.css.map break;
+    rewrite ^ /css/mg-${MG_THEME_LOCAL}-4.css.map break;
   }
 
   location / {
       proxy_buffers 4 32k;
-      proxy_pass ${MG_HOST};
+      proxy_pass ${MG_PROXY};
       proxy_ssl_session_reuse on;
   }
 }

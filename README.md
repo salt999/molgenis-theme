@@ -27,7 +27,7 @@ cd molgenis-theme
 yarn
 # Set the default config file
 cp .env.defaults .env
-# Build the selected theme (MG_THEME in .env)
+# Build the selected theme (MG_THEME_LOCAL in .env)
 yarn build
 ```
 
@@ -67,19 +67,19 @@ COMPOSE_FILE=dc-proxy.yml:dc-mg-services.yml:dc-mg.yml
 ```bash
 # URL of running Molgenis instance; use an external Molgenis
 # URL when only using the Nginx proxy.
-MG_HOST=https://master.dev.molgenis.org
+MG_PROXY=https://master.dev.molgenis.org
 # Using the whole Molgenis stack, you need to use the
 # Docker service name here if you want to proxy the
 # local instance.
-MG_HOST=http://molgenis:8080
+MG_PROXY=http://molgenis:8080
 ```
 
 ```bash
 # Which theme to watch and/or build from the /projects dir
-MG_THEME=molgenis-blue
+MG_THEME_LOCAL=molgenis-blue
 
 # The proxied Molgenis CSS file to watch for changes
-MG_WATCH=bootstrap-molgenis-blue.min.css
+MG_THEME_PROXY=bootstrap-molgenis-blue.min.css
 ```
 
 ## Development
@@ -96,7 +96,7 @@ MG_WATCH=bootstrap-molgenis-blue.min.css
 
   ```bash
   # vim docker/.env
-  MG_THEME=molgenis-red
+  MG_THEME_LOCAL=molgenis-red
   ```
 
 * Build the theme
@@ -113,12 +113,12 @@ In this example we use a remote Molgenis host, instead of the local Molgenis set
 
   ```bash
   # The proxied host
-  MG_HOST=https://master.dev.molgenis.org
+  MG_PROXY=https://master.dev.molgenis.org
   # The theme that is being applied on the proxied host.
-  MG_THEME=molgenis-red
+  MG_THEME_LOCAL=molgenis-red
   # The current theme that is being used on the proxy - in this example - master.dev.molgenis.org
   # Check view-source:https://master.dev.molgenis.org/ for the current theme in the <head> section
-  MG_WATCH=bootstrap-molgenis-blue.min.css
+  MG_THEME_PROXY=bootstrap-molgenis-blue.min.css
   ```
 
 * Start the Nginx proxy and the dev tool

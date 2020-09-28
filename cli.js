@@ -28,7 +28,7 @@ tasks.build = new Task('build', async function() {
         const themes = await (await fs.readdir(settings.dir.theme, {withFileTypes: true})).filter((i) => i.isDirectory())
         asyncTasks.push(themes.map((theme) => tasks.scss.start(theme.name)))
     } else {
-        asyncTasks.push(tasks.scss.start(settings.MG_THEME))
+        asyncTasks.push(tasks.scss.start(settings.MG_THEME_LOCAL))
     }
 
     await Promise.all(asyncTasks)
@@ -63,11 +63,11 @@ tasks.dev = new Task('dev', async function() {
         app.listen({host: '127.0.0.1', port: 35729}, () => resolve)
 
         chokidar.watch([
-            path.join(settings.dir.theme, settings.MG_THEME, '**', '*.scss'),
+            path.join(settings.dir.theme, settings.MG_THEME_LOCAL, '**', '*.scss'),
             path.join(settings.dir.base, 'scss', '**', '*.scss')
         ]).on('change', async(file) => {
-            await tasks.scss.start(settings.MG_THEME)
-            tinylr.changed(settings.MG_WATCH)
+            await tasks.scss.start(settings.MG_THEME_LOCAL)
+            tinylr.changed(settings.MG_THEME_PROXY)
         })
     })
 })
@@ -123,7 +123,7 @@ tasks.scss = new Task('scss', async function(ep) {
         .command('config', 'list build config', () => {}, () => {})  // Build info is shown when the task executes.
         .command('dev', `development mode`, () => {}, () => {tasks.dev.start()})
         .command('index', `build theme index file`, () => {}, () => {tasks.themeFile.start()})
-        .command('scss', `build stylesheets for ${settings.MG_THEME}`, () => {}, () => {tasks.scss.start(settings.MG_THEME)})
+        .command('scss', `build stylesheets for ${settings.MG_THEME_LOCAL}`, () => {}, () => {tasks.scss.start(settings.MG_THEME_LOCAL)})
         .command('serve', `start theme generator service`, () => {}, () => {
             scssService(settings)
         })
