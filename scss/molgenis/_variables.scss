@@ -8,7 +8,7 @@
 */
 $mg-body-bg: #fafafa !default;
 $mg-border-color: #dee2e6 !default;
-$mg-border-radius: 0;
+$mg-border-radius: 0 !default;
 $mg-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.175) !default;
 
 $mg-color-black: #000 !default;
@@ -48,6 +48,7 @@ $mg-input-height: 35px !default;
 $mg-spacer: 16px !default;
 
 // Navigation bar variables:
+$mg-navbar-bg: #f8f9fa !default;
 $mg-navbar-height: 50px !default;
 $mg-navbar-font-weight: 300 !default;
 $mg-navbar-link-active-bg: $mg-color-primary !default;

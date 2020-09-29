@@ -22,6 +22,8 @@
     "dev": "node cli.js dev",
     "lint": "stylelint \"scss/**/*.scss\"",
     "proxy": "docker-compose --env-file .env --file ./docker/dc-proxy.yml up",
+    "proxy-services": "COMPOSE_FILE=docker/dc-proxy.yml:docker/dc-services.yml docker-compose --env-file ../.env --project-directory ./docker up",
+    "proxy-services-molgenis": "COMPOSE_FILE=docker/dc-proxy.yml:docker/dc-services.yml:docker/dc-molgenis.yml docker-compose --env-file ../.env --project-directory ./docker up",
     "theme": "node cli.js",
     "serve": "node cli.js serve"
   },

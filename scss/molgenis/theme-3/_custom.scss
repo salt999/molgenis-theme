@@ -8,11 +8,9 @@
     background: $mg-color-primary !important;
 }
 
-
-
 .panel {
     border: 0;
-    box-shadow: 0 0 6px $mg-color-grey-400;
+    box-shadow: $mg-box-shadow;
 
     &.panel-primary {
         .panel-heading {
@@ -107,4 +105,8 @@ table.table {
 
 .well {
     box-shadow: none;
+}
+
+.mg-page-content {
+    border-top: 1px solid $mg-border-color;
 }

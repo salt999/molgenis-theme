@@ -1,10 +1,12 @@
 .navbar {
     // Override .bg-light's important
-    background: $mg-color-white !important;
-    // Use a box-shadow instead of border, because a flex navbar (Bootstrap 4)
-    // calculates height different than a float navbar (Bootstrap 3).
+    background: $mg-navbar-bg !important;
+    // (!) Use a box-shadow styled as a border, instead of an actual border.
+    // A flex navbar (Bootstrap 4) includes the height of the border in
+    // its container height. The Bootstrap 3 variant does not, which
+    // makes the navbar shift height between pages otherwise.
     border-bottom: 0 !important;
-    box-shadow: $mg-box-shadow;
+    box-shadow: 0 1px 1px $mg-border-color;
     height: $mg-navbar-height;
 
     .form-inline {
@@ -81,7 +83,7 @@
 }
 
 .dropdown-menu {
-    // Bootstrap 4 doesn't add a shadow.
+    // Bootstrap 4 doesn't add a shadow by default.
     box-shadow: $mg-box-shadow;
 
     a {
