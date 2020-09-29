@@ -2,9 +2,6 @@
   "name": "@molgenis/molgenis-theme",
   "version": "1.0.0",
   "description": "Base SCSS theme for Molgenis",
-  "bin": {
-    "mg-theme": "./cli.js"
-  },
   "publishConfig": {
     "access": "public"
   },
