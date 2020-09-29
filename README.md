@@ -1,20 +1,18 @@
 # Molgenis Theme
 
-This is the base SCSS theme for Molgenis. All Molgenis themes
-inherit from this theme. Checkout **theme/molgenis-blue**
-for an example. The base theme also provides a Dockerized
-Nginx proxy that makes it easier to develop styling against
-remote Molgenis sites and localized Molgenis stacks.
+This is the Bootstrap-based Molgenis SCSS theme generator. Its purpose is to
+streamline the theming workflow for all Molgenis sites by:
+
+* Simplifying the creation of new themes
+* Keeping existing themes maintainable
+* Keeping existing themes consistent by applying fixes to the base theme
+* Providing a better frontend developer experience using a proxy/reload tool chain
+* Establishing and simplifying the publishing & distibution workflow
 
 ## Prerequisites
 
-For the Proxy & Molgenis services:
-
 * [Docker](https://docs.docker.com/docker-for-mac/install/)
 * [Docker-compose](https://docs.docker.com/compose/install/)
-
-For theme development:
-
 * [Node.js](https://nodejs.org/dist/v14.9.0/node-v14.9.0.pkg)
 * [Yarn](https://classic.yarnpkg.com/en/docs/install/#mac-stable)
 * [Visual Studio Code](https://code.visualstudio.com/docs/setup/mac)
@@ -33,28 +31,30 @@ yarn build
 yarn build-all
 ```
 
-Congratulations! You just generated the default molgenis-blue theme.
+:tada: Congratulations! You just generated the default *molgenis-blue* theme.
 
-> CSS files were written to the **css** directory.
+> CSS files were written to the **css** directory. Each theme has a Bootstrap 3
+  and a Bootstrap 4 variant.
 
 ## Configuration
 
-The configuration for Docker and the SCSS tool are read from a shared
-environment file; the **.env** file.
-It has the following options:
+The configuration for Docker and the SCSS tool are read from a shared environment
+file; the **.env** file. It has the following options:
 
 ```bash
-# No need to change; used to make docker containers unique per project
+# This is a Docker directive to make containers unique per project.
+# Don't change this, unless you have a good reason to.
 COMPOSE_PROJECT_NAME=mg_projects
-# URL of the Molgenis instance to proxy.
+# URL of a remote Molgenis instance to proxy (use with 'yarn proxy')
 MG_PROXY=https://master.dev.molgenis.org
-# In combination running the whole Molgenis stack, you need to use
-# the Docker service name here, i.e.
+# Docker service name (use with 'yarn proxy-molgenis')
 # MG_PROXY=http://molgenis:8080
+# Docker host ip (use with 'yarn proxy-services')
+# MG_PROXY=http://172.19.0.1:8080
 
-# Which theme to use from the theme dir:
+# The local theme to serve and watch (/theme/...):
 MG_THEME_LOCAL=molgenis-blue
-# Theme name the proxy is using:
+# The proxy CSS theme to replace:
 MG_THEME_PROXY=bootstrap-molgenis-blue.min.css
 ```
 
@@ -62,7 +62,7 @@ MG_THEME_PROXY=bootstrap-molgenis-blue.min.css
 
 ### Starting A New Theme
 
-* Just copy an existing theme to a new directory:
+* Copy an existing theme to a new directory:
 
   ```bash
   cp -R theme/molgenis-blue theme/molgenis-red
@@ -83,11 +83,11 @@ MG_THEME_PROXY=bootstrap-molgenis-blue.min.css
 
 ### Using The Proxy
 
-The Nginx proxy setup is meant to apply locally developed theming files
-to a remotely controlled Molgenis site, to make your live as a developer
-a bit easier. The development service features auto-build of SCSS source-files
-and livereload of stylesheets, so changes to your theme are automatically
-reflected in the browser. It requires a bit of setup though:
+The proxy setup uses Nginx to apply locally developed theming files to a remotely
+controlled Molgenis site, to make your live as a developer a bit easier. The
+development service features auto-build of SCSS source-files and livereload of
+stylesheets, so changes to your theme are automatically reflected in the browser.
+It requires a bit of setup:
 
 * Setup the proxy config in the **.env** file:
 
@@ -107,54 +107,59 @@ reflected in the browser. It requires a bit of setup though:
   MG_THEME_PROXY=bootstrap-molgenis-blue.min.css
   ```
 
-Start the proxy in one of the three different setups:
+* Start the proxy in one of the three different setups:
 
-```bash
-# Use this with an already running Molgenis site; e.g. master.dev.molgenis.org
-yarn proxy
-# Use this when you need to test with a certain Molgenis branch from IntelliJ
-yarn proxy-services
-# Use this when you want to work with a locally deployed Molgenis site
-yarn proxy-molgenis
-```
+  ```bash
+  # When you want to style an existing Molgenis site; e.g. master.dev.molgenis.org
+  yarn proxy
+  # When you need to test with a certain local Molgenis branch (IntelliJ)
+  yarn proxy-services
+  # When you want to test with a locally deployed Molgenis site
+  yarn proxy-molgenis
+  ```
 
-* Start the SCSS development service from another tab:
+> Use the most simple option to get started; e.g. **yarn proxy**
+
+* Start the SCSS development server from another tab:
 
 ```bash
 yarn dev
 ```
 
-* Visit [localhost](http://localhost); you should see the proxied version of the public [dev server](https://master.molgenis.org)
-  using the Bootstrap 4 version of *molgenis-red* theme
+* Visit [localhost](http://localhost) to see the public [dev server](https://master.molgenis.org)
+  using the Bootstrap 4 version of the *molgenis-red* theme
 
 * Install the Chrome [livereload extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)
   to autoreload on file-change
+* Switch livereload on
+* Try changing variable **$mg-color-primary** in **molgenis-red/_variables.scss**
 
-* Switch livereload on; try changing **$mg-color-primary** in **molgenis-red/_variables.scss**
-
-  > The theme on the webpage should automatically update on save.
+The theme on the webpage should now automatically reflect your changes on save.
+Browse through the [base theme](/scss/molgenis) to get an idea how a theme
+is being constructed. Checkout the mg-variables defintion file for the theming
+variables that are customizable.
 
 ## Conventions
 
-Both Bootstrap 3 & 4 CSS is being used in Molgenis, while it transitions to Bootstrap 4.
+Both Bootstrap 3 & 4 CSS is being used in Molgenis while it transitions to Bootstrap 4.
 Make sure you check the current Molgenis page source to verify that the asserted theme
-is being used. The setup of the themes is such, that the theme in **scss/molgenis**
-provides sane defaults for *all* themes. All themes inherit their main settings from
-this base theme.
+is being used. The theme in **scss/molgenis** provides defaults for *all* themes, because
+themes inherit their main settings from it. When creating a new theme, please try to
+maintain the following workflow order:
 
-When trying to fit in a new theme, please try to maintain the following workflow order:
+* Apply **only** Molgenis (mg-) variables in your theme
 
-* Apply Molgenis (mg-) variables in the myproject theme
+To keep theming maintainable and your future self happy, it is **crucial**
+that each theme refrains from applying custom styling, unless there is no
+other option. Always make an effort to fit your "unique" use-case in the
+base theme. In case the current theming variables are not providing
+the required customization:
+
 * Update Bootstrap variables in scss/molgenis
 * Refactor Molgenis variables in scss/molgenis if necessary
 * Add selectors in scss/molgenis (_custom) using Molgenis variables
 
-To keep theming maintainable for our future selves, it is absolutely **crucial**
-that each theme refrains from applying custom styling, unless there is no
-other option. Always make an effort to fit your "unique" use-case in the
-base theme.
-
-> Keep in mind that your changes are applied to all themes.
+> (!) Keep in mind that changes are applied to all themes.
 
 <details>
 <summary><em>Common SCSS locations & their meaning</em></summary>
