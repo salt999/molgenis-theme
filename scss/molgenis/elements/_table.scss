@@ -1,0 +1,36 @@
+html body table.table {
+    background: none;
+    width: 100%;
+
+
+    thead {
+        th {
+            background: $mg-color-white;
+            border-top: 0;
+            color: $mg-color-grey-700;
+            font-family: $mg-font-mono;
+        }
+    }
+
+    tbody {
+        tr {
+            &:first-child {
+                td {
+                    border-top: 0;
+                }
+            }
+
+            &:nth-child(even) {
+                background: $mg-color-grey-200;
+            }
+
+            &:nth-child(odd) {
+                background: $mg-color-grey-100;
+            }
+
+            &:hover {
+                background: $mg-color-white;
+            }
+        }
+    }
+}

@@ -1,0 +1,91 @@
+.pincode-input-container {
+    display: inline-block;
+
+    &.touch .touchwrapper {
+        height: 34px;
+        margin-right: 5px;
+        overflow: hidden;
+        position: relative;
+
+        .pincode-input-text {
+            background: transparent;
+            background-color: transparent;
+            display: block;
+            left: 0;
+            letter-spacing: 20px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+        }
+
+        /*
+        * On every digit we use the letter-spacing of the above
+        * textbox to determine the table background.
+        */
+        &.touch1 {
+            width: 40px;
+        }
+
+        &.touch2 {
+            width: 65px;
+        }
+
+        &.touch3 {
+            width: 90px;
+        }
+
+        &.touch4 {
+            width: 120px;
+        }
+
+        &.touch5 {
+            width: 150px;
+        }
+
+        &.touch6 {
+            width: 175px;
+        }
+
+
+        .touchtable {
+            height: 100%;
+            table-layout: fixed;
+            width: 100%;
+
+            td {
+                border-right: 1px solid #ccc;
+
+                &.last {
+                    border-right: 0;
+                }
+            }
+        }
+    }
+
+    input.first {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    input.last {
+        border-bottom-left-radius: 0;
+        border-left-width: 0;
+        border-top-left-radius: 0;
+    }
+
+    input.mid {
+        border-left-width: 0;
+        border-radius: 0;
+    }
+}
+
+.pincode-input-text,
+.form-control.pincode-input-text {
+    float: left;
+    width: 35px;
+}
+
+.pincode-input-error {
+    clear: both;
+}

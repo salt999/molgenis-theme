@@ -1,6 +1,7 @@
 // NOTE: Try to keep this file as empty as possible. Use the elemenmts
 // directory to target specific pages and elements.
 body {
+    color: $mg-color-text;
     overflow-x: hidden;
     overflow-y: scroll;
 }
@@ -33,42 +34,6 @@ h5 {
 }
 
 
-html body table.table {
-    // TODO: Remove once old CSS files are removed from freemarker.
-    background: none !important;
-
-    thead {
-        th {
-            background: $mg-color-white;
-            border-top: 0;
-            color: $mg-color-grey-700;
-            font-family: $mg-font-mono;
-        }
-    }
-
-    tbody {
-        tr {
-            &:first-child {
-                td {
-                    border-top: 0;
-                }
-            }
-
-            &:nth-child(even) {
-                background: $mg-color-grey-200;
-            }
-
-            &:nth-child(odd) {
-                background: $mg-color-grey-100;
-            }
-
-            &:hover {
-                background: $mg-color-white;
-            }
-        }
-    }
-}
-
 // Themed scrollbars for webkit browsers
 ::-webkit-scrollbar {
     height: $mg-spacer / 1.5;
@@ -100,6 +65,8 @@ html body table.table {
 }
 
 .breadcrumb {
+    background: none;
+    color: $mg-color-text;
     padding: 0;
 }
 
@@ -123,4 +90,17 @@ button {
     }
 }
 
+.required-field label::after {
+    color: $mg-color-danger;
+}
 
+.alerts {
+    bottom: $mg-spacer;
+    min-width: 400px;
+    position: fixed;
+    right: $mg-spacer;
+    z-index: 10000;
+}
+
+
+@import 'molgenis/elements/**/*.scss'; /* stylelint-disable-line */

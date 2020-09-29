@@ -1,0 +1,26 @@
+.mod-navigator {
+    .navigator-search {
+        justify-content: flex-start !important;
+        margin-bottom: $mg-spacer * 2;
+    }
+
+    .navigator-actions {
+        span {
+            float: left;
+        }
+
+        .float-right {
+            float: left !important;
+        }
+    }
+
+    table {
+        a {
+            color: $mg-color-text;
+
+            &:hover {
+                color: $mg-color-primary;
+            }
+        }
+    }
+}

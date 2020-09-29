@@ -8,6 +8,7 @@ proxy_cache_use_stale error timeout http_500 http_502 http_503 http_504;
 server {
   listen 80 default_server;
   server_name localhost;
+  client_max_body_size 100M;
 
   access_log /dev/stdout;
   error_log /dev/stdout info;

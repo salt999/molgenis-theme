@@ -106,3 +106,16 @@ table.table {
 .well {
     box-shadow: none;
 }
+
+// Bootstrap 3 has padding hardcoded. Override it here.
+.dropdown-menu {
+    padding: 0;
+}
+
+.panel {
+    margin-bottom: $mg-spacer * 2;
+}
+
+.modal-header {
+    border-bottom: 0;
+}

@@ -69,35 +69,9 @@
     }
 }
 
-#data-row-edit-plugin {
-    > .container {
-        background: $mg-color-white;
-        border: 1px solid $mg-border-color;
-        box-shadow: $mg-box-shadow;
-        padding: $mg-spacer;
-    }
-
-    h1 {
-        color: $mg-color-grey-700;
-    }
-
-    .hide-option-fields-btn-container {
-        padding: $mg-spacer 0;
-        // float: left;
-        text-align: left !important;
-        width: 100%;
-    }
-
-    .form-group {
-        label {
-            color: $mg-color-grey-700;
-            font-weight: bold;
-        }
-    }
-}
-
 .card-header {
     &:focus {
         outline: 0;
     }
 }
+
