@@ -94,7 +94,10 @@
             font-weight: bold;
         }
     }
-
 }
 
-
+.card-header {
+    &:focus {
+        outline: 0;
+    }
+}

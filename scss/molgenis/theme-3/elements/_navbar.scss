@@ -1,7 +1,7 @@
 .navbar-default {
     background: $mg-color-white;
     border: 0;
-    box-shadow: $mg-box-shadow;
+    box-shadow: 0 1px 1px $mg-border-color;
 
     #language-select-box {
         display: none !important;
@@ -48,6 +48,10 @@
                 top: 0;
             }
         }
-
     }
+}
+
+.dropdown-menu {
+    // Bootstrap 3 adds a shadow by default.
+    box-shadow: $mg-box-shadow;
 }

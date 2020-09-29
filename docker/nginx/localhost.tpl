@@ -1,3 +1,10 @@
+proxy_cache_path /var/cache/nginx/unpkg levels=1:2 keys_zone=unpkg:10m max_size=100m inactive=60m;
+proxy_buffering on;
+
+proxy_cache_valid 302  1d;
+proxy_cache_use_stale error timeout http_500 http_502 http_503 http_504;
+
+
 server {
   listen 80 default_server;
   server_name localhost;
@@ -6,38 +13,14 @@ server {
   error_log /dev/stdout info;
 
   location @handle_redirect {
+      proxy_cache unpkg;
       # drop routing information from urls that do not start with `/dist/`
+      proxy_cache_use_stale timeout;
       rewrite ^/([^/]*)/([^/]*)/(?!dist/).*$ /$1/$2 last;
-      proxy_intercept_errors on;
       error_page 301 302 307 = @handle_redirect;
       set $frontend_host 'https://unpkg.com';
       set $saved_redirect_location '$upstream_http_location';
-
       proxy_pass $frontend_host$saved_redirect_location;
-      # Do not cache these redirects too long
-      expires 10m;
-  }
-
-  location /@molgenis-experimental/molgenis-app-lifelines-webshop/ {
-      proxy_pass https://unpkg.com/@molgenis-experimental/molgenis-app-lifelines-webshop@2.5.2/;
-      proxy_intercept_errors on;
-      recursive_error_pages on;
-      error_page 301 302 307 = @handle_redirect;
-  }
-
-  location /@molgenis-experimental/ {
-      proxy_pass https://unpkg.com/@molgenis-experimental/;
-      proxy_intercept_errors on;
-      recursive_error_pages on;
-      error_page 301 302 307 = @handle_redirect;
-  }
-
-  # HACK: Override a hardcoded theme from de2
-  location /@molgenis-ui/data-explorer/dist/bootstrap-molgenis-blue.min.css {
-      add_header Last-Modified $date_gmt;
-      add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
-      root /usr/share/nginx/html/;
-      rewrite ^ /css/mg-${MG_THEME_LOCAL}-4.css break;
   }
 
    # HACK: Override a legacy hardcoded Bootstrap 3 theme with our own (login)
@@ -46,13 +29,6 @@ server {
       add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
       root /usr/share/nginx/html/;
       rewrite ^ /css/mg-${MG_THEME_LOCAL}-3.css break;
-  }
-
-  location /@molgenis-ui/ {
-      proxy_pass https://unpkg.com/@molgenis-ui/;
-      proxy_intercept_errors on;
-      recursive_error_pages on;
-      error_page 301 302 307 = @handle_redirect;
   }
 
   location /css/bootstrap-3/${MG_THEME_PROXY} {
@@ -83,9 +59,31 @@ server {
     rewrite ^ /css/mg-${MG_THEME_LOCAL}-4.css.map break;
   }
 
+  # HACK: Override a hardcoded theme from de2
+  location /@molgenis-ui/data-explorer/dist/bootstrap-molgenis-blue.min.css {
+      add_header Last-Modified $date_gmt;
+      add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
+      root /usr/share/nginx/html/;
+      rewrite ^ /css/mg-${MG_THEME_LOCAL}-4.css break;
+  }
+
+  location /@molgenis-experimental/ {
+      proxy_cache unpkg;
+      proxy_pass https://unpkg.com/@molgenis-experimental/;
+      proxy_buffers 8 1024k;
+      proxy_buffer_size 2k;
+  }
+
+  location /@molgenis-ui/ {
+      proxy_cache unpkg;
+      proxy_pass https://unpkg.com/@molgenis-ui/;
+      proxy_buffers 8 1024k;
+      proxy_buffer_size 2k;
+  }
+
   location / {
-      proxy_buffers 4 32k;
       proxy_pass ${MG_PROXY};
-      proxy_ssl_session_reuse on;
+      proxy_buffers 8 24k;
+      proxy_buffer_size 2k;
   }
 }
