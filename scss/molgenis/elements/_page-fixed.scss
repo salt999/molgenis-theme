@@ -1,0 +1,69 @@
+// This file is here to keep a consistent width between different
+// pages, without having the option to fix the html for now.
+
+// Page-like container for certain pages:
+// /plugin/data-row-edit/sys_set_dataexplorer/dataexplorer
+// /menu/admin/settings/sys_set_app
+
+
+#plugin-container {
+    .hide-option-fields-btn-container {
+        padding: $mg-spacer 0;
+        // float: left;
+        text-align: left !important;
+        width: 100%;
+    }
+
+    .form-group {
+        label {
+            color: $mg-color-grey-700;
+            font-weight: bold;
+        }
+    }
+}
+
+.mg-page-content {
+    margin-top: $mg-spacer * 2;
+}
+
+// unpkg - limited control over styling:
+.mod-appmanager,
+.mod-data-row-edit,
+.mod-importwizard,
+.mod-navigator,
+.mod-one-click-importer,
+.mod-questionnaires,
+.mod-scripts,
+.mod-searchAll,
+.mod-security-ui,
+.mod-settings,
+
+// molgenis - full control over styling:
+.mod-feedback,
+.mod-logmanager,
+.mod-jobs,
+.mod-mappingservice,
+.mod-permissionmanager,
+.mod-scheduledjobs,
+.mod-sorta,
+.mod-tagwizard,
+.mod-thememanager,
+.mod-useraccount,
+.mod-usermanager {
+    border: 1px solid $mg-border-color;
+    box-shadow: $mg-box-shadow;
+    margin: 0 auto;
+    margin-bottom: $mg-spacer * 3;
+    max-width: 1140px;
+    overflow: auto;
+    padding: $mg-spacer;
+
+    .form-group {
+        margin: 0;
+    }
+
+    .container {
+        width: auto;
+    }
+
+}

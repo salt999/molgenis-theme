@@ -1,0 +1,94 @@
+// Molgenis origin: /css/molgenis.css
+#spinner img {
+    display: block;
+    margin: 0 auto;
+}
+
+.modal-backdrop {
+    opacity: 0.3;
+}
+
+.modal-backdrop.fade.in {
+    opacity: 0.3;
+}
+
+.dropdown-menu {
+    height: auto;
+    max-height: 500px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: auto;
+}
+
+body > .container-fluid {
+    margin-bottom: 6rem; /* #footer-container.height + 1rem for spacing */
+    padding-top: $mg-spacer * 2;
+}
+
+
+// Collapsable panels:
+.panel-heading {
+    a::after {
+        content: '\e114';
+        float: right;
+        font-family: 'Glyphicons Halflings';
+    }
+
+    a.collapsed::after {
+        content: '\e080';
+    }
+}
+
+.popover-content {
+    word-wrap: break-word;
+}
+
+.hr-sect {
+    align-items: center;
+    display: flex;
+    flex-basis: 100%;
+    font-size: 12px;
+    margin: 16px 0;
+
+    &::before,
+    &::after {
+        background: rgba(0, 0, 0, 0.35);
+        content: '';
+        flex-grow: 1;
+        font-size: 0;
+        height: 1px;
+        line-height: 0;
+        margin: 0 16px;
+    }
+}
+
+// Change threshold for collapsing the menu, default is 768px.
+@media (max-width: 1127px) {
+    .navbar-toggle {
+        display: block;
+    }
+
+    .navbar-collapse.collapse {
+        display: none !important;
+
+        &.in {
+            display: block !important;
+        }
+    }
+
+    .navbar-header {
+        float: none;
+    }
+
+    .navbar-nav {
+        float: none !important;
+
+        > li {
+            float: none !important;
+        }
+    }
+
+    .collapsing {
+        overflow: hidden !important;
+    }
+}

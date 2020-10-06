@@ -1,0 +1,118 @@
+.mod-menumanager {
+    // Module: /menu/admin/menumanager
+    // Molgenis origin: /css/menumanager.css
+    #menu-editor-container {
+        > .col-md-5 p {
+            font-style: italic;
+            padding: $mg-spacer / 2;
+        }
+
+        .glyphicon:hover {
+            cursor: pointer;
+        }
+
+        li.root {
+            background: none;
+            border: none;
+        }
+
+        #menu-editor-container li.node {
+            font-weight: normal;
+
+            span {
+                color: #f00;
+            }
+        }
+
+        #menu-editor-tree {
+            max-height: unset;
+            overflow: auto;
+
+            ol {
+                margin: 0;
+                padding: 0;
+
+                &.vertical li {
+                    background: $mg-color-grey-200;
+                }
+
+                .node {
+                    border: 0;
+                    color: $mg-color-text;
+                    padding: $mg-spacer / 4;
+
+                    &.highlight {
+                        background: $mg-color-grey-100;
+
+
+                        > span {
+                            color: $mg-color-primary;
+                        }
+                    }
+
+                    .glyphicon:hover {
+                        color: $mg-color-primary;
+                    }
+                }
+            }
+        }
+    }
+
+
+    // Molgenis origin: /css/jquery-sortable.css
+    body.dragging,
+    body.dragging * {
+        cursor: move !important;
+    }
+
+    .dragged {
+        opacity: 0.5;
+        position: absolute;
+        top: 0;
+        z-index: 2000;
+    }
+
+    ol.vertical {
+        margin: 0 0 9px;
+        min-height: 10px;
+
+        li {
+            background: #eee;
+            border: 1px solid #ccc;
+            color: #08c;
+            display: block;
+            margin: 5px;
+            padding: 1px 5px;
+
+            &.placeholder {
+                border: none;
+                margin: 0;
+                padding: 0;
+                position: relative;
+
+                &::before {
+                    border: 5px solid transparent;
+                    border-left-color: $mg-color-primary;
+                    border-right: none;
+                    content: '';
+                    height: 0;
+                    left: -5px;
+                    margin-top: -5px;
+                    position: absolute;
+                    top: -4px;
+                    width: 0;
+                }
+            }
+        }
+    }
+
+
+    ol {
+        list-style-type: none;
+
+        i.icon-move {
+            cursor: pointer;
+        }
+    }
+
+}

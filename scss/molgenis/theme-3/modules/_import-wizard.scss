@@ -1,0 +1,155 @@
+.mod-importwizard {
+
+    // Molgenis origin: css/molgenis-wizard.js (/menu/importdata/importwizard)
+    .wizard-page {
+        margin-top: 20px;
+        min-height: 500px;
+
+        ul.pager {
+            width: 30%;
+        }
+
+        ul.pager li.next {
+            margin-left: 12px;
+        }
+    }
+
+
+    // Molgenis origin: https://github.com/gilluminate/Bootstrap-Wizard
+    .bwizard {
+        position: relative;
+
+        .well {
+            margin: 3px 0;
+        }
+    }
+
+    .bwizard-steps {
+        background: #fff;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+
+        li {
+            background: #efefef;
+            display: inline-block;
+            *display: inline;
+            line-height: 18px;
+            list-style: none;
+            margin-right: 5px;
+            padding: 12px 17px 10px 30px;
+            *padding-left: 17px;
+            position: relative;
+            zoom: 1;
+
+
+            &:first-child {
+                border-radius: 4px 0 0 4px;
+                padding-left: 12px;
+
+                &::before {
+                    border: none;
+                }
+            }
+
+            &:last-child {
+                border-radius: 0 4px 4px 0;
+                margin-right: 0;
+
+                &::after {
+                    border: none;
+                }
+            }
+
+            &::before {
+                border-bottom: 20px inset transparent;
+                border-left: 20px solid #fff;
+                border-top: 20px inset transparent;
+                content: '';
+                height: 0;
+                left: 0;
+                position: absolute;
+                top: 0;
+                width: 0;
+            }
+
+            &::after {
+                border-bottom: 20px inset transparent;
+                border-left: 20px solid #efefef;
+                border-top: 20px inset transparent;
+                content: '';
+                height: 0;
+                position: absolute;
+                right: -20px;
+                top: 0;
+                width: 0;
+                z-index: 2;
+            }
+        }
+
+        .label {
+            margin: 0 5px 0 0;
+            padding: 1px 5px 2px;
+            position: relative;
+            top: -1px;
+        }
+
+        .active {
+            background: $mg-color-primary;
+            color: #fff;
+
+            &::after {
+                border-left-color: $mg-color-primary;
+            }
+        }
+
+        a {
+            color: #333;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        .active a {
+            color: #fff;
+            cursor: default;
+        }
+
+        &.clickable {
+            li:not(.active) {
+                cursor: pointer;
+            }
+
+            li:hover:not(.active) {
+                background: #ccc;
+
+                &::after {
+                    border-left-color: #ccc;
+                }
+
+                a {
+                    color: #08c;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        /*badges only on small screens*/
+        .bwizard-steps li,
+        .bwizard-steps li.active,
+        .bwizard-steps li:first-child,
+        .bwizard-steps li:last-child {
+            background-color: transparent;
+            margin-right: 0;
+            padding: 0;
+        }
+
+        .bwizard-steps li::after,
+        .bwizard-steps li::before {
+            border: none;
+        }
+    }
+
+}

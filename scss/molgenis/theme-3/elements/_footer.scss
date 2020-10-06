@@ -1,0 +1,17 @@
+html {
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+#footer-container {
+    bottom: 0;
+    /* Set the fixed height of the footer here */
+    height: 5rem;
+    position: absolute;
+    width: 100%;
+}

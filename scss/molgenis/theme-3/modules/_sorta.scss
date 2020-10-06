@@ -1,0 +1,317 @@
+// Molgenis origin: /css/biobank-connect.css (SORTA)
+.mod-sorta {
+    .twitter-typeahead {
+        float: left;
+        width: 100%;
+    }
+
+    .table-bordered tr:first-child th:first-child {
+        border-top-left-radius: 5px;
+    }
+
+    .table-bordered tr:first-child th:last-child {
+        border-top-right-radius: 5px;
+    }
+
+    .table-bordered {
+        border: none;
+    }
+
+    .table-bordered tbody tr th:not(first-child) {
+        border: none;
+        border-right: 1px solid #ddd;
+    }
+
+    .table-bordered tbody tr:first-child th:first-child {
+        border: none;
+        border-right: 1px solid #ddd;
+    }
+
+    .table-bordered tbody tr:first-child th:last-child {
+        border: none;
+        border-left: 1px solid #ddd;
+    }
+
+    table thead th,
+    th {
+        background-color: #428bca;
+        color: white;
+    }
+
+    tbody tr:hover,
+    .div-hover:hover {
+        background: #ceecf5;
+    }
+
+    th.text-align-center,
+    .text-align-center {
+        text-align: center;
+    }
+
+    h3 {
+        color: #3079c2;
+        margin-bottom: -5px;
+        margin-top: -5px;
+    }
+
+    div#progress-bar-div {
+        height: 200px;
+        margin-top: 50px;
+    }
+
+    .text-align-center {
+        text-align: center;
+    }
+
+    .font-size-medium-center {
+        display: block;
+        font-size: 15px;
+        text-align: center;
+    }
+
+    ol.action-list,
+    ol.action-list li {
+        padding: 4px;
+        padding-left: 5px;
+    }
+
+    dl {
+        font-size: 16px;
+    }
+
+    dt {
+        padding-bottom: 5px;
+    }
+
+    dd {
+        padding-bottom: 10px;
+    }
+
+    legend {
+        font-size: 20px;
+        padding-bottom: 10px;
+    }
+
+    .float-right {
+        float: right;
+        margin-right: 5px;
+    }
+
+    .float-right-align {
+        float: right;
+    }
+
+    .show-popover,
+    .glyphicon,
+    .input-group-addon,
+    .ui-icon {
+        cursor: hand;
+        cursor: pointer;
+    }
+
+    .glyphicon-large {
+        font-size: 1.2em;
+        vertical-align: middle;
+    }
+
+    .custom-white-well {
+        background: white;
+        border-left: none;
+        border-radius: 10px;
+        border-right: none;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .custom-purple-legend {
+        color: #0b09a0;
+    }
+
+    .overflow-y-visible {
+        overflow-y: visible;
+    }
+
+    .overflow-y-auto {
+        overflow-y: auto;
+    }
+
+    // Source: /css/ontology-service.css (SORTA)
+    body {
+        overflow-y: scroll;
+    }
+
+    .error-report-panel {
+        height: 300px;
+        padding-top: 50px;
+    }
+
+    span.glyphicon {
+        cursor: default;
+    }
+
+    #back-button {
+        float: left;
+    }
+
+    button:hover {
+        cursor: pointer;
+    }
+
+    .threshold-widget {
+        margin-bottom: 0;
+    }
+
+    .threshold-widget .threshold-percentage {
+        font-weight: bold;
+        line-height: 34px;
+        margin: 0 4px;
+    }
+
+    .threshold-widget input {
+        float: left;
+        width: 50px;
+    }
+
+    .table tbody tr td {
+        vertical-align: middle;
+    }
+
+    .input-term-options {
+        text-align: right;
+    }
+
+    table tbody td.td-manual-match {
+        font-size: 18px;
+        text-align: left;
+    }
+
+    table .td-manual-match span {
+        margin-right: 8px;
+        vertical-align: middle;
+    }
+
+    table .td-checkbox {
+        text-align: right;
+    }
+
+    table .td-flag {
+        font-weight: bold;
+    }
+
+    .table-controls {
+        float: right;
+    }
+
+    .table-controls .filter-box {
+        float: right;
+        max-width: 450px;
+    }
+
+    .table-controls .actions {
+        float: right;
+        margin-left: 10px;
+    }
+
+    .table-list-header {
+        margin-bottom: 10px;
+        margin-top: 20px;
+    }
+
+    .table-detail-header-title,
+    .table-list-header-title {
+        color: #777;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 34px;
+    }
+
+    .table-detail-header {
+        margin-bottom: 10px;
+        margin-top: 20px;
+        overflow: auto;
+    }
+
+    .table-detail-header-actions button {
+        float: right;
+    }
+
+    .table-detail-header-actions button:not(:first-child) {
+        margin-right: 10px;
+    }
+
+    .review-switch {
+        float: right;
+        font-weight: bold;
+        height: 34px;
+        margin-right: 30px;
+    }
+
+    .review-switch .switch-label {
+        color: #666;
+        display: block;
+        float: left;
+        height: 34px;
+        line-height: 34px;
+        margin-left: 6px;
+    }
+
+    .review-switch .switch {
+        display: block;
+        float: left;
+        margin-top: 4px;
+    }
+
+    .switch {
+        display: inline-block;
+        height: 26px;
+        margin-bottom: 0;
+        position: relative;
+        width: 40px;
+    }
+
+    .switch input {
+        height: 0;
+        opacity: 0;
+        width: 0;
+    }
+
+    .slider {
+        background-color: #ccc;
+        bottom: 0;
+        cursor: pointer;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+    }
+
+    .slider::before {
+        background-color: white;
+        bottom: 5px;
+        content: '';
+        height: 16px;
+        left: 4px;
+        position: absolute;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+        width: 16px;
+    }
+
+    input:checked + .slider {
+        background-color: #d43f3a;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #d43f3a;
+    }
+
+    input:checked + .slider::before {
+        -webkit-transform: translateX(16px);
+        -ms-transform: translateX(16px);
+        transform: translateX(16px);
+    }
+
+}
+

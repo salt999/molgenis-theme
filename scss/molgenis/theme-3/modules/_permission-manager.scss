@@ -1,0 +1,14 @@
+.mod-permissionmanager {
+    // Source: /css/permissionmanager.css (/menu/admin/permissionmanager)
+    .permission-table-container {
+        margin-bottom: 20px;
+        max-height: 500px;
+        overflow-y: scroll;
+    }
+
+    .inherited-permission {
+        font-style: italic;
+        padding-left: 20px;
+    }
+}
+

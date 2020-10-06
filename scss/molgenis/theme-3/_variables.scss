@@ -5,13 +5,14 @@ $border-radius-large: $mg-border-radius * 2 !default;
 $brand-info: $mg-color-primary;
 $brand-primary: $mg-color-primary !default;
 $brand-success: $mg-color-primary !default;
+
 $btn-primary-bg: $mg-color-primary;
 $btn-danger-bg: $mg-color-primary;
 
 // Font-size must be in pixels
 $font-size-base: $mg-font-size-base * 16px !default;
 
-$gray-base: $mg-color-black;
+$gray-base: $mg-color-text;
 $gray-darker: $mg-color-grey-900;
 $gray-dark: $mg-color-grey-700;
 $gray: $mg-color-grey-700;
@@ -24,10 +25,13 @@ $grid-gutter-width: 16px;
 
 $icon-font-path: '/fonts/';
 
+$input-border: $mg-color-grey-400;
 $input-border-radius: 0;
 $input-border-radius-large: 0;
 $input-border-radius-small: 0;
 $input-border-focus: $mg-color-primary;
+
+$pager-border-radius: $mg-border-radius;
 
 $panel-body-padding: $mg-spacer;
 $panel-border-radius: 0;
@@ -56,3 +60,11 @@ $table-bg: none;
 $table-bg-accent: none;
 
 $well-border: $mg-color-grey-200;
+$nav-link-hover-bg: $mg-color-grey-100;
+
+$form-group-margin-bottom: $mg-spacer * 2;
+$well-bg: $mg-color-grey-100;
+$btn-danger-bg: $mg-color-danger;
+$btn-default-bg: $mg-color-grey-700;
+$btn-default-color: $mg-color-grey-100;
+

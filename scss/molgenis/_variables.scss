@@ -6,14 +6,14 @@
 * of the subtle differences between Bootstrap 3 and 4;
 * both are being used in Molgenis.
 */
-$mg-body-bg: #fafafa !default;
-$mg-border-color: #dee2e6 !default;
+$mg-body-bg: #fff !default;
+$mg-border-color: #e9ecef !default;
 $mg-border-radius: 0 !default;
-$mg-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.175) !default;
+$mg-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) !default;
 
-$mg-color-black: #000 !default;
-$mg-color-error: #e40017 !default;
-$mg-color-grey-100: #f8f9fa !default;
+$mg-color-text: #353535 !default;
+$mg-color-danger: #f36969 !default;
+$mg-color-grey-100: #fafafa !default;
 $mg-color-grey-200: #e9ecef !default;
 $mg-color-grey-300: #dee2e6 !default;
 $mg-color-grey-400: #ced4da !default;
@@ -26,14 +26,14 @@ $mg-color-info: #adb5bd !default;
 $mg-color-primary: #017ffd !default;
 $mg-color-primary-light: lighten($mg-color-primary, 43%) !default;
 $mg-color-secondary: #adb5bd !default;
-$mg-color-success: #009333 !default;
+$mg-color-success: #00bd55 !default;
 $mg-color-warning: #ff9800 !default;
 $mg-color-white: #fff !default;
 
 // Font config:
 // Rem units are assumed but not applied here. This makes it easier to
 // calculate between px (Bootstrap 3) and rem (Bootstrap 4).
-$mg-font-size-base: 0.8 !default;
+$mg-font-size-base: 0.9 !default;
 $mg-font-base: 'IBM_Plex_sans' !default;
 $mg-font-sans-serif: 'IBM_Plex_sans' !default;
 $mg-font-mono: 'IBM_Plex_mono' !default;
@@ -48,13 +48,13 @@ $mg-input-height: 35px !default;
 $mg-spacer: 16px !default;
 
 // Navigation bar variables:
-$mg-navbar-bg: #f8f9fa !default;
+$mg-navbar-bg: #fff !default;
 $mg-navbar-height: 50px !default;
 $mg-navbar-font-weight: 300 !default;
 $mg-navbar-link-active-bg: $mg-color-primary !default;
 $mg-navbar-link-active-color: $mg-color-white !default;
 $mg-navbar-link-color: $mg-color-grey-700 !default;
-$mg-navbar-link-hover-bg: $mg-color-primary-light !default;
+$mg-navbar-link-hover-bg: $mg-color-grey-100 !default;
 $mg-navbar-link-hover-color: $mg-color-primary !default;
 
 @import './variables-shared';
