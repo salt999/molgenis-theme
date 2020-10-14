@@ -34,13 +34,13 @@ $mg-color-white: #fff !default;
 // Rem units are assumed but not applied here. This makes it easier to
 // calculate between px (Bootstrap 3) and rem (Bootstrap 4).
 $mg-font-size-base: 0.9 !default;
-$mg-font-base: 'IBM_Plex_sans' !default;
-$mg-font-sans-serif: 'IBM_Plex_sans' !default;
-$mg-font-mono: 'IBM_Plex_mono' !default;
+$mg-font-base: 'IBM Plex Sans' !default;
+$mg-font-sans-serif: 'IBM Plex Sans' !default;
+$mg-font-mono: 'IBM Plex Mono' !default;
 
 $mg-header-bg: $mg-color-primary;
 $mg-header-color: $mg-color-white;
-$mg-header-font: 'bebas_neueregular' !default;
+$mg-header-font: 'Bebas Neue' !default;
 $mg-header-height: 40px !default;
 
 // Dimensions:

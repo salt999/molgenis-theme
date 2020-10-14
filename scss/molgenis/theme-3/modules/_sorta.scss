@@ -34,8 +34,8 @@
 
     table thead th,
     th {
-        background-color: #428bca;
-        color: white;
+        background-color: $mg-color-primary;
+        color: $mg-color-white;
     }
 
     tbody tr:hover,
@@ -115,7 +115,7 @@
     }
 
     .custom-white-well {
-        background: white;
+        background: $mg-color-white;
         border-left: none;
         border-radius: 10px;
         border-right: none;
@@ -283,33 +283,29 @@
         position: absolute;
         right: 0;
         top: 0;
-        -webkit-transition: 0.4s;
         transition: 0.4s;
     }
 
     .slider::before {
-        background-color: white;
+        background-color: $mg-color-white;
         bottom: 5px;
         content: '';
         height: 16px;
         left: 4px;
         position: absolute;
-        -webkit-transition: 0.4s;
         transition: 0.4s;
         width: 16px;
     }
 
     input:checked + .slider {
-        background-color: #d43f3a;
+        background-color: $mg-color-danger;
     }
 
     input:focus + .slider {
-        box-shadow: 0 0 1px #d43f3a;
+        box-shadow: 0 0 1px $mg-color-danger;
     }
 
     input:checked + .slider::before {
-        -webkit-transform: translateX(16px);
-        -ms-transform: translateX(16px);
         transform: translateX(16px);
     }
 

@@ -10,6 +10,7 @@
         top: 0;
     }
 
+    // stylelint-disable-next-line
     .ace.readonly .ace_cursor {
         display: none;
     }
@@ -19,7 +20,7 @@
     }
 
     .validation-errors-anchor {
-        color: #fff !important;
+        color: $mg-color-white !important;
     }
 
     .validation-error-messages-table {
@@ -29,9 +30,9 @@
     }
 
     .highlight {
-        background-color: #5bc0de;
+        background-color: $mg-color-primary;
         border-radius: 2px;
-        color: #fff;
+        color: $mg-color-white;
         padding: 3px;
     }
 

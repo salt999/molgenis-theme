@@ -68,10 +68,6 @@
             display: flex;
             justify-content: flex-end;
         }
-
-        #copy-data-btn {
-
-        }
     }
 
     .plugin-settings-btn {
@@ -161,8 +157,8 @@
         overflow: auto;
 
         th {
-            background-color: #5b82a4;
-            color: white;
+            background-color: $mg-color-primary;
+            color: $mg-color-white;
         }
     }
 
@@ -170,7 +166,6 @@
     #dataexplorer-aggregate-data table {
         background: #ddd;
         margin-top: 20px;
-
     }
 
     .viewer {
@@ -331,27 +326,33 @@
         margin: 0;
     }
 
+    // stylelint-disable-next-line
     .togglediv_border {
         border: 1px solid;
         border-color: #c0c0c0;
     }
 
+    // stylelint-disable-next-line
     .togglediv_grey {
         background-color: #f6f6f6;
     }
 
+    // stylelint-disable-next-line
     .togglediv_lightgreen {
         background-color: #d6ffdb;
     }
 
+    // stylelint-disable-next-line
     .togglediv_green {
         background-color: #8eff9b;
     }
 
+    // stylelint-disable-next-line
     .togglediv_red {
         background-color: #fdd;
     }
 
+    // stylelint-disable-next-line
     .togglediv_blue {
         background-color: #dde4ff;
     }
@@ -446,7 +447,7 @@
     }
 
     .ui-rangeSlider-label-value {
-        color: black;
+        color: $mg-color-grey-900;
     }
 
 }

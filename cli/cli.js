@@ -1,31 +1,39 @@
 #!/usr/bin/env node
-import {buildInfo} from './lib/utils.js'
-import chalk from 'chalk'
+import {buildInfo} from './utils.js'
 import chokidar from 'chokidar'
 import connect from 'connect'
 import fs from 'fs-extra'
 
-import loadSettings from './lib/settings.js'
+import loadSettings from './settings.js'
+import mkdirp from 'mkdirp'
 
 import path from 'path'
 
-import Task from './lib/task.js'
+import Task from './task.js'
 import tinylr from 'tiny-lr'
 import yargs from 'yargs'
-import { scssRender } from './lib/scss.js'
-import scssService from './lib/service.js'
+import { scssRender } from './scss.js'
+import scssService from './service.js'
 
 
 let settings
 const tasks = {}
 
 
+tasks.assets = new Task('assets', async function() {
+    await Promise.all([
+        fs.copy(path.join(settings.dir.base, 'fonts'), path.join(settings.dir.build, 'fonts', )),
+    ])
+})
+
+
 tasks.build = new Task('build', async function() {
     const asyncTasks = []
-    asyncTasks.push(tasks.themeFile.start())
+    asyncTasks.push(tasks.themeIndex.start())
+    asyncTasks.push(tasks.assets.start())
 
     if (settings.all) {
-        const themes = await (await fs.readdir(settings.dir.theme, {withFileTypes: true})).filter((i) => i.isDirectory())
+        const themes = await (await fs.readdir(settings.dir.themes, {withFileTypes: true})).filter((i) => i.isDirectory())
         asyncTasks.push(themes.map((theme) => tasks.scss.start(theme.name)))
     } else {
         asyncTasks.push(tasks.scss.start(settings.MG_THEME_LOCAL))
@@ -38,24 +46,24 @@ tasks.build = new Task('build', async function() {
 /**
  * Public index file for themes; used for dynamic theme selection.
  */
-tasks.themeFile = new Task('index', async function() {
+tasks.themeIndex = new Task('index', async function() {
     const themeInfo = []
-    const themeFile = JSON.parse((await fs.readFile(path.join(settings.dir.theme, 'theme.json'))))
-    const themes = await (await fs.readdir(settings.dir.theme, {withFileTypes: true})).filter((i) => i.isDirectory())
+    const themeFile = JSON.parse((await fs.readFile(path.join(settings.dir.themes, 'index.json'))))
+    const themes = await (await fs.readdir(settings.dir.themes, {withFileTypes: true})).filter((i) => i.isDirectory())
 
-    for (const {name: themeName} of themes) {
-        if (themeFile[themeName]) {
-            themeInfo.push(themeFile[themeName])
+    for (const {name: themeId} of themes) {
+        if (themeFile[themeId]) {
+            themeInfo.push({id: themeId, ...themeFile[themeId]})
         } else {
-            themeInfo.push({name: themeName, share: false})
+            themeInfo.push({id: themeId, share: false})
         }
     }
 
-    fs.writeFile(path.join(settings.dir.css, 'theme.json'), JSON.stringify(themeInfo))
+    fs.writeFile(path.join(settings.dir.build, 'themes', 'index.json'), JSON.stringify(themeInfo))
 })
 
 
-tasks.dev = new Task('dev', async function() {
+tasks.serve = new Task('serve', async function() {
     await tasks.build.start()
     return new Promise((resolve) => {
         var app = connect()
@@ -63,7 +71,7 @@ tasks.dev = new Task('dev', async function() {
         app.listen({host: '127.0.0.1', port: 35729}, () => resolve)
 
         chokidar.watch([
-            path.join(settings.dir.theme, settings.MG_THEME_LOCAL, '**', '*.scss'),
+            path.join(settings.dir.themes, settings.MG_THEME_LOCAL, '**', '*.scss'),
             path.join(settings.dir.base, 'scss', '**', '*.scss')
         ]).on('change', async(file) => {
             await tasks.scss.start(settings.MG_THEME_LOCAL)
@@ -87,10 +95,10 @@ tasks.scss = new Task('scss', async function(ep) {
         optimize: settings.optimize,
     }
 
-    const themeDir = path.join(settings.dir.theme, theme)
+    const themeDir = path.join(settings.dir.themes, theme)
     await Promise.all([
-        scssRender(path.join(themeDir, 'theme-3.scss'), path.join(settings.dir.css, `mg-${theme}-3.css`), scssOptions),
-        scssRender(path.join(themeDir, 'theme-4.scss'), path.join(settings.dir.css, `mg-${theme}-4.css`), scssOptions)
+        scssRender(path.join(themeDir, 'theme-3.scss'), path.join(settings.dir.build, 'themes', `mg-${theme}-3.css`), scssOptions),
+        scssRender(path.join(themeDir, 'theme-4.scss'), path.join(settings.dir.build, 'themes', `mg-${theme}-4.css`), scssOptions)
     ])
 })
 
@@ -104,6 +112,7 @@ tasks.scss = new Task('scss', async function(ep) {
         .option('all', {default: false, description: 'Apply task to all themes', type: 'boolean'})
         .option('optimize', {alias: 'o', default: false, description: 'Optimize build for production', type: 'boolean'})
         .middleware(async(argv) => {
+            await mkdirp(path.join(settings.dir.build, 'themes'))
             if (!settings.version) {
                 settings.version = JSON.parse((await fs.readFile(path.join(settings.dir.base, 'package.json')))).version
             }
@@ -118,13 +127,13 @@ tasks.scss = new Task('scss', async function(ep) {
                 settings,
             })
         })
-
+        .command('assets', `build asset files`, () => {}, () => {tasks.assets.start()})
         .command('build', `build project files`, () => {}, () => {tasks.build.start()})
         .command('config', 'list build config', () => {}, () => {})  // Build info is shown when the task executes.
-        .command('dev', `development mode`, () => {}, () => {tasks.dev.start()})
-        .command('index', `build theme index file`, () => {}, () => {tasks.themeFile.start()})
+        .command('serve', `development mode`, () => {}, () => {tasks.serve.start()})
+        .command('index', `build theme index file`, () => {}, () => {tasks.themeIndex.start()})
         .command('scss', `build stylesheets for ${settings.MG_THEME_LOCAL}`, () => {}, () => {tasks.scss.start(settings.MG_THEME_LOCAL)})
-        .command('serve', `start theme generator service`, () => {}, () => {
+        .command('service', `start theme generator service`, () => {}, () => {
             scssService(settings)
         })
         .demandCommand()

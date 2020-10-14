@@ -18,7 +18,7 @@ export default async() => {
         path.join(settings.dir.base, 'scss')
     ]
 
-    settings.dir.css = path.join(settings.dir.base, 'css')
+    settings.dir.build = path.join(settings.dir.base, 'build')
     settings.dir.node = path.resolve(path.join(settings.dir.base, 'node_modules'))
     let defaults
     try {
@@ -31,7 +31,7 @@ export default async() => {
         defaults = ini.parse((await fs.readFile(settings.dir.config, 'utf8')))
     }
 
-    settings.dir.theme = path.resolve(path.join(settings.dir.base, 'theme'))
+    settings.dir.themes = path.resolve(path.join(settings.dir.base, 'themes'))
     Object.assign(settings, defaults)
 
     return settings

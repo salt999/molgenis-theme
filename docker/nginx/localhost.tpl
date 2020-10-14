@@ -1,3 +1,4 @@
+
 proxy_cache_path /var/cache/nginx/unpkg levels=1:2 keys_zone=unpkg:10m max_size=100m inactive=60m;
 proxy_buffering on;
 
@@ -9,7 +10,6 @@ server {
   listen 80 default_server;
   server_name localhost;
   client_max_body_size 100M;
-
   access_log /dev/stdout;
   error_log /dev/stdout info;
 
@@ -24,7 +24,12 @@ server {
       proxy_pass $frontend_host$saved_redirect_location;
   }
 
-   # HACK: Override a legacy hardcoded Bootstrap 3 theme with our own (login)
+  #
+  # Pre-Theme refactor uses different endpoints. Keep these around
+  # until https://github.com/molgenis/molgenis/pull/9110/ is merged
+  # and released.
+
+  # HACK: Override a legacy hardcoded Bootstrap 3 theme with our own (login)
   location /css/bootstrap.min.css {
       add_header Last-Modified $date_gmt;
       add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
@@ -67,6 +72,8 @@ server {
       root /usr/share/nginx/html/;
       rewrite ^ /css/mg-${MG_THEME_LOCAL}-4.css break;
   }
+  # End of Pre-Theme refactor endpoints...
+
 
   location /@molgenis-experimental/ {
       proxy_cache unpkg;
@@ -80,6 +87,15 @@ server {
       proxy_pass https://unpkg.com/@molgenis-ui/;
       proxy_buffers 8 1024k;
       proxy_buffer_size 2k;
+  }
+
+  # New molgenis-theme proxy endpoint must expose /themes/ and
+  # /fonts. In this case locally, on production pointing to unpkg, e.g.
+  # https://unpkg.com/browse/@molgenis/molgenis-theme@latest/themes/
+  # https://unpkg.com/browse/@molgenis/molgenis-theme@latest/fonts/
+  location ~ /themes|fonts {
+      autoindex on;
+      root /usr/share/nginx/html/build;
   }
 
   location / {
