@@ -1,5 +1,6 @@
-$mg-color-primary: #017ffd; // "MAIN BLUE"
-$mg-color-secondary: #005ec4; // "SUB BLUE"
+// molgenis-<color> themes inherit from molgenis-blue
+$mg-color-primary: #017ffd !default; // "MAIN BLUE"
+$mg-color-secondary: #005ec4 !default; // "SUB BLUE"
 
 @font-face {
     font-family: 'Bebas Neue';
