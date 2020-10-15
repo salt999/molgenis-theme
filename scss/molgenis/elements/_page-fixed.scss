@@ -22,8 +22,16 @@
     }
 }
 
-.mg-page-content {
-    margin-top: $mg-spacer * 2;
+.mg-page {
+    // Flexbox-based.
+    .mg-page-content {
+        padding-top: $mg-spacer * 3;
+    }
+
+    // Fixed navbar; mg-page-content needs the navbar's extra margin.
+    &.legacy .mg-page-content {
+        margin-top: $mg-navbar-height;
+    }
 }
 
 // unpkg - limited control over styling:
@@ -50,17 +58,13 @@
 .mod-thememanager,
 .mod-useraccount,
 .mod-usermanager {
+    background: $mg-color-grey-100;
     border: 1px solid $mg-border-color;
-    box-shadow: $mg-box-shadow;
     margin: 0 auto;
     margin-bottom: $mg-spacer * 3;
     max-width: 1140px;
     overflow: auto;
     padding: $mg-spacer;
-
-    .form-group {
-        margin: 0;
-    }
 
     .container {
         width: auto;

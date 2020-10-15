@@ -3,9 +3,14 @@
     #selectors {
         // Give fancy tree more container space.
         .row:nth-child(3) {
-            .panel-body {
-                padding: 0;
+            .panel {
+                margin-bottom: 0;
+
+                .panel-body {
+                    padding: 0;
+                }
             }
+
         }
     }
 
@@ -39,20 +44,15 @@
                 }
 
                 #entity-class-description {
-
-                    font-family: $mg-font-sans-serif;
-                    font-size: $font-size-small;
-                    font-weight: bold;
+                    font-size: $mg-font-size-mini;
+                    font-weight: 600;
                     margin-left: $mg-spacer;
                     white-space: nowrap;
 
                     span {
-
                         text-overflow: ellipsis;
-
                     }
                 }
-
             }
 
             .col-md-4 {

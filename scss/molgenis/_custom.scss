@@ -1,23 +1,37 @@
 // NOTE: Try to keep this file as empty as possible. Use the elemenmts
 // directory to target specific pages and elements.
-body {
-    color: $mg-color-text;
-    overflow-x: hidden;
-    overflow-y: scroll;
+html {
+    body {
+        color: $mg-color-text !important;
+        overflow-x: hidden;
+        overflow-y: scroll;
+
+    }
 }
+
 
 * {
     box-sizing: border-box;
 }
 
-legend,
-h1,
-h2,
-h3,
-h4,
-h5 {
-    font-family: $mg-header-font;
+h1 {
+    font-size: $mg-font-size-base * 1.5;
 }
+
+h2 {
+    font-size: $mg-font-size-base * 1.25;
+}
+
+h3 {
+    font-size: $mg-font-size-base * 1.1;
+    font-weight: 600;
+}
+
+// h3,
+// h4,
+// h5 {
+//     font-family: $mg-header-font;
+// }
 
 .navbar-brand {
     align-items: center;
@@ -31,22 +45,6 @@ h5 {
         height: 32px;
         padding: 0;
     }
-}
-
-
-// Themed scrollbars for webkit browsers
-::-webkit-scrollbar {
-    height: $mg-spacer / 1.5;
-    width: $mg-spacer / 1.5;
-}
-
-::-webkit-scrollbar-track {
-    background: transparent;
-    border-left: 1px solid $mg-color-grey-300;
-}
-
-::-webkit-scrollbar-thumb {
-    background: $mg-color-primary;
 }
 
 ::selection {
@@ -100,6 +98,13 @@ button {
     position: fixed;
     right: $mg-spacer;
     z-index: 10000;
+}
+
+// Override
+body {
+    .select2-drop {
+        color: $mg-color-text;
+    }
 }
 
 
