@@ -84,7 +84,7 @@ MG_THEME_PROXY=bootstrap-molgenis-blue.min.css
 ### Using The Proxy
 
 The proxy setup uses Nginx to apply locally developed theming files to a remotely
-controlled Molgenis site, to make your live as a developer a bit easier. The
+controlled Molgenis site, to make your life as a developer a bit easier. The
 development service features auto-build of SCSS source-files and livereload of
 stylesheets, so changes to your theme are automatically reflected in the browser.
 It requires a bit of setup:
