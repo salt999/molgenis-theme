@@ -1,11 +1,15 @@
+.mg-table-no-items {
+    font-weight: bold;
+    padding: $mg-spacer $mg-spacer / 2;
+}
+
 html body table.table {
     background: none;
     width: 100%;
 
-
     thead {
         th {
-            background: $mg-color-white;
+            background: $mg-color-grey-100;
             border-bottom: 1px solid $mg-border-color;
             border-top: 0;
             color: $mg-color-text;
@@ -18,12 +22,11 @@ html body table.table {
     tbody {
         tr {
             background: $mg-color-white;
-            border: 0;
 
             td {
                 border: 0;
-                border-bottom: 1px solid $mg-border-color;
                 padding: $mg-spacer $mg-spacer / 2;
+                vertical-align: middle;
 
                 a {
                     color: $mg-color-text;
@@ -47,6 +50,12 @@ html body table.table {
             &:hover {
                 background: $mg-color-primary-light;
             }
+        }
+    }
+
+    &.table-condensed {
+        tbody tr td {
+            padding: $mg-spacer / 1.5 $mg-spacer / 2;
         }
     }
 }

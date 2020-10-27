@@ -1,8 +1,10 @@
 // Shared Bootstrap 3/4 variables:
 $body-bg: $mg-body-bg;
+
+// $dropdown-bg: $mg-navbar-bg;
 $dropdown-link-active-bg: $mg-navbar-link-active-bg;
 $dropdown-link-active-color: $mg-navbar-link-active-color;
-$dropdown-link-color: $mg-navbar-link-color;
+$dropdown-link-color: $mg-navbar-link-color !default;
 $dropdown-link-hover-bg: $mg-navbar-link-hover-bg;
 $dropdown-link-hover-color: $mg-navbar-link-hover-color;
 

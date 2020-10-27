@@ -9,7 +9,6 @@
 #plugin-container {
     .hide-option-fields-btn-container {
         padding: $mg-spacer 0;
-        // float: left;
         text-align: left !important;
         width: 100%;
     }
@@ -25,12 +24,12 @@
 .mg-page {
     // Flexbox-based.
     .mg-page-content {
-        padding-top: $mg-spacer * 3;
+        margin-top: $mg-spacer * 2;
     }
 
     // Fixed navbar; mg-page-content needs the navbar's extra margin.
     &.legacy .mg-page-content {
-        margin-top: $mg-navbar-height;
+        margin-top: $mg-navbar-height + ($mg-spacer * 2);
     }
 }
 
@@ -58,16 +57,17 @@
 .mod-thememanager,
 .mod-useraccount,
 .mod-usermanager {
-    background: $mg-color-grey-100;
-    border: 1px solid $mg-border-color;
-    margin: 0 auto;
-    margin-bottom: $mg-spacer * 3;
-    max-width: 1140px;
-    overflow: auto;
-    padding: $mg-spacer;
+    .mg-page-content {
+        background: $mg-color-white;
+        margin-bottom: $mg-spacer * 3;
+        max-width: 1140px;
+        overflow: auto;
+        padding: $mg-spacer;
 
-    .container {
-        width: auto;
+        .container {
+            width: auto;
+        }
     }
+
 
 }

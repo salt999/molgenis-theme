@@ -1,11 +1,6 @@
-// See for example the rd-connect aggregate table
-#aggregate-table-container th {
-    background: $mg-color-primary !important;
-}
-
-
 .select2-results .select2-highlighted {
-    background: $mg-color-primary !important;
+    background: $mg-color-primary-light !important;
+    color: $mg-color-primary !important;
 }
 
 .panel {
@@ -17,14 +12,15 @@
             background: $mg-color-primary-light;
             border-bottom: 1px solid $mg-border-color;
             color: $mg-header-color;
+            font-size: $mg-font-size-large;
+            font-weight: bold;
             height: $mg-header-height;
             line-height: $mg-header-height;
+            padding: 0 $mg-spacer;
 
             .panel-title {
                 display: inline-block;
                 font-size: $mg-font-size-large;
-                font-weight: bold;
-                padding-left: $mg-spacer;
                 text-align: center;
                 vertical-align: middle;
             }
@@ -37,7 +33,6 @@
     // Data Explorer 1 table container
     > div {
         background: $mg-color-white;
-        box-shadow: $mg-box-shadow;
         padding: $mg-spacer / 4;
     }
 
@@ -83,8 +78,6 @@ table.table {
         .modal-body {
             max-height: 90vh;
             overflow-y: auto;
-
-
         }
     }
 }

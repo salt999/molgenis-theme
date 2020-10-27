@@ -5,10 +5,8 @@ html {
         color: $mg-color-text !important;
         overflow-x: hidden;
         overflow-y: scroll;
-
     }
 }
-
 
 * {
     box-sizing: border-box;
@@ -27,15 +25,28 @@ h3 {
     font-weight: 600;
 }
 
-// h3,
-// h4,
-// h5 {
-//     font-family: $mg-header-font;
-// }
+.jumbotron {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        font-family: $mg-header-font;
+    }
+}
+
+.well {
+    background-color: $mg-color-white;
+    border: 0;
+}
+
+.form-control {
+    box-shadow: none !important;
+}
+
 
 .navbar-brand {
     align-items: center;
-    background: $mg-color-white;
     line-height: $mg-navbar-height;
     padding: 0 $mg-spacer;
     vertical-align: middle;
