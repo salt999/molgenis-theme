@@ -32,6 +32,7 @@ export const scssRender = function(themeFile, cssTarget, options) {
                 cssRules = (await cleanCSS.minify(sassObj.css)).styles
 
             } else {
+                if (!sassObj) return reject('invalid scss')
                 cssRules = sassObj.css
                 if (options.write) promises.push(fs.writeFile(`${cssTarget}.map`, sassObj.map))
             }

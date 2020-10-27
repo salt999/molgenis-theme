@@ -54,6 +54,7 @@ $mg-spacer: 16px !default;
 
 // Navigation bar variables:
 $mg-navbar-bg: #fff !default;
+$mg-navbar-brand-bg: transparent !default;
 $mg-navbar-height: 50px !default;
 $mg-navbar-font-weight: 600 !default;
 $mg-navbar-font-size: $mg-font-size-small;
@@ -62,5 +63,9 @@ $mg-navbar-link-active-color: $mg-color-text !default;
 $mg-navbar-link-color: $mg-color-text !default;
 $mg-navbar-link-hover-bg: $mg-color-grey-100 !default;
 $mg-navbar-link-hover-color: $mg-color-primary !default;
+
+// These defaults work with light-colored $mg-navbar-bg.
+// Override these variables with dark-colored navbars.
+$mg-dropdown-color: $mg-navbar-link-color !default;
 
 @import './variables-shared';

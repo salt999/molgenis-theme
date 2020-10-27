@@ -1,11 +1,18 @@
 
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Roboto'),url('/fonts/Roboto-Regular.woff2') format('woff2'), url('/fonts/Roboto-Regular.woff') format('woff');
+}
+
 $mg-color-primary: #5c9966;
 $mg-color-primary-light: #e9ecef;
 
-$mg-font-base: sans-serif;
-$mg-font-sans-serif: sans-serif;
+$mg-font-base: 'Roboto';
+$mg-font-sans-serif: 'Roboto';
 $mg-font-mono: sans-serif,monospace;
 $mg-header-font: sans-serif;
 
-$mg-font-size-base: 0.8;
+// $mg-font-size-base: 0.8;
 $mg-body-bg: #fff;

@@ -40,16 +40,25 @@ h3 {
     border: 0;
 }
 
+select {
+    max-width: 300px;
+}
+
 .form-control {
     box-shadow: none !important;
 }
 
-
 .navbar-brand {
     align-items: center;
+    background: $mg-navbar-brand-bg;
     line-height: $mg-navbar-height;
     padding: 0 $mg-spacer;
     vertical-align: middle;
+
+    &:focus,
+    &:hover {
+        background: $mg-navbar-brand-bg !important;
+    }
 
     img.molgenis-navbar-logo {
         display: inline-block;

@@ -1,10 +1,9 @@
 // Shared Bootstrap 3/4 variables:
 $body-bg: $mg-body-bg;
 
-// $dropdown-bg: $mg-navbar-bg;
 $dropdown-link-active-bg: $mg-navbar-link-active-bg;
 $dropdown-link-active-color: $mg-navbar-link-active-color;
-$dropdown-link-color: $mg-navbar-link-color !default;
+$dropdown-link-color: $mg-dropdown-color;
 $dropdown-link-hover-bg: $mg-navbar-link-hover-bg;
 $dropdown-link-hover-color: $mg-navbar-link-hover-color;
 
@@ -17,3 +16,5 @@ $table-cell-padding: $mg-spacer / 2;
 $table-condensed-cell-padding: 10px;
 
 $font-size-base: $mg-font-size-base !default;
+// (!) Not picked up properly by Bootstrap 4
+$text-muted: $mg-color-grey-600;
