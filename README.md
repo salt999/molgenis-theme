@@ -191,23 +191,23 @@ the required customization:
 
 ### Distribution
 
-The generated theme CSS files are published to the [npm](http://npmjs.com/@molgenis/molgenis-theme)
-package management service, as soon a [new version](https://github.com/molgenis/molgenis-theme/actions?query=workflow%3ACI)
-is detected on the master branch. We use [Unpkg](https://unpkg.com/browse/@molgenis/molgenis-theme@latest/css/) to serve the
-CSS files directly from npm. This way, you don't necessarily have to build the themes yourself.
+The generated theme CSS files are published to the [npm](http://npmjs.com/@molgenis-ui/molgenis-theme)
+package management service, as soon a [version](https://github.com/molgenis/molgenis-theme/actions?query=workflow%3ACI)
+is detected on the master branch. We use [Unpkg](https://unpkg.com/browse/@molgenis-ui/molgenis-theme@latest/css/) to
+serve the CSS files directly from npm. This way, you don't necessarily have to build the themes yourself.
 Also, this may later be used as an alternative distribution mechanism, using a variation
 of our Unpkg proxy setup, e.g.:
 
 ```nginx
 location @molgenis{
-    rewrite ^/@molgenis/molgenis-theme@1.5.0/css/mg-(?<theme>[-\w]+)-(?<version>[0-9]+).css /css/bootstrap-$version/bootstrap-$theme.min.css break;
+    rewrite ^/@molgenis-ui/molgenis-theme@1.5.0/css/mg-(?<theme>[-\w]+)-(?<version>[0-9]+).css /css/bootstrap-$version/bootstrap-$theme.min.css break;
     proxy_pass https://master.dev.molgenis.org;
     proxy_buffers 4 32k;
     proxy_ssl_session_reuse on;
 }
 
 location ~ ^/css/bootstrap-(?<version>[0-9]+)/bootstrap-(?<theme>[-\w]+).min.css {
-    rewrite ^/css/bootstrap-(?<version>[0-9]+)/bootstrap-(?<theme>[-\w]+).min.css /@molgenis/molgenis-theme@1.5.0/css/mg-$theme-$version.css break;
+    rewrite ^/css/bootstrap-(?<version>[0-9]+)/bootstrap-(?<theme>[-\w]+).min.css /@molgenis-ui/molgenis-theme@1.5.0/css/mg-$theme-$version.css break;
     proxy_pass https://unpkg.com;
     proxy_intercept_errors on;
     error_page 404 = @molgenis;
