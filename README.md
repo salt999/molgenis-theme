@@ -191,34 +191,32 @@ the required customization:
 
 ### Distribution
 
-The generated theme CSS files are published to the [npm](http://npmjs.com/@molgenis-ui/molgenis-theme)
-package management service, as soon a [version](https://github.com/molgenis/molgenis-theme/actions?query=workflow%3ACI)
-is detected on the master branch. We use [Unpkg](https://unpkg.com/browse/@molgenis-ui/molgenis-theme@latest/css/) to
-serve the CSS files directly from npm. This way, you don't necessarily have to build the themes yourself.
-Also, this may later be used as an alternative distribution mechanism, using a variation
-of our Unpkg proxy setup, e.g.:
+The generated theme CSS files are published to [npm](http://npmjs.com/@molgenis-ui/molgenis-theme)
+as soon as a new fix/feat [commit](https://github.com/molgenis/molgenis-theme/actions?query=workflow%3ACI)
+is detected on the master branch. [Unpkg](https://unpkg.com/browse/@molgenis-ui/molgenis-theme@latest/)
+is then used to serve the CSS files directly from this npm package. For instance, the default
+urls for the Molgenis-blue theme are:
 
-```nginx
-location @molgenis{
-    rewrite ^/@molgenis-ui/molgenis-theme@1.5.0/css/mg-(?<theme>[-\w]+)-(?<version>[0-9]+).css /css/bootstrap-$version/bootstrap-$theme.min.css break;
-    proxy_pass https://master.dev.molgenis.org;
-    proxy_buffers 4 32k;
-    proxy_ssl_session_reuse on;
-}
+```bash
+/@molgenis-ui/molgenis-theme/dist/themes/mg-molgenis-blue-4.css
+/@molgenis-ui/molgenis-theme/dist/themes/mg-molgenis-blue-3.css
+```
 
-location ~ ^/css/bootstrap-(?<version>[0-9]+)/bootstrap-(?<theme>[-\w]+).min.css {
-    rewrite ^/css/bootstrap-(?<version>[0-9]+)/bootstrap-(?<theme>[-\w]+).min.css /@molgenis-ui/molgenis-theme@1.5.0/css/mg-$theme-$version.css break;
-    proxy_pass https://unpkg.com;
-    proxy_intercept_errors on;
-    error_page 404 = @molgenis;
-}
+To use the local files during development(using the proxy from molgenis-theme),
+simply change the theme urls to:
+
+```bash
+/themes/mg-molgenis-blue-4.css
+/themes/mg-molgenis-blue-3.css
 ```
 
 ### Dynamic Themes
 
 This is a Proof-of-Concept theme service, that generates theme files on-the-fly.
-Instead of requesting CSS files, a Molgenis instance just posts a set of variables
-to this service. The accompanying theme file is then returned accordingly.
+The idea is that customers can create themes themselves from a (TBD) theme-manager,
+which lets them change a certain set of variables. In this case; instead of requesting CSS files,
+a Molgenis instance would just post a set of variables to this service. The accompanying
+theme file is then generated, cached and served accordingly.
 
 Usage:
 
