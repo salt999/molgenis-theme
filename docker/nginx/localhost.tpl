@@ -95,7 +95,7 @@ server {
   # https://unpkg.com/browse/@molgenis/molgenis-theme@latest/fonts/
   location ~ /themes|fonts {
       autoindex on;
-      root /usr/share/nginx/html/build;
+      root /usr/share/nginx/html/dist;
   }
 
   location / {

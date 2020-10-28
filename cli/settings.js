@@ -18,7 +18,7 @@ export default async() => {
         path.join(settings.dir.base, 'scss')
     ]
 
-    settings.dir.build = path.join(settings.dir.base, 'build')
+    settings.dir.build = path.join(settings.dir.base, 'dist')
     settings.dir.node = path.resolve(path.join(settings.dir.base, 'node_modules'))
     let defaults
     try {

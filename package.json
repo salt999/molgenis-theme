@@ -6,8 +6,9 @@
     "access": "public"
   },
   "files": [
-    "css/theme.json",
-    "css/*.css"
+    "dist/themes/*.css",
+    "dist/themes/index.json",
+    "fonts/*.{woff,woff2}"
   ],
   "type": "module",
   "engines": {
@@ -21,6 +22,7 @@
     "proxy": "docker-compose --env-file .env --file ./docker/dc-proxy.yml up",
     "proxy-services": "COMPOSE_FILE=docker/dc-proxy.yml:docker/dc-services.yml docker-compose --env-file ../.env --project-directory ./docker up",
     "proxy-services-molgenis": "COMPOSE_FILE=docker/dc-proxy.yml:docker/dc-services.yml:docker/dc-molgenis.yml docker-compose --env-file ../.env --project-directory ./docker up",
+    "test-release": "semantic-release --dry-run",
     "serve": "node cli/cli.js serve"
   },
   "repository": {
