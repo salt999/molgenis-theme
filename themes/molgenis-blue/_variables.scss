@@ -1,52 +1,50 @@
-// molgenis-<color> themes all inherit from molgenis-blue
-$mg-color-primary: #017ffd !default; // "MAIN BLUE"
-$mg-color-secondary: #005ec4 !default; // "SUB BLUE"
+@import 'molgenis/variables';
 
 @font-face {
     font-family: 'Bebas Neue';
     font-style: normal;
     font-weight: 400;
-    src: local('Bebas Neue Regular'), url('/fonts/BebasNeue-Regular.woff2') format('woff2'), url('/fonts/BebasNeue-Regular.woff') format('woff');
+    src: local('Bebas Neue Regular'), url('#{$mg-font-path}BebasNeue-Regular.woff2') format('woff2'), url('#{$mg-font-path}BebasNeue-Regular.woff') format('woff');
 }
 
 @font-face {
     font-family: 'IBM Plex Sans';
     font-style: normal;
     font-weight: 400;
-    src: url('/fonts/IBMPlexSans-Medium.woff2') format('woff2'), url('/fonts/IBMPlexSans-Regular.woff') format('woff');
+    src: url('#{$mg-font-path}IBMPlexSans-Medium.woff2') format('woff2'), url('#{$mg-font-path}IBMPlexSans-Regular.woff') format('woff');
 }
 
 @font-face {
     font-family: 'IBM Plex Sans';
     font-style: italic;
     font-weight: 400;
-    src: url('/fonts/IBMPlexSans-MediumItalic.woff2') format('woff2'), url('/fonts/IBMPlexSans-SemiBold.woff') format('woff');
+    src: url('#{$mg-font-path}IBMPlexSans-MediumItalic.woff2') format('woff2'), url('#{$mg-font-path}IBMPlexSans-SemiBold.woff') format('woff');
 }
 
 @font-face {
     font-family: 'IBM Plex Sans';
     font-style: normal;
     font-weight: 600;
-    src: url('/fonts/IBMPlexSans-SemiBold.woff2') format('woff2'), url('/fonts/IBMPlexSans-SemiBold.woff') format('woff');
+    src: url('#{$mg-font-path}IBMPlexSans-SemiBold.woff2') format('woff2'), url('#{$mg-font-path}IBMPlexSans-SemiBold.woff') format('woff');
 }
 
 @font-face {
     font-family: 'IBM Plex Sans';
     font-style: normal;
     font-weight: 700;
-    src: url('/fonts/IBMPlexSans-Bold.woff2') format('woff2'), url('/fonts/IBMPlexSans-Bold.woff') format('woff');
+    src: url('#{$mg-font-path}IBMPlexSans-Bold.woff2') format('woff2'), url('#{$mg-font-path}IBMPlexSans-Bold.woff') format('woff');
 }
 
 @font-face {
     font-family: 'IBM Plex Mono';
     font-style: normal;
     font-weight: 400;
-    src: url('/fonts/IBMPlexMono-Regular.woff2') format('woff2'), url('/fonts/IBMPlexMono-Regular.woff') format('woff');
+    src: url('#{$mg-font-path}IBMPlexMono-Regular.woff2') format('woff2'), url('#{$mg-font-path}IBMPlexMono-Regular.woff') format('woff');
 }
 
 @font-face {
     font-family: 'FontAwesome';
     font-style: normal;
     font-weight: 400;
-    src: url('/fonts/fontawesome-4.7.woff2') format('woff2'), url('/fonts/fontawesome-4.7.woff') format('woff');
+    src: url('#{$mg-font-path}fontawesome-4.7.woff2') format('woff2'), url('#{$mg-font-path}fontawesome-4.7.woff') format('woff');
 }

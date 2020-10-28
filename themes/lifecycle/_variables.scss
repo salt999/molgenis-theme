@@ -1,8 +1,10 @@
+@import 'molgenis/variables';
+
 @font-face {
     font-family: 'Varela Round';
     font-style: normal;
     font-weight: 400;
-    src: local('Varela Round Regular'),url('/fonts/Varela-round-400.woff2') format('woff2'), url('/fonts/Varela-round-400.woff') format('woff');
+    src: local('Varela Round Regular'),url('#{$mg-font-path}Varela-round-400.woff2') format('woff2'), url('#{$mg-font-path}Varela-round-400.woff') format('woff');
 }
 
 $mg-color-primary: #005c8f;

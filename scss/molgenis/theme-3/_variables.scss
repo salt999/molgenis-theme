@@ -17,7 +17,7 @@ $grid-float-breakpoint: 1000px;
 $grid-float-breakpoint-max: 1300px;
 $grid-gutter-width: 16px;
 
-$icon-font-path: '/fonts/';
+$icon-font-path: $mg-font-path;
 
 $input-border: $mg-color-grey-400;
 $input-border-radius: 0;

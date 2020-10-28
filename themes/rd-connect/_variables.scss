@@ -1,9 +1,10 @@
+@import 'molgenis/variables';
 
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
-    src: local('Roboto'),url('/fonts/Roboto-Regular.woff2') format('woff2'), url('/fonts/Roboto-Regular.woff') format('woff');
+    src: local('Roboto'),url('#{$mg-font-path}Roboto-Regular.woff2') format('woff2'), url('#{$mg-font-path}Roboto-Regular.woff') format('woff');
 }
 
 $mg-color-primary: #5c9966;
