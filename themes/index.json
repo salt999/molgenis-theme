@@ -1,37 +1,37 @@
 {
     "ase": {
         "name": "Allele Specific Expression (ASE)",
-        "share": "false",
+        "share": false,
         "url": "https://molgenis15.gcc.rug.nl/"
     },
     "data-management": {
         "name": "Data Management",
-        "share": "false",
+        "share": false,
         "url": "https://molgenis23.gcc.rug.nl/"
     },
     "molgenis-blue": {
         "name": "Molgenis Default - Blue",
-        "share": "true",
+        "share": true,
         "url": "https://master.dev.molgenis.org/"
     },
     "molgenis-green": {
         "name": "Molgenis Default - Green",
-        "share": "true",
+        "share": true,
         "url": "https://master.dev.molgenis.org/"
     },
     "lifecycle": {
         "name": "LifeCycle",
-        "share": "false",
+        "share": false,
         "url": "https://molgenis88.gcc.rug.nl/"
     },
     "rd-connect": {
         "name": "RD-Connect",
-        "share": "false",
+        "share": false,
         "url": "https://molgenis97.gcc.rug.nl/"
     },
     "hfgp": {
         "name": "HFGP",
-        "share": "false",
+        "share": false,
         "url": "https://molgenis131.gcc.rug.nl/"
     }
 }

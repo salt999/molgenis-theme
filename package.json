@@ -14,15 +14,14 @@
     "node": ">=13.0.0"
   },
   "scripts": {
-    "build": "node cli.js build --optimize",
-    "build-all": "node cli.js build --all --optimize",
-    "dev": "node cli.js dev",
+    "build": "node cli/cli.js build --optimize",
+    "build-all": "node cli/cli.js build --all --optimize",
+    "cli": "node cli/cli.js",
     "lint": "stylelint \"scss/**/*.scss\"",
     "proxy": "docker-compose --env-file .env --file ./docker/dc-proxy.yml up",
     "proxy-services": "COMPOSE_FILE=docker/dc-proxy.yml:docker/dc-services.yml docker-compose --env-file ../.env --project-directory ./docker up",
     "proxy-services-molgenis": "COMPOSE_FILE=docker/dc-proxy.yml:docker/dc-services.yml:docker/dc-molgenis.yml docker-compose --env-file ../.env --project-directory ./docker up",
-    "theme": "node cli.js",
-    "serve": "node cli.js serve"
+    "serve": "node cli/cli.js serve"
   },
   "repository": {
     "type": "git",
@@ -58,6 +57,7 @@
     "bootstrap-sass": "^3.4.1",
     "bootstrap-scss": "4.5.2",
     "express": "^4.17.1",
-    "ini": "^1.3.5"
+    "ini": "^1.3.5",
+    "mkdirp": "^1.0.4"
   }
 }

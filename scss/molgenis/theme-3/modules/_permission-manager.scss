@@ -1,5 +1,9 @@
 .mod-permissionmanager {
     // Source: /css/permissionmanager.css (/menu/admin/permissionmanager)
+    .well {
+        padding: 0;
+    }
+
     .permission-table-container {
         margin-bottom: 20px;
         max-height: 500px;

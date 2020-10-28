@@ -1,4 +1,9 @@
 .mod-navigator {
+    .custom-control-inline {
+        margin-right: 0;
+
+    }
+
     .navigator-search {
         justify-content: flex-start !important;
         margin-bottom: $mg-spacer * 2;
@@ -15,6 +20,14 @@
     }
 
     table {
+        thead {
+            th {
+                height: 50px;
+                line-height: initial !important;
+                vertical-align: middle;
+            }
+        }
+
         a {
             color: $mg-color-text;
 

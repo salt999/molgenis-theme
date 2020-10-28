@@ -1,36 +1,61 @@
+.mg-table-no-items {
+    font-weight: bold;
+    padding: $mg-spacer $mg-spacer / 2;
+}
+
 html body table.table {
     background: none;
     width: 100%;
 
-
     thead {
         th {
-            background: $mg-color-white;
+            background: $mg-color-grey-100;
+            border-bottom: 1px solid $mg-border-color;
             border-top: 0;
-            color: $mg-color-grey-700;
-            font-family: $mg-font-mono;
+            color: $mg-color-text;
+            font-family: $mg-font-sans-serif;
+            font-size: $mg-font-size-small;
+            line-height: $mg-navbar-height;
         }
     }
 
     tbody {
         tr {
+            background: $mg-color-white;
+
+            td {
+                border: 0;
+                padding: $mg-spacer $mg-spacer / 2;
+                vertical-align: middle;
+
+                a {
+                    color: $mg-color-text;
+                    font-size: $mg-font-size-small;
+                    font-weight: bold;
+
+                    &:hover {
+                        color: $mg-color-primary;
+                        text-decoration: none;
+                    }
+                }
+            }
+
             &:first-child {
                 td {
                     border-top: 0;
                 }
             }
 
-            &:nth-child(even) {
-                background: $mg-color-grey-200;
-            }
-
-            &:nth-child(odd) {
-                background: $mg-color-grey-100;
-            }
 
             &:hover {
-                background: $mg-color-white;
+                background: $mg-color-primary-light;
             }
+        }
+    }
+
+    &.table-condensed {
+        tbody tr td {
+            padding: $mg-spacer / 1.5 $mg-spacer / 2;
         }
     }
 }

@@ -1,5 +1,5 @@
 .navbar-default {
-    background: $mg-color-white;
+    background: $mg-navbar-bg;
     border: 0;
     box-shadow: 0 1px 1px $mg-border-color;
 
@@ -8,6 +8,11 @@
     }
 
     .navbar-nav {
+        li {
+            font-size: $mg-navbar-font-size;
+            font-weight: $mg-navbar-font-weight;
+        }
+
         > li > a {
             padding-left: 16px;
             padding-right: 16px;
@@ -54,4 +59,11 @@
 .dropdown-menu {
     // Bootstrap 3 adds a shadow by default.
     box-shadow: $mg-box-shadow;
+
+    li {
+        a {
+            font-size: $mg-navbar-font-size;
+            font-weight: $mg-navbar-font-weight;
+        }
+    }
 }

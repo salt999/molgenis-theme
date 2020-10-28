@@ -1,28 +1,26 @@
-// See for example the rd-connect aggregate table
-#aggregate-table-container th {
-    background: $mg-color-primary !important;
-}
-
-
 .select2-results .select2-highlighted {
-    background: $mg-color-primary !important;
+    background: $mg-color-primary-light !important;
+    color: $mg-color-primary !important;
 }
 
 .panel {
-    border: 0;
-    box-shadow: $mg-box-shadow;
+    border: 1px solid $mg-border-color;
+    margin-bottom: $mg-spacer * 2;
 
     &.panel-primary {
         .panel-heading {
+            background: $mg-color-primary-light;
+            border-bottom: 1px solid $mg-border-color;
+            color: $mg-header-color;
+            font-size: $mg-font-size-large;
+            font-weight: bold;
             height: $mg-header-height;
             line-height: $mg-header-height;
+            padding: 0 $mg-spacer;
 
             .panel-title {
                 display: inline-block;
-                font-family: $mg-header-font;
-                font-weight: 500;
-                // margin-top: 2px;
-                padding-left: $mg-spacer;
+                font-size: $mg-font-size-large;
                 text-align: center;
                 vertical-align: middle;
             }
@@ -35,7 +33,6 @@
     // Data Explorer 1 table container
     > div {
         background: $mg-color-white;
-        box-shadow: $mg-box-shadow;
         padding: $mg-spacer / 4;
     }
 
@@ -81,8 +78,6 @@ table.table {
         .modal-body {
             max-height: 90vh;
             overflow-y: auto;
-
-
         }
     }
 }
@@ -95,7 +90,18 @@ table.table {
 
 .nav-tabs {
     li {
-        font-weight: bold;
+        font-size: $mg-font-size-small;
+        font-weight: 600;
+
+        a {
+            padding: $mg-spacer;
+        }
+
+        &.active {
+            a {
+                color: $mg-color-text;
+            }
+        }
     }
 
     img {
@@ -112,10 +118,10 @@ table.table {
     padding: 0;
 }
 
-.panel {
-    margin-bottom: $mg-spacer * 2;
-}
-
 .modal-header {
     border-bottom: 0;
+}
+
+.well-sm {
+    padding: $mg-spacer $mg-spacer;
 }

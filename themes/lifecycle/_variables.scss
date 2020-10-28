@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'Varela Round';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Varela Round Regular'),url('/fonts/Varela-round-400.woff2') format('woff2'), url('/fonts/Varela-round-400.woff') format('woff');
+}
+
+$mg-color-primary: #005c8f;
+$mg-color-primary-light: #efefef;
+$mg-color-secondary: #0069a4;
+
+$mg-navbar-bg: #005c8f;
+
+$mg-font-base: 'Varela Round';
+$mg-font-sans-serif: 'Varela Round';
+$mg-font-mono: 'Varela Round';
+$mg-header-font: 'Varela Round';
+
+$mg-navbar-link-color: #fff;
+$mg-navbar-brand-bg: #fff;
+
+$mg-dropdown-color: #495057;
