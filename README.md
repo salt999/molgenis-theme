@@ -123,7 +123,7 @@ It requires a bit of setup:
 * Start the SCSS development server from another tab:
 
 ```bash
-yarn dev
+yarn serve
 ```
 
 * Visit [localhost](http://localhost) to see the public [dev server](https://master.molgenis.org)
