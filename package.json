@@ -1,5 +1,5 @@
 {
-  "name": "@molgenis/molgenis-theme",
+  "name": "@molgenis-ui/molgenis-theme",
   "version": "1.0.0",
   "description": "Base SCSS theme for Molgenis",
   "publishConfig": {

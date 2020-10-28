@@ -91,8 +91,8 @@ server {
 
   # New molgenis-theme proxy endpoint must expose /themes/ and
   # /fonts. In this case locally, on production pointing to unpkg, e.g.
-  # https://unpkg.com/browse/@molgenis/molgenis-theme@latest/themes/
-  # https://unpkg.com/browse/@molgenis/molgenis-theme@latest/fonts/
+  # https://unpkg.com/browse/@molgenis-ui/molgenis-theme@latest/themes/
+  # https://unpkg.com/browse/@molgenis-ui/molgenis-theme@latest/fonts/
   location ~ /themes|fonts {
       autoindex on;
       root /usr/share/nginx/html/dist;
