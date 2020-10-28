@@ -8,7 +8,7 @@
   "files": [
     "dist/themes/*.css",
     "dist/themes/index.json",
-    "fonts/*.{woff,woff2}"
+    "dist/fonts/*.{woff,woff2}"
   ],
   "type": "module",
   "engines": {
