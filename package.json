@@ -8,7 +8,7 @@
   "files": [
     "dist/themes/*.css",
     "dist/themes/index.json",
-    "fonts/*.{woff,woff2}"
+    "dist/fonts/*.{woff,woff2}"
   ],
   "type": "module",
   "engines": {
@@ -41,10 +41,11 @@
     "chokidar": "^3.3.1",
     "clean-css": "^4.2.3",
     "connect": "^3.7.0",
+    "fibers": "^5.0.0",
     "fs-extra": "^8.1.0",
     "node-notifier": "^8.0.0",
-    "node-sass": "^4.13.1",
     "node-sass-glob-importer": "^5.3.2",
+    "sass": "^1.27.0",
     "semantic-release": "^17.1.2",
     "stylelint": "^13.7.1",
     "stylelint-order": "^4.1.0",
