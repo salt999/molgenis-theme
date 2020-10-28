@@ -13,7 +13,7 @@ export const scssRender = function(themeFile, cssTarget, options) {
         sass.render({
             fiber: Fiber,
             file: themeFile,
-            // importer: globImporter(),
+            importer: globImporter(),
             includePaths: options.includePaths,
             outFile: cssTarget,
             sourceMap: !options.optimize,
