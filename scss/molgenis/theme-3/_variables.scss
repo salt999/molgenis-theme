@@ -63,3 +63,18 @@ $well-border: $mg-border-color;
 $btn-danger-bg: $mg-color-danger;
 $btn-default-bg: $mg-color-grey-700;
 $btn-default-color: $mg-color-grey-100;
+
+// More contrast for badges.
+$badge-bg: $mg-color-grey-700;
+$pager-bg: $mg-color-grey-100;
+
+$pager-disabled-color: $mg-color-grey-500;
+$pagination-disabled-color: $mg-color-grey-500;
+$pagination-disabled-bg: $mg-color-grey-100;
+
+$navbar-collapse-max-height: unset;
+// The Bootstrap 4 navbar switches to mobile menu when the content
+// starts to overflow in its container. For Bootstrap 3, a higher
+// breakpoint than usual is used instead.
+$grid-float-breakpoint: 1127px;
+

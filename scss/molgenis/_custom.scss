@@ -4,7 +4,6 @@ html {
     body {
         color: $mg-color-text !important;
         overflow-x: hidden;
-        overflow-y: scroll;
     }
 }
 
@@ -23,6 +22,11 @@ h2 {
 h3 {
     font-size: $mg-font-size-base * 1.1;
     font-weight: 600;
+}
+
+// Less spacing between label and form inputs.
+label {
+    margin-bottom: $mg-spacer / 4;
 }
 
 .jumbotron {
@@ -92,14 +96,8 @@ select {
     min-width: 250px !important;
 }
 
-.btn:focus,
-.btn.focus,
-.btn:active:focus,
-.btn:active.focus,
-.btn.active:focus,
-.btn.active.focus {
-    outline: 0;
-    outline-offset: 0;
+:focus {
+    outline: 2px solid rgba($mg-color-primary-light, 0.5);
 }
 
 button {

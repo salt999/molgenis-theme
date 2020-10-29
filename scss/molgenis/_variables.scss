@@ -66,8 +66,8 @@ $mg-navbar-link-color: $mg-color-text !default;
 $mg-navbar-link-hover-bg: $mg-color-grey-100 !default;
 $mg-navbar-link-hover-color: $mg-color-primary !default;
 
+$mg-dropdown-bg: $mg-navbar-bg;
 // These defaults work with light-colored $mg-navbar-bg.
 // Override these variables with dark-colored navbars.
 $mg-dropdown-color: $mg-navbar-link-color !default;
-
 @import './variables-shared';

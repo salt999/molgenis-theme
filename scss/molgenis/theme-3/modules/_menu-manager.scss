@@ -39,6 +39,7 @@
                 .node {
                     border: 0;
                     color: $mg-color-text;
+                    margin-left: $mg-spacer * 2;
                     padding: $mg-spacer / 4;
 
                     &.highlight {

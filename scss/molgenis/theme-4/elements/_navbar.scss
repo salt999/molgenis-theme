@@ -1,4 +1,4 @@
-.navbar {
+.molgenis-header-container .navbar {
     // Override .bg-light's important
     background: $mg-navbar-bg !important;
     // (!) Use a box-shadow styled as a border, instead of an actual border.
@@ -7,26 +7,41 @@
     // makes the navbar shift height between pages otherwise.
     border-bottom: 0 !important;
     box-shadow: 0 1px 1px $mg-border-color;
-    height: $mg-navbar-height;
 
     .form-inline {
         height: 100%;
     }
 
-    .navbar-collapse {
-        height: $mg-navbar-height;
+    // Keep logout button in sync with Bootstrap 4 and different html.
+    #logout-form {
+        padding: 0 $mg-spacer / 2;
+
+        button {
+            background: $mg-navbar-bg;
+            border-color: $mg-color-primary;
+            color: $mg-color-primary;
+
+            &:hover {
+                background: $mg-color-primary;
+                color: $mg-color-white;
+            }
+        }
     }
 
     .navbar-nav {
-        height: $mg-navbar-height;
+        // New-style menu checks whether overflow is triggered on this
+        // element. It will switch to a hamburger menu when the height
+        // increases. Make sure the content wraps and this container
+        // increases its height accordingly.
+        flex-wrap: wrap;
+        min-height: $mg-navbar-height;
 
         #logout-form {
             padding-right: $mg-spacer / 2;
+            white-space: nowrap;
         }
 
         .nav-item {
-            height: $mg-navbar-height;
-
             &:hover {
                 background: $mg-navbar-link-hover-bg;
                 cursor: pointer;
@@ -63,7 +78,47 @@
                 white-space: nowrap;
             }
         }
+    }
 
+    // The mobile menu
+    &:not(.navbar-expand-md) {
+        .navbar-toggler {
+            margin-right: $mg-spacer / 2;
+        }
+
+        #logout-form {
+            padding-left: $mg-spacer;
+        }
+
+        .navbar-collapse {
+            border-bottom: 2px solid $mg-color-grey-500;
+
+            .dropdown.show {
+                display: block;
+            }
+
+            .navbar-nav {
+                // Removes empty space between Account and Help.
+                min-height: 0;
+
+                li a {
+                    height: 50px;
+                    line-height: $mg-navbar-height;
+                    padding-left: $mg-spacer !important;
+                }
+
+                .dropdown-menu.show {
+                    background: $mg-color-grey-200;
+                    border: 1px solid $mg-border-color;
+                    box-shadow: unset;
+                }
+
+                #logout-form {
+                    padding: $mg-spacer;
+                    white-space: nowrap;
+                }
+            }
+        }
     }
 }
 
@@ -77,7 +132,6 @@
         display: inline-block;
         margin-left: 4px;
         margin-top: 22px;
-        position: absolute;
     }
 }
 

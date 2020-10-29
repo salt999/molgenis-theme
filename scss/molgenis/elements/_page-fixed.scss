@@ -4,8 +4,6 @@
 // Page-like container for certain pages:
 // /plugin/data-row-edit/sys_set_dataexplorer/dataexplorer
 // /menu/admin/settings/sys_set_app
-
-
 #plugin-container {
     .hide-option-fields-btn-container {
         padding: $mg-spacer 0;
@@ -61,7 +59,6 @@
         background: $mg-color-white;
         margin-bottom: $mg-spacer * 3;
         max-width: 1140px;
-        overflow: auto;
         padding: $mg-spacer;
 
         .container {

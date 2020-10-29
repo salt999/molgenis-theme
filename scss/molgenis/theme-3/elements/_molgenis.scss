@@ -61,34 +61,3 @@ body > .container-fluid {
         margin: 0 16px;
     }
 }
-
-// Change threshold for collapsing the menu, default is 768px.
-@media (max-width: 1127px) {
-    .navbar-toggle {
-        display: block;
-    }
-
-    .navbar-collapse.collapse {
-        display: none !important;
-
-        &.in {
-            display: block !important;
-        }
-    }
-
-    .navbar-header {
-        float: none;
-    }
-
-    .navbar-nav {
-        float: none !important;
-
-        > li {
-            float: none !important;
-        }
-    }
-
-    .collapsing {
-        overflow: hidden !important;
-    }
-}

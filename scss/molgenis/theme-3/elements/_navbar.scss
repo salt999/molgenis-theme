@@ -2,6 +2,22 @@
     background: $mg-navbar-bg;
     border: 0;
     box-shadow: 0 1px 1px $mg-border-color;
+    height: $mg-navbar-height;
+
+    // Keep logout button in sync with Bootstrap 4 and different html.
+    #logout-form {
+        button {
+            background: $mg-navbar-bg;
+            border-color: $mg-color-primary;
+            color: $mg-color-primary;
+            height: 35px;
+
+            &:hover {
+                background: $mg-color-primary;
+                color: $mg-color-white;
+            }
+        }
+    }
 
     #language-select-box {
         display: none !important;
@@ -14,12 +30,13 @@
         }
 
         > li > a {
-            padding-left: 16px;
-            padding-right: 16px;
+            line-height: $mg-navbar-height;
+            padding: 0 $mg-spacer;
         }
 
         .open {
             .dropdown-menu {
+                background: $mg-dropdown-bg;
                 max-height: inherit;
 
                 li a {
@@ -51,6 +68,55 @@
                 margin-top: 22px;
                 position: absolute;
                 top: 0;
+            }
+        }
+    }
+
+    // The mobile menu
+    @media (max-width: #{$grid-float-breakpoint}) {
+        background: $mg-navbar-bg;
+
+        .navbar-toggle {
+            margin-right: $mg-spacer / 2;
+        }
+
+        .navbar-collapse {
+            background: $mg-navbar-bg;
+        }
+
+        .navbar-nav {
+            margin: 0;
+
+            li a {
+                padding-left: $mg-spacer !important;
+            }
+        }
+
+        .navbar-collapse {
+            border: 0;
+            border-bottom: 2px solid $mg-color-grey-500;
+            padding: 0;
+        }
+
+        // Empty language select.
+        .navbar-form:not(#logout-form) {
+            display: none;
+        }
+
+        .navbar-form {
+            border: 0;
+            margin: 0;
+            padding: $mg-spacer;
+        }
+
+        .navbar-nav .open .dropdown-menu {
+            background: $mg-color-grey-200;
+            border: 1px solid $mg-border-color;
+
+            li a {
+                line-height: $mg-navbar-height;
+                padding-bottom: 0;
+                padding-top: 0;
             }
         }
     }
