@@ -3,7 +3,6 @@ import fs from 'fs-extra'
 import globImporter from 'node-sass-glob-importer'
 import notifier from 'node-notifier'
 import sass from 'sass'
-import Fiber from 'fibers'
 
 
 const cleanCSS = new CleanCSS({level: 2, returnPromise: true, sourceMap: true})
@@ -11,7 +10,6 @@ const cleanCSS = new CleanCSS({level: 2, returnPromise: true, sourceMap: true})
 export const scssRender = function(themeFile, cssTarget, options) {
     return new Promise((resolve, reject) => {
         sass.render({
-            fiber: Fiber,
             file: themeFile,
             importer: globImporter(),
             includePaths: options.includePaths,
