@@ -2,7 +2,7 @@
     background: $mg-navbar-bg;
     border: 0;
     box-shadow: 0 1px 1px $mg-border-color;
-    height: $mg-navbar-height;
+    min-height: $mg-navbar-height;
 
     // Keep logout button in sync with Bootstrap 4 and different html.
     #logout-form {
