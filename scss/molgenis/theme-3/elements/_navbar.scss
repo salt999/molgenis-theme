@@ -64,10 +64,11 @@
         button {
             background: $mg-navbar-bg;
             border-color: $mg-color-primary-light;
-            color: $mg-color-primary-light;
+            color: $mg-navbar-link-color;
+
 
             &:hover {
-                background: $mg-color-primary-light;
+                background: $mg-navbar-link-hover-bg;
                 color: $mg-color-text;
             }
         }
