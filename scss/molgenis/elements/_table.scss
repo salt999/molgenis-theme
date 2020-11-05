@@ -1,15 +1,16 @@
 .mg-table-no-items {
-    font-weight: bold;
+    font-style: italic;
     padding: $mg-spacer $mg-spacer / 2;
 }
 
 html body table.table {
     background: none;
+    border: 1px solid $mg-border-color;
     width: 100%;
 
     thead {
         th {
-            background: $mg-color-grey-100;
+            background: $mg-color-primary-light;
             border-bottom: 1px solid $mg-border-color;
             border-top: 0;
             color: $mg-color-text;
@@ -48,7 +49,7 @@ html body table.table {
 
 
             &:hover {
-                background: $mg-color-primary-light;
+                background: $mg-color-grey-200;
             }
         }
     }

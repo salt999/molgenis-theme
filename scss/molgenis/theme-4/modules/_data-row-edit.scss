@@ -1,0 +1,23 @@
+.mod-data-row-edit {
+    legend,
+    h1,
+    h2 {
+        font-family: $mg-header-font;
+    }
+
+    legend {
+        font-size: 1.1rem;
+        margin-bottom: 0;
+    }
+
+    hr {
+        margin: 0;
+        margin-bottom: $mg-spacer;
+    }
+
+    .form-group {
+        > label {
+            font-weight: 600;
+        }
+    }
+}

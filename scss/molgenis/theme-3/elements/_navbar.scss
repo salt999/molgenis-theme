@@ -4,32 +4,19 @@
     box-shadow: 0 1px 1px $mg-border-color;
     min-height: $mg-navbar-height;
 
-    // Keep logout button in sync with Bootstrap 4 and different html.
-    #logout-form {
-        button {
-            background: $mg-navbar-bg;
-            border-color: $mg-color-primary;
-            color: $mg-color-primary;
-            height: 35px;
-
-            &:hover {
-                background: $mg-color-primary;
-                color: $mg-color-white;
-            }
-        }
-    }
-
     #language-select-box {
         display: none !important;
     }
 
     .navbar-nav {
         li {
+
             font-size: $mg-navbar-font-size;
             font-weight: $mg-navbar-font-weight;
         }
 
         > li > a {
+            font-family: $mg-header-font;
             line-height: $mg-navbar-height;
             padding: 0 $mg-spacer;
         }
@@ -68,6 +55,20 @@
                 margin-top: 22px;
                 position: absolute;
                 top: 0;
+            }
+        }
+    }
+
+    // Keep logout button in sync with Bootstrap 4 and different html.
+    #logout-form {
+        button {
+            background: $mg-navbar-bg;
+            border-color: $mg-color-primary-light;
+            color: $mg-color-primary-light;
+
+            &:hover {
+                background: $mg-color-primary-light;
+                color: $mg-color-text;
             }
         }
     }

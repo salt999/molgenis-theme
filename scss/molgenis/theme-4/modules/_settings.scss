@@ -1,0 +1,12 @@
+.mod-settings {
+    h1,
+    h2 {
+        font-family: $mg-header-font;
+    }
+
+    .form-group {
+        > label {
+            font-weight: 600;
+        }
+    }
+}
