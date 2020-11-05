@@ -96,10 +96,6 @@ select {
     min-width: 250px !important;
 }
 
-:focus {
-    outline: 2px solid rgba($mg-color-primary-light, 0.5);
-}
-
 button {
     .glyphicon {
         top: 2px !important;

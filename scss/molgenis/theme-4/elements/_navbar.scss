@@ -12,22 +12,6 @@
         height: 100%;
     }
 
-    // Keep logout button in sync with Bootstrap 4 and different html.
-    #logout-form {
-        padding: 0 $mg-spacer / 2;
-
-        button {
-            background: $mg-navbar-bg;
-            border-color: $mg-color-primary;
-            color: $mg-color-primary;
-
-            &:hover {
-                background: $mg-color-primary;
-                color: $mg-color-white;
-            }
-        }
-    }
-
     .navbar-nav {
         // New-style menu checks whether overflow is triggered on this
         // element. It will switch to a hamburger menu when the height
@@ -64,8 +48,9 @@
             }
 
             .nav-link {
+                font-family: $mg-header-font;
                 font-size: $mg-navbar-font-size;
-                font-weight: $mg-navbar-font-weight;
+                font-weight: 400;
                 height: $mg-navbar-height;
                 line-height: $mg-navbar-height;
                 overflow: hidden;
@@ -76,6 +61,34 @@
                 text-overflow: ellipsis;
                 vertical-align: middle;
                 white-space: nowrap;
+            }
+        }
+    }
+
+    // Logout nav item
+    .justify-content-end {
+        .nav-item {
+            background: none;
+
+            &:hover {
+                background: none;
+            }
+        }
+    }
+
+    // Keep logout button in sync with Bootstrap 4 and different html.
+    #logout-form {
+        padding: 0 $mg-spacer / 2;
+
+        .btn,
+        button {
+            background: $mg-navbar-bg;
+            border-color: $mg-color-primary-light !important;
+            color: $mg-color-primary-light;
+
+            &:hover {
+                background: $mg-color-primary-light;
+                color: $mg-color-text;
             }
         }
     }
