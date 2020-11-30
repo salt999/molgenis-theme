@@ -45,19 +45,23 @@ $navbar-default-link-hover-color: $mg-navbar-link-hover-color;
 $navbar-height: $mg-navbar-height;
 
 $nav-tabs-border-color: $mg-color-grey-200;
-$nav-tabs-active-link-hover-bg: $mg-color-white;
-$nav-tabs-active-link-hover-color: $mg-color-primary;
-$nav-tabs-active-link-hover-border-color: $mg-color-grey-200;
+$nav-tabs-active-link-hover-bg: $mg-color-white !default;
+$nav-tabs-active-link-hover-color: $mg-color-grey-800 !default;
+$nav-tabs-active-link-hover-border-color: $mg-border-color;
+$nav-tabs-border-color: $mg-border-color;
 
 // Disable striped tables.
-$table-bg: none;
-$table-bg-accent: none;
+
+$table-bg-accent: none !default;
+
+$card-bg: $mg-page-bg !default;
+$card-color: $mg-color-grey-400;
 
 $well-border: $mg-color-grey-200;
-$nav-link-hover-bg: $mg-color-grey-100;
+$nav-link-hover-bg: $mg-color-grey-100 !default;
 
 $form-group-margin-bottom: $mg-spacer * 2;
-$well-bg: $mg-color-grey-100;
+$well-bg: $mg-color-grey-100 !default;
 $well-border: $mg-border-color;
 
 $btn-danger-bg: $mg-color-danger;
@@ -68,9 +72,7 @@ $btn-default-color: $mg-color-grey-100;
 $badge-bg: $mg-color-grey-700;
 $pager-bg: $mg-color-grey-100;
 
-$pager-disabled-color: $mg-color-grey-500;
-$pagination-disabled-color: $mg-color-grey-500;
-$pagination-disabled-bg: $mg-color-grey-100;
+$pager-disabled-color: $mg-page-bg;
 
 $navbar-collapse-max-height: unset;
 // The Bootstrap 4 navbar switches to mobile menu when the content
@@ -78,5 +80,25 @@ $navbar-collapse-max-height: unset;
 // breakpoint than usual is used instead.
 $grid-float-breakpoint: 1127px;
 
-$nav-pills-active-link-hover-bg: $mg-color-primary-light;
+$nav-pills-active-link-hover-bg: $mg-color-tertiary;
 $nav-pills-active-link-hover-color: $mg-color-text;
+
+$btn-default-border: $mg-border-color;
+
+// $btn-primary-color: $mg-color-text;
+$nav-tabs-link-hover-border-color: none;
+$modal-content-bg: $mg-page-bg;
+
+$btn-primary-bg: $mg-color-primary;
+$btn-primary-color: $mg-color-primary-contrast;
+
+$btn-success-bg: $mg-color-primary;
+$btn-success-color: $mg-color-primary-contrast;
+
+$btn-info-bg: $mg-color-secondary;
+$bgn-info-color: $mg-color-secondary-contrast;
+
+$dropdown-link-color: $mg-color-text;
+$dropdown-bg: $mg-page-bg;
+$panel-bg: $mg-page-bg;
+$legend-color: $mg-color-primary;

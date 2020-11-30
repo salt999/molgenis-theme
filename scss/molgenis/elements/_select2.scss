@@ -1,0 +1,34 @@
+// Override
+body {
+    .select2-drop {
+        color: $mg-color-text;
+    }
+
+    .select2-container {
+        background: $mg-page-bg;
+        min-width: 250px !important;
+
+        .select2-choice {
+            background: $mg-page-bg;
+            border-radius: 0;
+            color: $mg-color-text;
+        }
+    }
+
+    .select2-container-active {
+        .select2-choice {
+            border: 1px solid $mg-color-tertiary;
+            box-shadow: none;
+        }
+    }
+
+    .select2-drop {
+        background: $mg-page-bg !important;
+    }
+
+    .select2-drop-active {
+        border-color: $mg-color-tertiary;
+    }
+}
+
+

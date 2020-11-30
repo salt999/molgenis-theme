@@ -10,7 +10,6 @@
 
     .navbar-nav {
         li {
-
             font-size: $mg-navbar-font-size;
             font-weight: $mg-navbar-font-weight;
         }
@@ -63,7 +62,7 @@
     #logout-form {
         button {
             background: $mg-navbar-bg;
-            border-color: $mg-color-primary-light;
+            border-color: $mg-color-tertiary;
             color: $mg-navbar-link-color;
 
 

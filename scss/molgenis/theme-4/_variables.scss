@@ -10,6 +10,7 @@ $dropdown-padding-y: 0;
 
 $input-height-base: $mg-input-height;
 
+$info: $mg-color-info;
 $primary: $mg-color-primary;
 $secondary: $mg-color-secondary;
 
@@ -23,3 +24,14 @@ $navbar-padding-y: 0;
 
 $text-muted: $mg-color-grey-600;
 $red: $mg-color-danger;
+$input-border-color: $mg-border-color;
+
+$dropdown-bg: $mg-page-bg;
+$dropdown-color: $mg-color-text;
+$body-color: $mg-color-text !default;
+$custom-control-indicator-checked-color: $mg-color-primary-contrast;
+
+$light: $mg-body-bg;
+$input-bg: $mg-body-bg;
+$input-focus-color: $mg-color-primary;
+$input-focus-bg: $mg-page-bg;

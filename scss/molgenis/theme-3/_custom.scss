@@ -1,6 +1,10 @@
-.select2-results .select2-highlighted {
-    background: $mg-color-primary-light !important;
-    color: $mg-color-primary !important;
+.select2-results {
+    background: $mg-page-bg;
+
+    .select2-highlighted {
+        background: $mg-color-tertiary !important;
+        color: $mg-color-tertiary-contrast !important;
+    }
 }
 
 .panel {
@@ -9,7 +13,7 @@
 
     &.panel-primary {
         .panel-heading {
-            background: $mg-color-primary-light;
+            background: $mg-color-tertiary;
             border-bottom: 1px solid $mg-border-color;
             color: $mg-header-color;
             font-size: $mg-font-size-large;
@@ -33,8 +37,7 @@
 .data-table-container {
     // Data Explorer 1 table container
     > div {
-        background: $mg-color-white;
-        padding: $mg-spacer / 4;
+        background: $mg-page-bg;
     }
 
     table {
@@ -96,12 +99,6 @@ table.table {
 
         a {
             padding: $mg-spacer;
-        }
-
-        &.active {
-            a {
-                color: $mg-color-text;
-            }
         }
     }
 

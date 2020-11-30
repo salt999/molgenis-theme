@@ -11,11 +11,6 @@
         width: 100%;
     }
 
-    .form-group {
-        label {
-            color: $mg-color-grey-700;
-        }
-    }
 }
 
 .mg-page {
@@ -55,7 +50,7 @@
 .mod-useraccount,
 .mod-usermanager {
     .mg-page-content {
-        background: $mg-color-white;
+        background: $mg-page-bg;
         margin-bottom: $mg-spacer * 3;
         max-width: 1140px;
         padding: $mg-spacer;

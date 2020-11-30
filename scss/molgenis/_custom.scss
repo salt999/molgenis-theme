@@ -2,7 +2,7 @@
 // directory to target specific pages and elements.
 html {
     body {
-        color: $mg-color-text !important;
+        color: $mg-color-text;
         overflow-x: hidden;
     }
 }
@@ -40,7 +40,6 @@ label {
 }
 
 .well {
-    background-color: $mg-color-white;
     border: 0;
 }
 
@@ -92,9 +91,6 @@ select {
     padding: 0;
 }
 
-.select2-container {
-    min-width: 250px !important;
-}
 
 button {
     .glyphicon {
@@ -113,13 +109,5 @@ button {
     right: $mg-spacer;
     z-index: 10000;
 }
-
-// Override
-body {
-    .select2-drop {
-        color: $mg-color-text;
-    }
-}
-
 
 @import 'molgenis/elements/**/*.scss'; /* stylelint-disable-line */
