@@ -5,24 +5,25 @@
 
 html body table.table {
     background: $table-bg !important;
-    border: 1px solid $mg-border-color;
+    // border: 1px solid $mg-border-color;
     width: 100%;
 
     thead {
         th {
-            background: $mg-color-tertiary;
+            background: $mg-body-bg;
             border-bottom: 1px solid $mg-border-color;
             border-top: 0;
-            color: $mg-color-tertiary-contrast;
+            color: $mg-color-primary;
             font-family: $mg-font-sans-serif;
             font-size: $mg-font-size-small;
             line-height: $mg-navbar-height - $mg-spacer * 2;
-            padding: $mg-spacer;
+            padding: $mg-spacer $mg-spacer / 2;
         }
     }
 
     tbody {
         tr {
+            th,
             td {
                 border: 0;
                 padding: $mg-spacer $mg-spacer / 2;

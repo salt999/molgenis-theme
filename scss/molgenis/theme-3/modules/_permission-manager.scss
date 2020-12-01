@@ -1,6 +1,8 @@
 .mod-permissionmanager {
     // Source: /css/permissionmanager.css (/menu/admin/permissionmanager)
+    // Unstyle inconsistent use of well.
     .well {
+        border: 0;
         padding: 0;
     }
 

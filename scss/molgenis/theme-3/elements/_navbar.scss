@@ -12,12 +12,18 @@
         li {
             font-size: $mg-navbar-font-size;
             font-weight: $mg-navbar-font-weight;
+
+            vertical-align: middle;
         }
 
         > li > a {
             font-family: $mg-header-font;
+            height: $mg-navbar-height;
             line-height: $mg-navbar-height;
             padding: 0 $mg-spacer;
+            // Correction for Bebas offset.
+            padding-top: 2px;
+            vertical-align: middle;
         }
 
         .open {

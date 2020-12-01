@@ -2,6 +2,7 @@
     legend,
     h1,
     h2 {
+        color: $mg-color-primary;
         font-family: $mg-header-font;
     }
 
@@ -41,6 +42,7 @@
 
             &>.highlight>a {
                 background: $mg-color-primary;
+                color: $mg-color-primary-contrast;
             }
         }
     }

@@ -33,7 +33,6 @@
     }
 }
 
-
 .data-table-container {
     // Data Explorer 1 table container
     > div {
@@ -70,41 +69,37 @@ table.table {
     }
 }
 
-// Center visible modals vertically.
-.modal-open {
-    .modal.in {
-        align-items: center;
-        display: flex !important;
-        height: 100%;
-        justify-content: center;
 
-
-        .modal-body {
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-    }
-}
 
 // Adjust vertical icon offset.
 .glyphicon {
     top: 3px;
 }
 
+body {
+    .nav-tabs {
+        border-bottom: 1px solid $mg-color-tertiary;
 
-.nav-tabs {
-    li {
-        font-size: $mg-font-size-small;
-        font-weight: 600;
+        li {
+            font-size: $mg-font-size-small;
+            font-weight: 600;
+            margin-bottom: -3px;
 
-        a {
-            padding: $mg-spacer;
+            a {
+                border: 0 !important;
+                padding: $mg-spacer;
+            }
+        }
+
+        img {
+            display: none;
         }
     }
+}
 
-    img {
-        display: none;
-    }
+
+.nav-pills[role='tablist']:not(.nav-stacked) {
+    border-bottom: 1px solid $mg-color-tertiary;
 }
 
 .well {
@@ -117,9 +112,27 @@ table.table {
 }
 
 .modal-header {
+    background: $mg-color-tertiary;
     border-bottom: 0;
+    color: $mg-color-text;
 }
 
 .well-sm {
     padding: $mg-spacer $mg-spacer;
 }
+
+::-webkit-scrollbar {
+    height: $mg-spacer / 2;
+    width: $mg-spacer / 2;
+}
+
+::-webkit-scrollbar-track {
+    background: $mg-body-bg;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $mg-color-tertiary;}
+
+::selection {
+    background: var(--primary-base);
+    color: var(--grey-50); }

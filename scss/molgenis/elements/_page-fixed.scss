@@ -14,6 +14,7 @@
 }
 
 .mg-page {
+    padding: $mg-spacer;
     // Flexbox-based.
     .mg-page-content {
         margin-top: $mg-spacer * 2;

@@ -19,7 +19,6 @@ $grid-gutter-width: 16px;
 
 $icon-font-path: $mg-font-path;
 
-$input-border: $mg-color-grey-400;
 $input-border-radius: 0;
 $input-border-radius-large: 0;
 $input-border-radius-small: 0;
@@ -64,10 +63,6 @@ $form-group-margin-bottom: $mg-spacer * 2;
 $well-bg: $mg-color-grey-100 !default;
 $well-border: $mg-border-color;
 
-$btn-danger-bg: $mg-color-danger;
-$btn-default-bg: $mg-color-grey-700;
-$btn-default-color: $mg-color-grey-100;
-
 // More contrast for badges.
 $badge-bg: $mg-color-grey-700;
 $pager-bg: $mg-color-grey-100;
@@ -89,16 +84,26 @@ $btn-default-border: $mg-border-color;
 $nav-tabs-link-hover-border-color: none;
 $modal-content-bg: $mg-page-bg;
 
+$btn-danger-bg: $mg-color-danger;
+
+$btn-default-bg: $mg-color-grey-500 !default;
+$btn-default-color: $mg-color-grey-100 !default;
+
 $btn-primary-bg: $mg-color-primary;
 $btn-primary-color: $mg-color-primary-contrast;
 
-$btn-success-bg: $mg-color-primary;
+// $btn-success-bg: $mg-color-primary;
 $btn-success-color: $mg-color-primary-contrast;
+// $btn-success-border: $mg-color-primary-contrast;
 
 $btn-info-bg: $mg-color-secondary;
 $bgn-info-color: $mg-color-secondary-contrast;
 
 $dropdown-link-color: $mg-color-text;
 $dropdown-bg: $mg-page-bg;
-$panel-bg: $mg-page-bg;
+$panel-bg: $mg-body-bg;
 $legend-color: $mg-color-primary;
+$legend-border-color: $mg-border-color;
+$hr-border: $mg-border-color;
+
+$nav-pills-active-link-hover-color: $mg-color-tertiary-contrast;

@@ -63,6 +63,13 @@
                 white-space: nowrap;
             }
         }
+
+        >.nav-item {
+            a {
+                // Correction for Bebas offset.
+                padding-top: 2px !important;
+            }
+        }
     }
 
     // Logout nav item

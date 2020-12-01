@@ -1,3 +1,28 @@
-.modal-title {
-    font-family: $mg-header-font;
+.modal {
+    .modal-header {
+        background: $mg-header-bg;
+    }
+
+    .modal-title {
+        color: $mg-header-color;
+        font-family: $mg-header-font;
+    }
+
+    .modal-body {
+        max-height: 60vh;
+        overflow-y: auto;
+    }
+
+    // Center visible modals vertically.
+    &.in {
+        align-items: center;
+        display: flex !important;
+        height: 100%;
+        justify-content: center;
+    }
+}
+
+.modal-backdrop.show {
+    background: $mg-body-bg;
+    opacity: 0.8 !important;
 }

@@ -22,7 +22,7 @@ $navbar-nav-link-padding-x: 1rem;
 $navbar-padding-x: 0;
 $navbar-padding-y: 0;
 
-$text-muted: $mg-color-grey-600;
+
 $red: $mg-color-danger;
 $input-border-color: $mg-border-color;
 
@@ -33,5 +33,23 @@ $custom-control-indicator-checked-color: $mg-color-primary-contrast;
 
 $light: $mg-body-bg;
 $input-bg: $mg-body-bg;
-$input-focus-color: $mg-color-primary;
+$input-focus-color: $mg-color-text;
 $input-focus-bg: $mg-page-bg;
+
+$custom-control-indicator-border-color: $mg-border-color;
+$list-group-bg: $mg-body-bg;
+$list-group-color: $mg-color-primary;
+$list-group-border-color: $mg-border-color;
+$list-group-hover-bg: $mg-page-bg;
+$list-group-action-hover-color: $mg-color-primary;
+$list-group-active-bg: $mg-page-bg;
+$grid-gutter-width: 0;
+$modal-content-bg: $mg-page-bg;
+
+$modal-header-padding-y: $mg-spacer / 2;
+$modal-header-border-color: $mg-border-color;
+$card-cap-bg: $mg-page-bg;
+$card-bg: $mg-body-bg;
+$card-border-color: $mg-border-color;
+
+$hr-border-color: $mg-border-color;

@@ -6,8 +6,8 @@
 * of the subtle differences between Bootstrap 3 and 4;
 * both are being used in Molgenis.
 */
-$mg-body-bg: #fafafa !default;
-$mg-page-bg: #fff !default;
+$mg-body-bg: #fefefe !default;
+$mg-page-bg: #f8f9fa !default;
 $mg-border-color: #e9ecef !default;
 $mg-border-radius: 0 !default;
 $mg-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) !default;
@@ -24,9 +24,10 @@ $mg-color-grey-800: #343a40 !default;
 $mg-color-grey-900: #212529 !default;
 
 $mg-color-text: $mg-color-grey-700 !default;
+$mg-color-text-muted: $mg-color-grey-500 !default;
 
 $mg-color-primary: #017ffd !default;
-$mg-color-primary-contrast: #fff !default;
+$mg-color-primary-contrast: #dbedff !default;
 
 $mg-color-secondary: #005ec4 !default;
 $mg-color-secondary-contrast: $mg-color-text !default;
@@ -35,8 +36,8 @@ $mg-color-tertiary: lighten($mg-color-primary, 43%) !default;
 $mg-color-tertiary-contrast: $mg-color-text !default;
 
 $mg-color-info: $mg-color-secondary !default;
-$mg-color-success: #00bd55 !default;
-$mg-color-warning: #9b9997 !default;
+$mg-color-success: $mg-color-primary;
+$mg-color-warning: $mg-color-danger;
 $mg-color-white: #fff !default;
 
 // Font config:
@@ -53,8 +54,8 @@ $mg-font-base: 'IBM Plex Sans' !default;
 $mg-font-sans-serif: 'IBM Plex Sans' !default;
 $mg-font-mono: 'IBM Plex Mono' !default;
 
-$mg-header-bg: $mg-color-primary !default;
-$mg-header-color: $mg-color-text !default;
+$mg-header-bg: $mg-color-tertiary;
+$mg-header-color: $mg-color-tertiary-contrast;
 $mg-header-font: 'Bebas Neue' !default;
 $mg-header-height: 50px !default;
 
