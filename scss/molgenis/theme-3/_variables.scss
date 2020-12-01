@@ -65,7 +65,7 @@ $well-border: $mg-border-color;
 
 // More contrast for badges.
 $badge-bg: $mg-color-grey-700;
-$pager-bg: $mg-color-grey-100;
+$pager-bg: $mg-body-bg;
 
 $pager-disabled-color: $mg-page-bg;
 
@@ -78,15 +78,14 @@ $grid-float-breakpoint: 1127px;
 $nav-pills-active-link-hover-bg: $mg-color-tertiary;
 $nav-pills-active-link-hover-color: $mg-color-text;
 
-$btn-default-border: $mg-border-color;
-
 // $btn-primary-color: $mg-color-text;
 $nav-tabs-link-hover-border-color: none;
 $modal-content-bg: $mg-page-bg;
 
 $btn-danger-bg: $mg-color-danger;
 
-$btn-default-bg: $mg-color-grey-500 !default;
+$btn-default-bg: desaturate(darken($mg-color-secondary, 5%), 35%) !default;
+$btn-default-border: darken($btn-default-bg, 5%);
 $btn-default-color: $mg-color-grey-100 !default;
 
 $btn-primary-bg: $mg-color-primary;

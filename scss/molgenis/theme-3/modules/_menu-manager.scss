@@ -1,6 +1,10 @@
 .mod-menumanager {
     // Module: /menu/admin/menumanager
     // Molgenis origin: /css/menumanager.css
+    .error {
+        color: $mg-color-danger;
+    }
+
     #menu-editor-container {
         > .col-md-5 p {
             font-style: italic;

@@ -20,11 +20,6 @@
         flex-wrap: wrap;
         min-height: $mg-navbar-height;
 
-        #logout-form {
-            padding-right: $mg-spacer / 2;
-            white-space: nowrap;
-        }
-
         .nav-item {
             &:hover {
                 background: $mg-navbar-link-hover-bg;
@@ -85,17 +80,17 @@
 
     // Keep logout button in sync with Bootstrap 4 and different html.
     #logout-form {
-        padding: 0 $mg-spacer / 2;
+        padding-right: $mg-spacer / 2;
+        white-space: nowrap;
 
         .btn,
         button {
-            background: $mg-navbar-bg;
             border-color: $mg-color-secondary !important;
             color: $mg-color-secondary;
 
             &:hover {
                 background: $mg-color-secondary;
-                color: $mg-color-text;
+                color: $mg-color-secondary-contrast;
             }
         }
     }

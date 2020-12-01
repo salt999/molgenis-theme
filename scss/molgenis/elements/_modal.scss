@@ -13,8 +13,14 @@
         overflow-y: auto;
     }
 
+    .modal-content {
+        box-shadow: none;
+        min-width: 500px;
+    }
+
     // Center visible modals vertically.
-    &.in {
+    &.in,
+    &.show {
         align-items: center;
         display: flex !important;
         height: 100%;
@@ -23,6 +29,6 @@
 }
 
 .modal-backdrop.show {
-    background: $mg-body-bg;
-    opacity: 0.8 !important;
+    background: #333;
+    opacity: 0.8;
 }

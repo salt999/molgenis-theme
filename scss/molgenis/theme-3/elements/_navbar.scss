@@ -69,12 +69,11 @@
         button {
             background: $mg-navbar-bg;
             border-color: $mg-color-tertiary;
-            color: $mg-navbar-link-color;
-
+            color: $mg-color-tertiary;
 
             &:hover {
-                background: $mg-navbar-link-hover-bg;
-                color: $mg-color-text;
+                background: $mg-color-tertiary;
+                color: $mg-color-tertiary-contrast;
             }
         }
     }

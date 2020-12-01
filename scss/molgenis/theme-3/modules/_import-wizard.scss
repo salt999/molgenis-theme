@@ -24,13 +24,13 @@
     }
 
     .bwizard-steps {
-        background: #fff;
+        background: $mg-page-bg;
         display: inline-block;
         margin: 0;
         padding: 0;
 
         li {
-            background: #efefef;
+            background: $mg-body-bg;
             display: inline-block;
             *display: inline;
             line-height: 18px;
@@ -62,7 +62,7 @@
 
             &::before {
                 border-bottom: 20px inset transparent;
-                border-left: 20px solid #fff;
+                border-left: 20px solid  $mg-page-bg;
                 border-top: 20px inset transparent;
                 content: '';
                 height: 0;
@@ -74,7 +74,7 @@
 
             &::after {
                 border-bottom: 20px inset transparent;
-                border-left: 20px solid #efefef;
+                border-left: 20px solid $mg-body-bg;
                 border-top: 20px inset transparent;
                 content: '';
                 height: 0;
@@ -95,7 +95,7 @@
 
         .active {
             background: $mg-color-primary;
-            color: #fff;
+            color: $mg-color-primary-contrast;
 
             &::after {
                 border-left-color: $mg-color-primary;

@@ -78,8 +78,6 @@ table.table {
 
 body {
     .nav-tabs {
-        border-bottom: 1px solid $mg-color-tertiary;
-
         li {
             font-size: $mg-font-size-small;
             font-weight: 600;
@@ -87,6 +85,7 @@ body {
 
             a {
                 border: 0 !important;
+                color: $mg-color-text;
                 padding: $mg-spacer;
             }
         }
@@ -112,7 +111,7 @@ body {
 }
 
 .modal-header {
-    background: $mg-color-tertiary;
+    // background: $mg-color-tertiary;
     border-bottom: 0;
     color: $mg-color-text;
 }
@@ -131,8 +130,10 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: $mg-color-tertiary;}
+    background: $mg-color-tertiary;
+}
 
 ::selection {
-    background: var(--primary-base);
-    color: var(--grey-50); }
+    background: $mg-color-tertiary;
+    color: $mg-color-tertiary-contrast;
+}

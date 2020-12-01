@@ -11,13 +11,14 @@ html body table.table {
     thead {
         th {
             background: $mg-body-bg;
-            border-bottom: 1px solid $mg-border-color;
+            border-bottom: 0 solid $mg-border-color;
             border-top: 0;
             color: $mg-color-primary;
             font-family: $mg-font-sans-serif;
             font-size: $mg-font-size-small;
             line-height: $mg-navbar-height - $mg-spacer * 2;
             padding: $mg-spacer $mg-spacer / 2;
+            user-select: none;
         }
     }
 
