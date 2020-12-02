@@ -22,7 +22,6 @@ $navbar-nav-link-padding-x: 1rem;
 $navbar-padding-x: 0;
 $navbar-padding-y: 0;
 
-
 $red: $mg-color-danger;
 $input-border-color: $mg-border-color;
 
@@ -54,3 +53,7 @@ $card-border-color: $mg-border-color;
 
 $hr-border-color: $mg-border-color;
 $dropdown-border-color: $mg-border-color;
+
+$theme-colors: (
+    'tertiary':    $mg-color-tertiary
+);
