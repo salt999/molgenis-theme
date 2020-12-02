@@ -2,7 +2,7 @@
 // directory to target specific pages and elements.
 html {
     body {
-        color: $mg-color-text !important;
+        color: $mg-color-text;
         overflow-x: hidden;
     }
 }
@@ -24,6 +24,10 @@ h3 {
     font-weight: 600;
 }
 
+body .form-control::placeholder {
+    color: $mg-color-text-muted;
+}
+
 // Less spacing between label and form inputs.
 label {
     margin-bottom: $mg-spacer / 4;
@@ -39,9 +43,18 @@ label {
     }
 }
 
-.well {
-    background-color: $mg-color-white;
-    border: 0;
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    background: $mg-page-bg !important;
+    box-shadow: 0 0 0 1000px $mg-body-bg inset !important;
+    -webkit-text-fill-color: $mg-color-text;
 }
 
 select {
@@ -72,7 +85,7 @@ select {
 }
 
 ::selection {
-    background: $mg-color-primary;
+    background: $mg-color-tertiary;
     color: $mg-color-white;
 }
 
@@ -92,9 +105,6 @@ select {
     padding: 0;
 }
 
-.select2-container {
-    min-width: 250px !important;
-}
 
 button {
     .glyphicon {
@@ -113,13 +123,5 @@ button {
     right: $mg-spacer;
     z-index: 10000;
 }
-
-// Override
-body {
-    .select2-drop {
-        color: $mg-color-text;
-    }
-}
-
 
 @import 'molgenis/elements/**/*.scss'; /* stylelint-disable-line */

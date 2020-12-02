@@ -1,4 +1,22 @@
 .mod-dataexplorer {
+    .data-table-container {
+        .pull-right,
+        .form-group {
+            line-height: $mg-header-height;
+            padding: 0 $mg-spacer / 2;
+        }
+
+        .pull-right {
+            color: $mg-color-primary;
+        }
+    }
+
+    #module-nav {
+        background: $mg-page-bg;
+        padding: $mg-spacer;
+    }
+
+
     // Data Explorer top well
     #selectors {
         // Give fancy tree more container space.
@@ -72,19 +90,14 @@
 
     .edit-settings {
         font-size: 2rem;
-        padding: $mg-spacer / 2;
-        padding-top: 0;
         position: absolute;
-        top: $mg-navbar-height + ($mg-spacer * 1.25);
+        top: $mg-navbar-height + ($mg-spacer * 1.75);
 
         span:hover {
             color: $mg-color-primary;
             cursor: pointer;
         }
     }
-
-
-
 
     #feature-select {
         .control-label {
@@ -168,9 +181,13 @@
         }
     }
 
-    #dataexplorer-aggregate-data table {
-        background: #ddd;
-        margin-top: 20px;
+    #dataexplorer-aggregate-data {
+        padding: 0 8px;
+
+        table {
+            background: #ddd;
+            margin-top: 20px;
+        }
     }
 
     .viewer {

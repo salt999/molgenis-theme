@@ -17,5 +17,26 @@ $table-condensed-cell-padding: 10px;
 
 $font-size-base: $mg-font-size-base !default;
 // (!) Not picked up properly by Bootstrap 4
-$text-muted: $mg-color-grey-600;
-$input-bg: #fafafa;
+
+$input-bg: $mg-body-bg;
+$input-disabled-bg: $mg-body-bg;
+$input-border: $mg-border-color;
+$well-bg: $mg-page-bg;
+$link-color: $mg-color-primary;
+$input-color: $mg-color-text;
+
+$pagination-active-color: $mg-color-primary-contrast !default;
+$pagination-bg: $mg-body-bg;
+$pagination-border: $mg-border-color;
+$pagination-disabled-border: $mg-border-color;
+$pagination-disabled-bg: lighten(desaturate($mg-color-primary, 100%), 20%);
+$pagination-disabled-color: lighten(desaturate($mg-color-primary-contrast, 100%), 30%);
+$pagination-hover-bg: $mg-page-bg;
+$pagination-hover-border: $mg-border-color;
+
+$table-bg: $mg-body-bg;
+$jumbotron-bg: $mg-page-bg;
+$popover-bg: $mg-page-bg;
+$popover-border-color: $mg-border-color;
+
+$text-muted: $mg-color-text-muted;

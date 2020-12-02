@@ -1,6 +1,10 @@
 .mod-menumanager {
     // Module: /menu/admin/menumanager
     // Molgenis origin: /css/menumanager.css
+    .error {
+        color: $mg-color-danger;
+    }
+
     #menu-editor-container {
         > .col-md-5 p {
             font-style: italic;
@@ -33,7 +37,7 @@
                 padding: 0;
 
                 &.vertical li {
-                    background: $mg-color-grey-200;
+                    background: lighten($mg-page-bg, 10%);
                 }
 
                 .node {
@@ -43,7 +47,7 @@
                     padding: $mg-spacer / 4;
 
                     &.highlight {
-                        background: $mg-color-grey-100;
+                        background: $mg-page-bg;
 
 
                         > span {

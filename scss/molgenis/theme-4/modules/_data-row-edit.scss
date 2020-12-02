@@ -2,6 +2,7 @@
     legend,
     h1,
     h2 {
+        color: $mg-color-primary;
         font-family: $mg-header-font;
     }
 
@@ -18,6 +19,31 @@
     .form-group {
         > label {
             font-weight: 600;
+        }
+    }
+
+    .dropdown {
+        max-width: 350px;
+
+        .dropdown-toggle {
+            min-height: 35px !important;
+        }
+    }
+
+    .v-select {
+        .dropdown-toggle {
+            background: $mg-body-bg !important;
+            border: 1px solid $mg-border-color;
+        }
+
+        .dropdown-menu {
+            background: $mg-page-bg;
+            color: $mg-color-text;
+
+            >.highlight>a {
+                background: $mg-color-primary;
+                color: $mg-color-primary-contrast;
+            }
         }
     }
 }

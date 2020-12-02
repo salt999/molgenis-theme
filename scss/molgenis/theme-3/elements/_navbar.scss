@@ -10,15 +10,20 @@
 
     .navbar-nav {
         li {
-
             font-size: $mg-navbar-font-size;
             font-weight: $mg-navbar-font-weight;
+
+            vertical-align: middle;
         }
 
         > li > a {
             font-family: $mg-header-font;
+            height: $mg-navbar-height;
             line-height: $mg-navbar-height;
             padding: 0 $mg-spacer;
+            // Correction for Bebas offset.
+            padding-top: 2px;
+            vertical-align: middle;
         }
 
         .open {
@@ -62,14 +67,13 @@
     // Keep logout button in sync with Bootstrap 4 and different html.
     #logout-form {
         button {
-            background: $mg-navbar-bg;
-            border-color: $mg-color-primary-light;
-            color: $mg-navbar-link-color;
-
+            background: none;
+            border-color: $mg-color-secondary;
+            color: $mg-color-secondary;
 
             &:hover {
-                background: $mg-navbar-link-hover-bg;
-                color: $mg-color-text;
+                background: $mg-color-secondary;
+                color: $mg-color-secondary-contrast;
             }
         }
     }

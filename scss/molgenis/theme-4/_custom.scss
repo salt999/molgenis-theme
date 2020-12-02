@@ -4,6 +4,12 @@
 }
 
 .dropdown-toggle {
+    // background: $mg-body-bg;
+
+    input {
+        background: $mg-body-bg;
+    }
+
     &::after {
         border-bottom: 0;
         border-left: 4px solid transparent;
@@ -36,7 +42,7 @@
 // Navigator table.
 .container {
     .table-container {
-        background: $mg-color-white;
+        background: $table-bg;
         height: auto;
 
         table {
@@ -68,4 +74,5 @@
         outline: 0;
     }
 }
+
 

@@ -20,11 +20,6 @@
         flex-wrap: wrap;
         min-height: $mg-navbar-height;
 
-        #logout-form {
-            padding-right: $mg-spacer / 2;
-            white-space: nowrap;
-        }
-
         .nav-item {
             &:hover {
                 background: $mg-navbar-link-hover-bg;
@@ -63,6 +58,13 @@
                 white-space: nowrap;
             }
         }
+
+        >.nav-item {
+            a {
+                // Correction for Bebas offset.
+                padding-top: 2px !important;
+            }
+        }
     }
 
     // Logout nav item
@@ -78,17 +80,17 @@
 
     // Keep logout button in sync with Bootstrap 4 and different html.
     #logout-form {
-        padding: 0 $mg-spacer / 2;
+        padding-right: $mg-spacer / 2;
+        white-space: nowrap;
 
         .btn,
         button {
-            background: $mg-navbar-bg;
-            border-color: $mg-color-primary-light !important;
-            color: $mg-navbar-link-color;
+            border-color: $mg-color-secondary !important;
+            color: $mg-color-secondary;
 
             &:hover {
-                background: $mg-navbar-link-hover-bg;
-                color: $mg-color-text;
+                background: $mg-color-secondary;
+                color: $mg-color-secondary-contrast;
             }
         }
     }
@@ -133,6 +135,21 @@
             }
         }
     }
+
+    .dropdown-menu {
+        // Bootstrap 4 doesn't add a shadow by default.
+        box-shadow: $mg-box-shadow;
+
+        a {
+            font-size: $mg-navbar-font-size;
+            font-weight: $mg-navbar-font-weight;
+            height: 35px;
+            line-height: 35px;
+            padding: 0 $mg-spacer / 2;
+            vertical-align: middle;
+        }
+    }
+
 }
 
 .dropdown-toggle {
@@ -148,16 +165,3 @@
     }
 }
 
-.dropdown-menu {
-    // Bootstrap 4 doesn't add a shadow by default.
-    box-shadow: $mg-box-shadow;
-
-    a {
-        font-size: $mg-navbar-font-size;
-        font-weight: $mg-navbar-font-weight;
-        height: 35px;
-        line-height: 35px;
-        padding: 0 $mg-spacer / 2;
-        vertical-align: middle;
-    }
-}

@@ -1,7 +1,24 @@
-.select2-results .select2-highlighted {
-    background: $mg-color-primary-light !important;
-    color: $mg-color-primary !important;
+.select2-results {
+    background: $mg-page-bg;
+
+    .select2-highlighted {
+        background: $mg-color-tertiary !important;
+        color: $mg-color-tertiary-contrast !important;
+    }
 }
+
+a:focus,
+.btn {
+    &,
+    &:active,
+    &.active {
+        &:focus,
+        &.focus {
+            outline: 0;
+        }
+    }
+}
+
 
 .panel {
     border: 1px solid $mg-border-color;
@@ -9,7 +26,7 @@
 
     &.panel-primary {
         .panel-heading {
-            background: $mg-color-primary-light;
+            background: $mg-color-tertiary;
             border-bottom: 1px solid $mg-border-color;
             color: $mg-header-color;
             font-size: $mg-font-size-large;
@@ -29,12 +46,10 @@
     }
 }
 
-
 .data-table-container {
     // Data Explorer 1 table container
     > div {
-        background: $mg-color-white;
-        padding: $mg-spacer / 4;
+        background: $mg-page-bg;
     }
 
     table {
@@ -67,47 +82,36 @@ table.table {
     }
 }
 
-// Center visible modals vertically.
-.modal-open {
-    .modal.in {
-        align-items: center;
-        display: flex !important;
-        height: 100%;
-        justify-content: center;
 
-
-        .modal-body {
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-    }
-}
 
 // Adjust vertical icon offset.
 .glyphicon {
     top: 3px;
 }
 
+body {
+    .nav-tabs {
+        li {
+            font-size: $mg-font-size-small;
+            font-weight: 600;
+            margin-bottom: -3px;
 
-.nav-tabs {
-    li {
-        font-size: $mg-font-size-small;
-        font-weight: 600;
-
-        a {
-            padding: $mg-spacer;
-        }
-
-        &.active {
             a {
+                border: 0 !important;
                 color: $mg-color-text;
+                padding: $mg-spacer;
             }
         }
-    }
 
-    img {
-        display: none;
+        img {
+            display: none;
+        }
     }
+}
+
+
+.nav-pills[role='tablist']:not(.nav-stacked) {
+    border-bottom: 1px solid $mg-color-tertiary;
 }
 
 .well {
@@ -120,9 +124,29 @@ table.table {
 }
 
 .modal-header {
+    // background: $mg-color-tertiary;
     border-bottom: 0;
+    color: $mg-color-text;
 }
 
 .well-sm {
     padding: $mg-spacer $mg-spacer;
+}
+
+::-webkit-scrollbar {
+    height: $mg-spacer / 2;
+    width: $mg-spacer / 2;
+}
+
+::-webkit-scrollbar-track {
+    background: $mg-body-bg;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $mg-color-tertiary;
+}
+
+::selection {
+    background: $mg-color-tertiary;
+    color: $mg-color-tertiary-contrast;
 }
