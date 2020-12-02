@@ -53,7 +53,7 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
     background: $mg-page-bg !important;
-    box-shadow: 0 0 0 1000px #000 inset;
+    box-shadow: 0 0 0 1000px $mg-body-bg inset !important;
     -webkit-text-fill-color: $mg-color-text;
 }
 
@@ -85,7 +85,7 @@ select {
 }
 
 ::selection {
-    background: $mg-color-primary;
+    background: $mg-color-tertiary;
     color: $mg-color-white;
 }
 

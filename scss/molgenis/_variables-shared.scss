@@ -25,16 +25,14 @@ $well-bg: $mg-page-bg;
 $link-color: $mg-color-primary;
 $input-color: $mg-color-text;
 
-$pagination-bg: $mg-body-bg;
 $pagination-active-color: $mg-color-primary-contrast !default;
-$pagination-disabled-border: $mg-border-color;
-$pagination-disabled-bg: $mg-color-grey-200 !default;
-$pagination-disabled-color: $mg-color-grey-400 !default;
-
-$pagination-border: $mg-border-color;
-$pagination-hover-border: $mg-border-color;
 $pagination-bg: $mg-body-bg;
+$pagination-border: $mg-border-color;
+$pagination-disabled-border: $mg-border-color;
+$pagination-disabled-bg: lighten(desaturate($mg-color-primary, 100%), 20%);
+$pagination-disabled-color: lighten(desaturate($mg-color-primary-contrast, 100%), 30%);
 $pagination-hover-bg: $mg-page-bg;
+$pagination-hover-border: $mg-border-color;
 
 $table-bg: $mg-body-bg;
 $jumbotron-bg: $mg-page-bg;

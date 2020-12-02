@@ -84,7 +84,7 @@ $modal-content-bg: $mg-page-bg;
 
 $btn-danger-bg: $mg-color-danger;
 
-$btn-default-bg: desaturate(darken($mg-color-secondary, 5%), 35%) !default;
+$btn-default-bg: desaturate(darken($mg-color-secondary, 10%), 100%) !default;
 $btn-default-border: darken($btn-default-bg, 5%);
 $btn-default-color: $mg-color-grey-100 !default;
 

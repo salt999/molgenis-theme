@@ -7,6 +7,19 @@
     }
 }
 
+a:focus,
+.btn {
+    &,
+    &:active,
+    &.active {
+        &:focus,
+        &.focus {
+            outline: 0;
+        }
+    }
+}
+
+
 .panel {
     border: 1px solid $mg-border-color;
     margin-bottom: $mg-spacer * 2;
