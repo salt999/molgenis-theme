@@ -65,7 +65,7 @@ MG_THEME_PROXY=bootstrap-molgenis-blue.min.css
 * Copy an existing theme to a new directory:
 
   ```bash
-  cp -R theme/molgenis-blue theme/molgenis-red
+  cp -R themes/molgenis-blue theme/molgenis-red
   ```
 
 * Update the config to use the new theme
