@@ -55,5 +55,10 @@ $hr-border-color: $mg-border-color;
 $dropdown-border-color: $mg-border-color;
 
 $theme-colors: (
-    'tertiary':    $mg-color-tertiary
+    'tertiary': $mg-color-tertiary,
+    'border': $mg-border-color
+);
+
+$colors: (
+    'gray-light': $mg-color-grey-300
 );
