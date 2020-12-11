@@ -33,6 +33,14 @@ server {
       proxy_buffer_size 2k;
   }
 
+  # Rewrite in case of using a remote proxy; e.g. master.dev.molgenis.org
+  location ~ ^/@molgenis-ui/molgenis-theme/dist/themes/mg-molgenis-blue-(?<version>[0-9]+).css {
+      root /usr/share/nginx/html/;
+      add_header Last-Modified $date_gmt;
+      add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
+      rewrite ^ /dist/themes/mg-${MG_THEME_LOCAL}-$version.css break;
+  }
+
   location /@molgenis-ui/ {
       proxy_cache unpkg;
       proxy_pass https://unpkg.com/@molgenis-ui/;
