@@ -31,6 +31,8 @@ yarn build
 yarn build-all
 ```
 
+***note for mac os users you need to run build using node version v13.14.0***
+
 :tada: Congratulations! You just generated the default *molgenis-blue* theme.
 
 > CSS files were written to the **css** directory. Each theme has a Bootstrap 3
