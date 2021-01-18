@@ -31,12 +31,10 @@ html body table.table {
                 vertical-align: middle;
 
                 a {
-                    color: $mg-color-text;
                     font-size: $mg-font-size-small;
                     font-weight: bold;
 
                     &:hover {
-                        color: $mg-color-primary;
                         text-decoration: none;
                     }
                 }
