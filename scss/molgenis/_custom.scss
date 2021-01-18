@@ -12,10 +12,12 @@ html {
 }
 
 h1 {
+    font-family: $mg-header-font;
     font-size: $mg-font-size-base * 1.5;
 }
 
 h2 {
+    font-family: $mg-header-font;
     font-size: $mg-font-size-base * 1.25;
 }
 
@@ -31,16 +33,6 @@ body .form-control::placeholder {
 // Less spacing between label and form inputs.
 label {
     margin-bottom: $mg-spacer / 4;
-}
-
-.jumbotron {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5 {
-        font-family: $mg-header-font;
-    }
 }
 
 input:-webkit-autofill,
