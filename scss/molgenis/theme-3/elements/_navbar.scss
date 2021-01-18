@@ -12,12 +12,11 @@
         li {
             font-size: $mg-navbar-font-size;
             font-weight: $mg-navbar-font-weight;
-
             vertical-align: middle;
         }
 
         > li > a {
-            font-family: $mg-header-font;
+            font-family: $mg-font-base;
             height: $mg-navbar-height;
             line-height: $mg-navbar-height;
             padding: 0 $mg-spacer;
@@ -57,7 +56,7 @@
                 content: '';
                 display: inline-block;
                 margin-left: 4px;
-                margin-top: 22px;
+                margin-top: 25px;
                 position: absolute;
                 top: 0;
             }
