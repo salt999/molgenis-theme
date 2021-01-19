@@ -128,19 +128,6 @@ body {
     padding: $mg-spacer $mg-spacer;
 }
 
-::-webkit-scrollbar {
-    height: $mg-spacer / 2;
-    width: $mg-spacer / 2;
-}
-
-::-webkit-scrollbar-track {
-    background: $mg-body-bg;
-}
-
-::-webkit-scrollbar-thumb {
-    background: $mg-color-tertiary;
-}
-
 ::selection {
     background: $mg-color-tertiary;
     color: $mg-color-tertiary-contrast;
