@@ -105,17 +105,22 @@
         }
     }
 
-    // Molgenis origin: /css/jquery.molgenis.tree.css
-    .refentitynode span.fancytree-icon,
-    .refentitynode span.fancytree-icon:hover {
-        background-position: -32px -160px !important;
+    // Attribute tree
+    // show book instead of folder icon for ref entities
+    .refentitynode span.glyphicon-folder-close::before,
+    .refentitynode span.glyphicon-folder-open::before {
+        content: '\e043' !important;
     }
 
+    // Hide filter icon if class is nofilter
     .nofilter {
         span.fancytree-icon,
         span.fancytree-icon:hover {
-            background-image: none !important;
             cursor: default !important;
+        }
+
+        .glyphicon-filter::before {
+            display: none !important;
         }
 
         span.fancytree-title {
@@ -226,19 +231,6 @@
 
     #filter-nav li a:hover {
         cursor: default;
-    }
-
-    #feature-selection {
-        .fancytree-ico-e span.fancytree-icon {
-            background-image: url('/img/filter-bw.png');
-            background-position: 0 0;
-        }
-
-        .fancytree-ico-e span.fancytree-icon:hover {
-            background-image: url('/img/filter-bw.png');
-            background-position: 0 0;
-            cursor: pointer;
-        }
     }
 
     .molgenis-xrefmrefsearch .select2-result {
