@@ -25,7 +25,7 @@ cd molgenis-theme
 yarn
 # Set the default config file
 cp .env.defaults .env
-# Build the selected theme (MG_THEME_LOCAL in .env)
+# Build the selected theme (MG_THEME in .env)
 yarn build
 # Build all themes at once
 yarn build-all
@@ -55,9 +55,7 @@ MG_PROXY=https://master.dev.molgenis.org
 # MG_PROXY=http://172.19.0.1:8080
 
 # The local theme to serve and watch (/theme/...):
-MG_THEME_LOCAL=molgenis-blue
-# The proxy CSS theme to replace:
-MG_THEME_PROXY=bootstrap-molgenis-blue.min.css
+MG_THEME=molgenis-blue
 ```
 
 ## Development
@@ -74,7 +72,7 @@ MG_THEME_PROXY=bootstrap-molgenis-blue.min.css
 
   ```bash
   # vim docker/.env
-  MG_THEME_LOCAL=molgenis-red
+  MG_THEME=molgenis-red
   ```
 
 * Build the theme
@@ -102,11 +100,7 @@ It requires a bit of setup:
   # MG_PROXY=http://molgenis:8080
 
   # The theme that is being applied on the proxied host.
-  MG_THEME_LOCAL=molgenis-red
-  # The theme that is in use by the proxy
-  # Check view-source:https://master.dev.molgenis.org/ for
-  # the current theme in the <head> section
-  MG_THEME_PROXY=bootstrap-molgenis-blue.min.css
+  MG_THEME=molgenis-blue
   ```
 
 * Start the proxy in one of the three different setups:
