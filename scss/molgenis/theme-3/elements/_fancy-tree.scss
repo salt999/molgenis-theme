@@ -199,8 +199,63 @@ span.fancytree-expander {
  * Checkbox icon
  *----------------------------------------------------------------------------*/
 
+span.fancytree-checkbox::before {
+    // remove the glyphicon
+    content: '' !important;
+}
+
 span.fancytree-checkbox {
+    background-image: url('/img/icons-rtl.gif');
+    background-position: 0 -32px;
     margin-left: $fancy-icon-spacing;
+
+    &:hover {
+        background-position: -16px -32px;
+    }
+
+    &.fancytree-radio {
+        background-position: 0 -48px;
+    }
+
+    &.fancytree-radio:hover {
+        background-position: -16px -48px;
+    }
+}
+
+.fancytree-partsel {
+    span.fancytree-checkbox {
+        background-position: -64px -32px;
+    }
+
+    span.fancytree-checkbox:hover {
+        background-position: -80px -32px;
+    }
+
+    span.fancytree-checkbox.fancytree-radio {
+        background-position: -64px -48px;
+    }
+
+    span.fancytree-checkbox.fancytree-radio:hover {
+        background-position: -80px -48px;
+    }
+}
+
+.fancytree-selected {
+    span.fancytree-checkbox {
+        background-position: -32px -32px;
+    }
+
+    span.fancytree-checkbox:hover {
+        background-position: -48px -32px;
+    }
+
+    span.fancytree-checkbox.fancytree-radio {
+        background-position: -32px -48px;
+    }
+
+    span.fancytree-checkbox.fancytree-radio:hover {
+        background-position: -48px -48px;
+    }
 }
 
 // Unselectable is dimmed, without hover effects
