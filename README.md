@@ -49,7 +49,7 @@ file; the **.env** file. It has the following options:
 COMPOSE_PROJECT_NAME=mg_projects
 # URL of a remote Molgenis instance to proxy (use with 'yarn proxy')
 MG_PROXY=https://master.dev.molgenis.org
-# Docker service name (use with 'yarn proxy-molgenis')
+# Docker service name (use with 'yarn proxy-services-molgenis')
 # MG_PROXY=http://molgenis:8080
 # Docker host ip (use with 'yarn proxy-services')
 # MG_PROXY=http://172.19.0.1:8080
@@ -96,7 +96,7 @@ It requires a bit of setup:
   MG_PROXY=https://master.dev.molgenis.org
   # Example with yarn proxy-services; use docker host ip here:
   # MG_PROXY=http://172.19.0.1:8080
-  # Example with yarn proxy-molgenis; use docker service name here:
+  # Example with yarn proxy-services-molgenis; use docker service name here:
   # MG_PROXY=http://molgenis:8080
 
   # The theme that is being applied on the proxied host.
@@ -111,7 +111,7 @@ It requires a bit of setup:
   # When you need to test with a certain local Molgenis branch (IntelliJ)
   yarn proxy-services
   # When you want to test with a locally deployed Molgenis site
-  yarn proxy-molgenis
+  yarn proxy-services-molgenis
   ```
 
 > Use the most simple option to get started; e.g. **yarn proxy**
