@@ -6,6 +6,11 @@
     .modal-title {
         color: $mg-header-color;
         font-family: $mg-header-font;
+
+        .small {
+            color: $mg-header-color;
+            font-family: $mg-font-base;
+        }
     }
 
     .modal-content {
