@@ -1,4 +1,12 @@
 .mod-mappingservice {
+    #mapping-projects-tbl {
+        tr {
+            td:first-child {
+                display: flex;
+            }
+        }
+    }
+
     .attribute-mapping-table-container {
         overflow-x: auto;
     }
