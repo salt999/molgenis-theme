@@ -27,6 +27,7 @@ $fancy-font-error-color: $mg-color-danger;
 
 $fancy-active-text: $mg-color-primary-contrast;
 $fancy-active-color: $mg-color-primary;
+$fancy-tree-hover-color: $mg-color-primary;
 
 //------------------------------------------------------------------------------
 // Mixins
@@ -150,6 +151,16 @@ img.fancytree-icon {
     margin-top: $fancy-icon-ofs-top;
     vertical-align: top;
     width: $fancy-icon-width;
+}
+
+.ui-fancytree {
+    .fancytree-expander:hover,
+    .fancytree-checkbox:hover,
+    .fancytree-icon:hover,
+    .fancytree-title:hover {
+        color: $fancy-tree-hover-color;
+        cursor: pointer;
+    }
 }
 
 /*------------------------------------------------------------------------------
