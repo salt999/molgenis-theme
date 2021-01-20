@@ -33,10 +33,6 @@ $fancy-tree-hover-color: $mg-color-primary;
 // Mixins
 //------------------------------------------------------------------------------
 @mixin rounded-corners($radius) {
-    -webkit-border-radius: $radius;
-    -moz-border-radius: $radius;
-    -ms-border-radius: $radius;
-    -o-border-radius: $radius;
     border-radius: $radius;
 }
 
@@ -80,11 +76,8 @@ ul.fancytree-container {
 
     li {
         background-attachment: scroll;
-        -moz-background-clip: border;
         background-color: transparent;
         background-image: none; // no v-lines
-        -moz-background-inline-policy: continuous;
-        -moz-background-origin: padding;
         background-repeat: repeat-y;
         list-style-image: none;
         list-style-position: outside;
