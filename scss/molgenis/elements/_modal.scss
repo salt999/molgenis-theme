@@ -8,32 +8,9 @@
         font-family: $mg-header-font;
     }
 
-    .modal-body {
-        max-height: 60vh;
-        overflow-y: auto;
-        padding: 15px;
-        // Workaround for Firefox issue https://bugzilla.mozilla.org/show_bug.cgi?id=748518
-        padding-bottom: 0;
-
-        &::after {
-            content: '';
-            display: block;
-            padding-bottom: 15px;
-        }
-    }
-
     .modal-content {
         box-shadow: none;
         min-width: 500px;
-    }
-
-    // Center visible modals vertically.
-    &.in,
-    &.show {
-        align-items: center;
-        display: flex !important;
-        height: 100%;
-        justify-content: center;
     }
 }
 
