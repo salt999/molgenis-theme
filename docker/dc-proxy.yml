@@ -5,7 +5,7 @@ services:
   nginx:
     container_name: mg_projects_nginx
     environment:
-      MG_PROXY: ${MG_PROXY:-http://172.19.0.1:8080/}
+      MG_PROXY: ${MG_PROXY:-https://master.dev.molgenis.org}
       MG_THEME: ${MG_THEME:-molgenis-blue}
     image: nginx
     networks:
