@@ -19,7 +19,7 @@
     "build-all": "node cli/cli.js build --all --optimize",
     "cli": "node cli/cli.js",
     "lint": "stylelint \"scss/**/*.scss\"",
-    "proxy": "docker-compose --env-file .env --file ./docker/dc-proxy.yml up",
+    "proxy": "COMPOSE_FILE=docker/dc-proxy.yml docker-compose --env-file ../.env --project-directory ./docker up",
     "proxy-services": "COMPOSE_FILE=docker/dc-proxy.yml:docker/dc-services.yml docker-compose --env-file ../.env --project-directory ./docker up",
     "proxy-services-molgenis": "COMPOSE_FILE=docker/dc-proxy.yml:docker/dc-services.yml:docker/dc-molgenis.yml docker-compose --env-file ../.env --project-directory ./docker up",
     "test-release": "semantic-release --dry-run",
