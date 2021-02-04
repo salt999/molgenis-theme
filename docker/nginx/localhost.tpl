@@ -34,11 +34,11 @@ server {
   }
 
   # Rewrite in case of using a remote proxy; e.g. master.dev.molgenis.org
-  location ~ ^/@molgenis-ui/molgenis-theme/dist/themes/mg-${MG_THEME}-(?<version>[0-9]+).css {
+  location ~ ^/@molgenis-ui/molgenis-theme/dist/themes/mg-${MG_THEME}-(?<version>[0-9]+).(?<extension>[a-z]+.[a-z]+) {
       root /usr/share/nginx/html/;
       add_header Last-Modified $date_gmt;
       add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
-      rewrite ^ /dist/themes/mg-${MG_THEME}-$version.css break;
+      rewrite ^ /dist/themes/mg-${MG_THEME}-$version.$extension break;
   }
 
   location /@molgenis-ui/ {
