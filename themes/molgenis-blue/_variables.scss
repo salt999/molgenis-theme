@@ -1,6 +1,16 @@
 @import 'molgenis/variables';
 
-$mg-navbar-link-color: $mg-color-text !default;
+$mg-navbar-link-color: $mg-color-white;
+$mg-navbar-link-active-bg: $mg-color-primary;
+$mg-navbar-link-active-color: $mg-color-white;
+$mg-navbar-link-hover-bg: $mg-color-primary;
+$mg-navbar-link-hover-color: $mg-color-white;
+
+$mg-border-color: desaturate(lighten($mg-color-secondary, 40%), 70%);
+$mg-page-bg: desaturate(lighten($mg-color-secondary, 60%), 70%);
+$mg-navbar-bg: darken($mg-color-secondary, 20%);
+$mg-color-secondary: lighten($mg-color-grey-900, 10%);
+$mg-color-tertiary: lighten($mg-color-primary, 40%);
 
 @font-face {
     font-family: 'Bebas Neue';
