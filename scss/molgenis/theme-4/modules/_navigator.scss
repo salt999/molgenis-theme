@@ -18,22 +18,4 @@
             float: left !important;
         }
     }
-
-    table {
-        thead {
-            th {
-                height: 50px;
-                line-height: initial !important;
-                vertical-align: middle;
-            }
-        }
-
-        a {
-            color: $mg-color-text;
-
-            &:hover {
-                color: $mg-color-primary;
-            }
-        }
-    }
 }
