@@ -33,5 +33,10 @@
         "name": "HFGP",
         "share": false,
         "url": "https://molgenis131.gcc.rug.nl/"
+    },
+    "bbmri-de": {
+        "name": "BBMRI Germany",
+        "share": false,
+        "url": "https://bbmri-de.gcc.rug.nl/"
     }
 }
