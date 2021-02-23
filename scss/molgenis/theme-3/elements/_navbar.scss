@@ -16,8 +16,6 @@
             height: $mg-navbar-height;
             line-height: $mg-navbar-height;
             padding: 0 $mg-spacer;
-            // Correction for Bebas offset.
-            padding-top: 2px;
             vertical-align: middle;
         }
 
@@ -52,7 +50,7 @@
                 content: '';
                 display: inline-block;
                 margin-left: 4px;
-                margin-top: 25px;
+                margin-top: 24px;
                 position: absolute;
                 top: 0;
             }

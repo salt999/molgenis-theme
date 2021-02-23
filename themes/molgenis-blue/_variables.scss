@@ -1,6 +1,6 @@
 @import 'molgenis/variables';
 
-$mg-navbar-link-color: $mg-color-text !default;
+$mg-border-color: desaturate(lighten($mg-color-primary, 40%), 60%);
 
 @font-face {
     font-family: 'Bebas Neue';
