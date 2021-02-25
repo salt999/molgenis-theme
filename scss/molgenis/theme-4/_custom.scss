@@ -48,17 +48,17 @@
 }
 
 // cke editor (frontpage)
-/* stylelint-disable */
+/* stylelint-disable-next-line */
 .cke.cke_chrome {
     border: 1px solid $mg-border-color;
     box-shadow: none;
-
+    /* stylelint-disable-next-line */
     .cke_top {
         background: $mg-color-grey-100;
         background-image: none;
         border-bottom: 1px solid $mg-border-color;
     }
-
+    /* stylelint-disable-next-line */
     .cke_bottom {
         background: $mg-color-grey-100;
         background-image: none;
