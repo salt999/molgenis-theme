@@ -38,5 +38,10 @@
         "name": "BBMRI Germany",
         "share": false,
         "url": "https://bbmri-de.gcc.rug.nl/"
+    },
+    "bbmri-eric": {
+        "name": "BBMRI ERIC",
+        "share": false,
+        "url": "https://molgenis104.gcc.rug.nl/"
     }
 }

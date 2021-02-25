@@ -55,7 +55,7 @@ $mg-font-base: 'IBM Plex Sans' !default;
 $mg-font-sans-serif: 'IBM Plex Sans' !default;
 $mg-font-mono: 'IBM Plex Mono' !default;
 
-$mg-header-bg: $mg-color-tertiary;
+$mg-header-bg: $mg-color-tertiary !default;
 $mg-header-color: $mg-color-tertiary-contrast;
 $mg-header-font: 'Bebas Neue' !default;
 $mg-header-height: 50px !default;
@@ -69,7 +69,7 @@ $mg-navbar-bg: #fff !default;
 $mg-navbar-brand-bg: transparent !default;
 $mg-navbar-height: 50px !default;
 $mg-navbar-font-weight: 400 !default;
-$mg-navbar-font-size: $mg-font-size-large;
+$mg-navbar-font-size: $mg-font-size-large !default;
 $mg-navbar-link-active-bg: $mg-color-tertiary !default;
 $mg-navbar-link-active-color: $mg-color-text !default;
 $mg-navbar-link-color: $mg-color-text !default;
