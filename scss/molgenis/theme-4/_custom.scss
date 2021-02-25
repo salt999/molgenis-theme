@@ -71,4 +71,11 @@
     }
 }
 
-
+/*
+* 'custom-select' bootstrap class gives a bootstrap styled select box
+* This makes us be able to change te styling on safari.
+* Note that bootstrap 5 has this property, this can be removed on upgrade
+*/
+.custom-select{
+    -webkit-appearance: none;
+}
