@@ -11,23 +11,8 @@ html {
     box-sizing: border-box;
 }
 
-h1 {
-    font-family: $mg-header-font;
-    font-size: $mg-font-size-base * 1.5;
-}
-
-h2 {
-    font-family: $mg-header-font;
-    font-size: $mg-font-size-base * 1.25;
-}
-
-h3 {
-    font-size: $mg-font-size-base * 1.1;
-    font-weight: 600;
-}
-
 body .form-control::placeholder {
-    color: $mg-color-text-muted;
+    color: $text-muted;
 }
 
 // Less spacing between label and form inputs.
@@ -44,8 +29,8 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-    background: $mg-page-bg !important;
-    box-shadow: 0 0 0 1000px $mg-body-bg inset !important;
+    background: $well-bg !important;
+    box-shadow: 0 0 0 1000px $body-bg inset !important;
     -webkit-text-fill-color: $mg-color-text;
 }
 
@@ -77,8 +62,8 @@ select {
 }
 
 ::selection {
-    background: $mg-color-tertiary;
-    color: $mg-color-white;
+    background: $mg-color-primary;
+    color: $mg-color-primary-contrast;
 }
 
 // Small helper classes to apply proper capitalizing without polluting translations.
@@ -116,4 +101,10 @@ button {
     z-index: 10000;
 }
 
-@import 'molgenis/elements/**/*.scss'; /* stylelint-disable-line */
+@import 'molgenis/elements/codemirror';
+@import 'molgenis/elements/modal';
+@import 'molgenis/elements/page-fixed';
+@import 'molgenis/elements/page-fluid';
+@import 'molgenis/elements/select2';
+@import 'molgenis/elements/table';
+@import 'molgenis/elements/top-logo';

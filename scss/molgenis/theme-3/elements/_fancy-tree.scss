@@ -1,6 +1,6 @@
 /*!
  * Fancytree styling v2.37.0
- * 
+ *
  * Manually combined and stripped styles from
  * https://unpkg.com/browse/jquery.fancytree@2.37.0/dist/skin-common.less
  * and
@@ -9,7 +9,7 @@
 
 // Variables
 $fancy-level-indent: 16px !default;
-$fancy-font-family: $mg-font-sans-serif;
+$fancy-font-family: $font-family-base;
 $fancy-line-height: 1em;       // height of a nodes selection bar including borders
 $fancy-node-v-spacing: 0;    // gap between two node borders
 $fancy-icon-width: 1em;
@@ -20,9 +20,9 @@ $fancy-title-ofs-top: 0;     // extra vertical offset for title
 $fancy-node-border-width: 1px;
 $fancy-node-border-radius: $mg-border-radius;
 
-$fancy-font-size: $mg-font-size-base;
+$fancy-font-size: $font-size-base;
 $fancy-font-color: $mg-color-text;
-$fancy-font-color-dimm: $mg-color-text-muted;
+$fancy-font-color-dimm: $text-muted;
 $fancy-font-error-color: $mg-color-danger;
 
 $fancy-active-text: $mg-color-primary-contrast;

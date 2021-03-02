@@ -43,8 +43,6 @@
             }
 
             .nav-link {
-                font-family: $mg-font-base;
-                font-size: $mg-navbar-font-size;
                 font-weight: 400;
                 height: $mg-navbar-height;
                 line-height: $mg-navbar-height;
@@ -78,12 +76,12 @@
 
         .btn,
         button {
-            border-color: $mg-color-secondary !important;
-            color: $mg-color-secondary;
+            border-color: $mg-color-secondary-contrast !important;
+            color: $mg-color-secondary-contrast;
 
             &:hover {
-                background: $mg-color-secondary;
-                color: $mg-color-secondary-contrast;
+                background: $mg-color-secondary-contrast;
+                color: $mg-color-secondary;
             }
         }
     }
@@ -131,10 +129,10 @@
 
     .dropdown-menu {
         // Bootstrap 4 doesn't add a shadow by default.
+        background: $mg-dropdown-bg;
         box-shadow: $mg-box-shadow;
 
         a {
-            font-size: $mg-navbar-font-size;
             font-weight: $mg-navbar-font-weight;
             height: 35px;
             line-height: 35px;

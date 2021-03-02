@@ -1,0 +1,63 @@
+// Molgenis & Bootstrap variables that we don't want to expose
+// to themes, but are useful nevertheless to keep around.
+
+$mg-color-grey-100: #fafafa !default;
+$mg-color-grey-200: #e9ecef !default;
+$mg-color-grey-300: #dee2e6 !default;
+$mg-color-grey-400: #ced4da !default;
+$mg-color-grey-500: #adb5bd !default;
+$mg-color-grey-600: #6c757d !default;
+$mg-color-grey-700: #495057 !default;
+$mg-color-grey-800: #343a40 !default;
+$mg-color-grey-900: #212529 !default;
+
+$mg-color-text: $mg-color-grey-700 !default;
+$text-muted: $mg-color-grey-500 !default;
+
+// Calculate custom spaces based on this default spacer:
+$mg-spacer: 16px !default;
+$mg-font-path: '/@molgenis-ui/molgenis-theme/dist/fonts/' !default;
+
+// Navigation bar variables:
+$mg-navbar-bg: $mg-color-secondary;
+$mg-navbar-brand-bg: transparent;
+$mg-navbar-height: 50px;
+$mg-navbar-font-weight: 400;
+$mg-navbar-link-active-bg: $mg-color-primary;
+$mg-navbar-link-active-color: $mg-color-secondary-contrast;
+$mg-navbar-link-color: $mg-color-secondary-contrast;
+$mg-navbar-link-hover-bg: $mg-color-secondary;
+$mg-navbar-link-hover-color: $mg-color-secondary-contrast;
+
+$mg-dropdown-bg: $body-bg !default;
+$mg-dropdown-color: $mg-color-text !default;
+
+// Shared Bootstrap 3/4 variables:
+$dropdown-link-active-bg: $mg-color-secondary;
+$dropdown-link-active-color: $mg-navbar-link-active-color;
+$dropdown-link-color: $mg-dropdown-color;
+$dropdown-link-hover-bg: $mg-navbar-link-hover-bg;
+$dropdown-link-hover-color: $mg-navbar-link-hover-color;
+
+$table-cell-padding: $mg-spacer / 2;
+$table-condensed-cell-padding: 10px;
+
+$input-bg: $body-bg;
+$input-disabled-bg: $body-bg;
+$input-border: $mg-border-color;
+$link-color: $mg-color-primary !default;
+$input-color: $mg-color-text;
+
+$pagination-active-bg: $mg-color-grey-900 !default;
+$pagination-active-color: $mg-color-primary-contrast !default;
+
+$pagination-border: $mg-border-color;
+$pagination-disabled-border: $mg-border-color;
+
+$pagination-hover-bg: $well-bg;
+$pagination-hover-border: $mg-border-color;
+
+$table-bg: $body-bg;
+$jumbotron-bg: $well-bg;
+$popover-bg: $well-bg;
+$popover-border-color: $mg-border-color;

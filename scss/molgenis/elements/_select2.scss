@@ -1,16 +1,15 @@
-// Override
 body {
     .select2-drop {
         color: $mg-color-text;
 
         .select2-search {
             input {
-                background: $mg-body-bg;
+                background: $body-bg;
                 border: 1px solid $mg-border-color;
                 border-radius: 0;
                 box-shadow: none;
                 color: $mg-color-text;
-                height: 34px !important;
+                height: 36px !important;
                 margin-top: $mg-spacer / 4;
             }
         }
@@ -20,11 +19,12 @@ body {
         min-width: 250px !important;
 
         .select2-choice {
-            background: $mg-body-bg;
+            background: $body-bg;
             border-color: $mg-border-color;
             border-radius: 0;
             box-shadow: none;
             color: $mg-color-text;
+            height: 36px;
 
             .select2-arrow {
                 border-left: 1px solid $mg-border-color;
@@ -35,7 +35,6 @@ body {
                 }
             }
         }
-
 
         &.select2-dropdown-open {
             .select2-choice {
@@ -56,7 +55,7 @@ body {
     }
 
     .select2-drop {
-        background: $mg-page-bg !important;
+        background: $well-bg !important;
     }
 
     .select2-drop-active {

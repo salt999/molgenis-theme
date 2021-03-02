@@ -43,9 +43,6 @@ tasks.build = new Task('build', async function() {
 })
 
 
-/**
- * Public index file for themes; used for dynamic theme selection.
- */
 tasks.themeIndex = new Task('index', async function() {
     const themeInfo = []
     const themeFile = JSON.parse((await fs.readFile(path.join(settings.dir.themes, 'index.json'))))
@@ -63,12 +60,16 @@ tasks.themeIndex = new Task('index', async function() {
 })
 
 
-tasks.serve = new Task('serve', async function() {
+tasks.dev = new Task('dev', async function() {
     await tasks.build.start()
     return new Promise((resolve) => {
         var app = connect()
         app.use(tinylr.middleware({app}))
         app.listen({host: '127.0.0.1', port: 35729}, () => resolve)
+
+        chokidar.watch([path.join(settings.dir.themes, 'index.json')]).on('change', async(file) => {
+            await tasks.themeIndex.start()
+        })
 
         chokidar.watch([
             path.join(settings.dir.themes, settings.MG_THEME, '**', '*.scss'),
@@ -82,11 +83,6 @@ tasks.serve = new Task('serve', async function() {
 })
 
 
-/**
- * Some Molgenis views use Bootstrap 3, others use Bootstrap 4.
- * The result should look the same with the least amount of
- * customization.
- */
 tasks.scss = new Task('scss', async function(ep) {
     let theme = ep.raw
 
@@ -131,7 +127,7 @@ tasks.scss = new Task('scss', async function(ep) {
         .command('assets', `build asset files`, () => {}, () => {tasks.assets.start()})
         .command('build', `build project files`, () => {}, () => {tasks.build.start()})
         .command('config', 'list build config', () => {}, () => {})  // Build info is shown when the task executes.
-        .command('serve', `development mode`, () => {}, () => {tasks.serve.start()})
+        .command('dev', `development mode`, () => {}, () => {tasks.dev.start()})
         .command('index', `build theme index file`, () => {}, () => {tasks.themeIndex.start()})
         .command('scss', `build stylesheets for ${settings.MG_THEME}`, () => {}, () => {tasks.scss.start(settings.MG_THEME)})
         .command('service', `start theme generator service`, () => {}, () => {

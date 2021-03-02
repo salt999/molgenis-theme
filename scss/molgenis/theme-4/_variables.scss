@@ -8,11 +8,10 @@ $dropdown-item-padding-y: 0;
 $dropdown-border-radius: 0;
 $dropdown-padding-y: 0;
 
-$input-height-base: $mg-input-height;
-
-$info: $mg-color-info;
-$primary: $mg-color-primary;
-$secondary: $mg-color-secondary;
+$info: $mg-color-info !default;
+$warning: $mg-color-warning !default;
+$primary: $mg-color-primary !default;
+$secondary: $mg-color-secondary !default;
 
 $navbar-light-active-bg: $mg-navbar-link-active-bg !default;
 $navbar-light-active-color: $mg-navbar-link-active-color !default;
@@ -25,36 +24,35 @@ $navbar-padding-y: 0;
 $red: $mg-color-danger;
 $input-border-color: $mg-border-color;
 
-$dropdown-bg: $mg-page-bg;
+$dropdown-bg: $well-bg;
 $dropdown-color: $mg-color-text;
 $body-color: $mg-color-text !default;
 $custom-control-indicator-checked-color: $mg-color-primary-contrast;
 
-$light: $mg-body-bg;
-$input-bg: $mg-body-bg;
+$light: $body-bg;
+$input-bg: $body-bg;
 $input-focus-color: $mg-color-text;
-$input-focus-bg: $mg-page-bg;
+$input-focus-bg: $well-bg;
 
 $custom-control-indicator-border-color: $mg-border-color;
-$list-group-bg: $mg-body-bg;
+$list-group-bg: $body-bg;
 $list-group-color: $mg-color-primary;
 $list-group-border-color: $mg-border-color;
-$list-group-hover-bg: $mg-page-bg;
+$list-group-hover-bg: $well-bg;
 $list-group-action-hover-color: $mg-color-primary;
-$list-group-active-bg: $mg-page-bg;
-$modal-content-bg: $mg-page-bg;
+$list-group-active-bg: $well-bg;
+$modal-content-bg: $well-bg;
 
 $modal-header-padding-y: $mg-spacer / 2;
 $modal-header-border-color: $mg-border-color;
-$card-cap-bg: $mg-page-bg;
-$card-bg: $mg-body-bg;
+$card-cap-bg: $well-bg;
+$card-bg: $body-bg;
 $card-border-color: $mg-border-color;
 
 $hr-border-color: $mg-border-color;
 $dropdown-border-color: $mg-border-color;
 
 $theme-colors: (
-    'tertiary': $mg-color-tertiary,
     'border': $mg-border-color
 );
 

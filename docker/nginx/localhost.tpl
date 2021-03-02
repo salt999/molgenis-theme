@@ -41,21 +41,22 @@ server {
       rewrite ^ /dist/themes/mg-${MG_THEME}-$version.$extension break;
   }
 
+  location /@molgenis-ui/molgenis-theme/dist/themes/index.json {
+      root /usr/share/nginx/html/;
+      rewrite ^ /dist/themes/index.json break;
+  }
+
+  # SCSS Service; this should point to a centralized service proxy in production.
+  location /dynamic {
+      root /usr/share/nginx/html/;
+  }
+
   location /@molgenis-ui/ {
       proxy_cache unpkg;
       proxy_pass https://unpkg.com/@molgenis-ui/;
       proxy_intercept_errors on;
       recursive_error_pages on;
       error_page 301 302 307 = @handle_redirect;
-  }
-
-  # New molgenis-theme proxy endpoint must expose /themes/ and
-  # /fonts. In this case locally, on production pointing to unpkg, e.g.
-  # https://unpkg.com/browse/@molgenis-ui/molgenis-theme@latest/themes/
-  # https://unpkg.com/browse/@molgenis-ui/molgenis-theme@latest/fonts/
-  location ~ "^/(themes|fonts)" {
-      autoindex on;
-      root /usr/share/nginx/html/dist;
   }
 
   location / {

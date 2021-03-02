@@ -25,12 +25,12 @@
 
     .v-select {
         .dropdown-toggle {
-            background: $mg-body-bg !important;
+            background: $body-bg !important;
             border: 1px solid $mg-border-color;
         }
 
         .dropdown-menu {
-            background: $mg-page-bg;
+            background: $well-bg;
             color: $mg-color-text;
 
             >.highlight>a {

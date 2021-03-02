@@ -5,5 +5,11 @@
 @import '../custom';
 @import './custom';
 
-@import 'molgenis/theme-4/elements/**/*.scss'; /* stylelint-disable-line */
-@import 'molgenis/theme-4/modules/**/*.scss'; /* stylelint-disable-line */
+@import 'molgenis/theme-4/elements/ck-editor';
+@import 'molgenis/theme-4/elements/footer';
+@import 'molgenis/theme-4/elements/navbar';
+@import 'molgenis/theme-4/elements/pincode';
+
+@import 'molgenis/theme-4/modules/data-row-edit';
+@import 'molgenis/theme-4/modules/navigator';
+@import 'molgenis/theme-4/modules/settings';

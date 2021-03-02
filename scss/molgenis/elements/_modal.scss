@@ -1,15 +1,9 @@
 .modal {
-    .modal-header {
-        background: $mg-header-bg;
-    }
-
     .modal-title {
-        color: $mg-header-color;
-        font-family: $mg-header-font;
+        color: $mg-color-primary;
 
         .small {
-            color: $mg-header-color;
-            font-family: $mg-font-base;
+            color: $mg-color-primary;
         }
     }
 

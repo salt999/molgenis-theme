@@ -1,27 +1,15 @@
-@import 'molgenis/variables';
-
-$mg-body-bg: #232424;
-$mg-page-bg: #292a29;
-
+// This is an experimental dark-theme for Molgenis. Its meant
+// to get a grip on the right variable definition that makes
+// a theme dark or light.
 $mg-color-primary: #5dffac;
 $mg-color-primary-contrast: #3b5347;
 $mg-color-secondary: #41b177;
 $mg-color-secondary-contrast: #25302a;
-$mg-color-tertiary: #d5f9e6;
 
-$mg-navbar-bg: $mg-page-bg;
-$mg-navbar-link-color: #fff;
-$mg-navbar-link-hover-bg: #d5f9e6;
-$mg-navbar-link-active-bg: #72f6b2;
+$body-bg: #232424;
+$well-bg: #292a29;
 
-$mg-dropdown-bg: $mg-page-bg;
-$mg-color-text: $mg-color-grey-400;
-
-$mg-dropdown-color: $mg-color-text;
-
+$mg-color-text: #aaa;
 $mg-border-color: #323332;
-
+$link-color: $mg-color-secondary;
 $nav-tabs-active-link-hover-bg: #d5f9e6;
-$pagination-disabled-border: $mg-border-color;
-$pagination-disabled-bg: $mg-color-grey-700;
-

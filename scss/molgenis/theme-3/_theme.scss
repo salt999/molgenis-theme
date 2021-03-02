@@ -5,5 +5,17 @@
 @import '../custom';
 @import './custom';
 
-@import 'molgenis/theme-3/elements/**/*.scss'; /* stylelint-disable-line */
-@import 'molgenis/theme-3/modules/**/*.scss'; /* stylelint-disable-line */
+@import 'molgenis/theme-3/elements/fancy-tree';
+@import 'molgenis/theme-3/elements/footer';
+@import 'molgenis/theme-3/elements/forms';
+@import 'molgenis/theme-3/elements/molgenis';
+@import 'molgenis/theme-3/elements/navbar';
+@import 'molgenis/theme-3/elements/tooltip';
+
+@import 'molgenis/theme-3/modules/data-explorer';
+@import 'molgenis/theme-3/modules/import-wizard';
+@import 'molgenis/theme-3/modules/mapping-service';
+@import 'molgenis/theme-3/modules/menu-manager';
+@import 'molgenis/theme-3/modules/permission-manager';
+@import 'molgenis/theme-3/modules/scheduled-jobs';
+@import 'molgenis/theme-3/modules/sorta';

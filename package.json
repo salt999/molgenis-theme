@@ -15,15 +15,16 @@
     "node": ">=13.0.0"
   },
   "scripts": {
-    "build": "node cli/cli.js build --optimize",
+    "build": "node cli/cli.js build",
     "build-all": "node cli/cli.js build --all --optimize",
     "cli": "node cli/cli.js",
+    "dev": "node cli/cli.js dev",
     "lint": "stylelint \"scss/**/*.scss\"",
     "proxy": "COMPOSE_FILE=docker/dc-proxy.yml docker-compose --env-file ../.env --project-directory ./docker up",
     "proxy-services": "COMPOSE_FILE=docker/dc-proxy.yml:docker/dc-services.yml docker-compose --env-file ../.env --project-directory ./docker up",
     "proxy-services-molgenis": "COMPOSE_FILE=docker/dc-proxy.yml:docker/dc-services.yml:docker/dc-molgenis.yml docker-compose --env-file ../.env --project-directory ./docker up",
-    "test-release": "semantic-release --dry-run",
-    "serve": "node cli/cli.js serve"
+    "service": "node cli/cli.js service",
+    "test-release": "semantic-release --dry-run"
   },
   "repository": {
     "type": "git",
@@ -43,8 +44,8 @@
     "connect": "^3.7.0",
     "fs-extra": "^8.1.0",
     "node-notifier": "^8.0.0",
-    "node-sass": "^4.13.1",
-    "node-sass-glob-importer": "^5.3.2",
+    "node-sass": "5.0.0",
+    "pino": "^6.11.1",
     "semantic-release": "^17.1.2",
     "stylelint": "^13.7.1",
     "stylelint-order": "^4.1.0",

@@ -6,13 +6,11 @@
 
     .navbar-nav {
         li {
-            font-size: $mg-navbar-font-size;
             font-weight: $mg-navbar-font-weight;
             vertical-align: middle;
         }
 
         > li > a {
-            font-family: $mg-font-base;
             height: $mg-navbar-height;
             line-height: $mg-navbar-height;
             padding: 0 $mg-spacer;
@@ -29,7 +27,6 @@
                 }
             }
         }
-
 
         .dropdown.open > a {
             background: $mg-navbar-link-active-bg;
@@ -61,12 +58,12 @@
     #logout-form {
         button {
             background: none;
-            border-color: $mg-color-secondary;
-            color: $mg-color-secondary;
+            border-color: $mg-color-secondary-contrast;
+            color: $mg-color-secondary-contrast;
 
             &:hover {
-                background: $mg-color-secondary;
-                color: $mg-color-secondary-contrast;
+                background: $mg-color-secondary-contrast;
+                color: $mg-color-secondary;
             }
         }
     }
@@ -127,7 +124,6 @@
 
     li {
         a {
-            font-size: $mg-navbar-font-size;
             font-weight: $mg-navbar-font-weight;
         }
     }

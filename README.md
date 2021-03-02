@@ -13,11 +13,11 @@ streamline the theming workflow for all Molgenis sites by:
 
 * [Docker](https://docs.docker.com/docker-for-mac/install/)
 * [Docker-compose](https://docs.docker.com/compose/install/)
-* [Node.js](https://nodejs.org/dist/v14.9.0/node-v14.9.0.pkg)
+* [Node.js](https://nodejs.org/dist/v14.9.0/node-v14.9.0.pkg) 14+
 * [Yarn](https://classic.yarnpkg.com/en/docs/install/#mac-stable)
 * [Visual Studio Code](https://code.visualstudio.com/docs/setup/mac)
 
-## Basic Usage
+## Getting started
 
 ```bash
 git clone git@github.com:molgenis/molgenis-theme.git
@@ -27,211 +27,171 @@ yarn
 cp .env.defaults .env
 # Build the selected theme (MG_THEME in .env)
 yarn build
-# Build all themes at once
-yarn build-all
 ```
-
-***note for mac os users you need to run build using node version v13.14.0***
 
 :tada: Congratulations! You just generated the default *molgenis-blue* theme.
 
-> CSS files were written to the **css** directory. Each theme has a Bootstrap 3
-  and a Bootstrap 4 variant.
+> CSS files were written to the **dist** directory. Each theme has a Bootstrap 3
+and a Bootstrap 4 file.
 
 ## Configuration
 
-The configuration for Docker and the SCSS tool are read from a shared environment
-file; the **.env** file. It has the following options:
+The configuration for Docker and the SCSS tool are set from a shared
+environment file; the **.env** file. It has the following options:
 
 ```bash
-# This is a Docker directive to make containers unique per project.
-# Don't change this, unless you have a good reason to.
+# Docker-specific; just ignore this.
+COMPOSE_IGNORE_ORPHANS=True
 COMPOSE_PROJECT_NAME=mg_projects
-# URL of a remote Molgenis instance to proxy (use with 'yarn proxy')
+# use with 'yarn proxy'
 MG_PROXY=https://master.dev.molgenis.org
-# Docker service name (use with 'yarn proxy-services-molgenis')
+# Use with 'yarn proxy-services-molgenis'
 # MG_PROXY=http://molgenis:8080
-# Docker host ip (use with 'yarn proxy-services')
+# Use with 'yarn proxy-services'
 # MG_PROXY=http://172.19.0.1:8080
 
-# The local theme to serve and watch (/theme/...):
+# (!) The theme to serve and watch. Please note that
+# you need to restart both the docker services and
+# the SCSS tool after changing this variable.
 MG_THEME=molgenis-blue
 ```
 
-## Development
+## Modify a Theme
 
-### Starting A New Theme
-
-* Copy an existing theme to a new directory:
+* Serve the theme
 
   ```bash
-  cp -R themes/molgenis-blue theme/molgenis-red
-  ```
-
-* Update the config to use the new theme
-
-  ```bash
-  # vim docker/.env
-  MG_THEME=molgenis-red
-  ```
-
-* Build the theme
-
-  ```bash
-  yarn build
-  ```
-
-### Using The Proxy
-
-The proxy setup uses Nginx to apply locally developed theming files to a remotely
-controlled Molgenis site, to make your life as a developer a bit easier. The
-development service features auto-build of SCSS source-files and livereload of
-stylesheets, so changes to your theme are automatically reflected in the browser.
-It requires a bit of setup:
-
-* Setup the proxy config in the **.env** file:
-
-  ```bash
-  # Example with yarn proxy
-  MG_PROXY=https://master.dev.molgenis.org
-  # Example with yarn proxy-services; use docker host ip here:
-  # MG_PROXY=http://172.19.0.1:8080
-  # Example with yarn proxy-services-molgenis; use docker service name here:
-  # MG_PROXY=http://molgenis:8080
-
-  # The theme that is being applied on the proxied host.
-  MG_THEME=molgenis-blue
-  ```
-
-* Start the proxy in one of the three different setups:
-
-  ```bash
-  # When you want to style an existing Molgenis site; e.g. master.dev.molgenis.org
+  # Proxy master.dev.molgenis.org on http://localhost
   yarn proxy
-  # When you need to test with a certain local Molgenis branch (IntelliJ)
-  yarn proxy-services
-  # When you want to test with a locally deployed Molgenis site
-  yarn proxy-services-molgenis
+  # Start dev-service from another console tab:
+  yarn dev
   ```
 
-> Use the most simple option to get started; e.g. **yarn proxy**
+* Open [localhost](http://localhost) in Chromium.
 
-* Start the SCSS development server from another tab:
+> This is the public [dev server](https://master.molgenis.org) using the local
+styling of the *molgenis-blue* theme
 
-```bash
-yarn serve
-```
-
-* Visit [localhost](http://localhost) to see the public [dev server](https://master.molgenis.org)
-  using the Bootstrap 4 version of the *molgenis-red* theme
-
-* Install the Chrome [livereload extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)
-  to autoreload on file-change
+* Install the Chrome
+[livereload extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)
 * Switch livereload on
-* Try changing variable **$mg-color-primary** in **molgenis-red/_variables.scss**
+* Try changing variable **$mg-color-primary** in **molgenis-blue/_variables.scss**
 
 The theme on the webpage should now automatically reflect your changes on save.
 Browse through the [base theme](/scss/molgenis) to get an idea how a theme
-is being constructed. Checkout the mg-variables defintion file for the theming
-variables that are customizable.
+is being constructed.
 
 ## Conventions
 
-Both Bootstrap 3 & 4 CSS is being used in Molgenis while it transitions to Bootstrap 4.
-Make sure you check the current Molgenis page source to verify that the asserted theme
-is being used. The theme in **scss/molgenis** provides defaults for *all* themes, because
-themes inherit their main settings from it. When creating a new theme, please try to
-maintain the following workflow order:
+Bootstrap 3 & 4 CSS are being used in Molgenis. This creates extra overhead,
+but is sadly a necessity while Bootstrap 3 is still in use in some apps.
+When creating a new theme, please try to maintain the following workflow order:
 
-* Apply **only** Molgenis (mg-) variables in your theme
-
-To keep theming maintainable and your future self happy, it is **crucial**
-that each theme refrains from applying custom styling, unless there is no
-other option. Always make an effort to fit your "unique" use-case in the
-base theme. In case the current theming variables are not providing
-the required customization:
-
-* Update Bootstrap variables in scss/molgenis
+* Use existing Bootstrap classes wherever possible
+* Apply only variables from **/scss/molgenis/_variables.scss** in the theme
 * Refactor Molgenis variables in scss/molgenis if necessary
-* Add selectors in scss/molgenis (_custom) using Molgenis variables
 
-> (!) Keep in mind that changes are applied to all themes.
+> (!) Keep in mind that changes to the base theme are applied to **all** themes.
 
 <details>
 <summary><em>Common SCSS locations & their meaning</em></summary>
 
 ```markdown
-* **theme-3.scss** is the root source-file for the generated Molgenis Bootstrap 3 theme
-* **theme-4.scss** is the root source-file for the generated Molgenis Bootstrap 4 theme
-* Theme variables go in **./theme/myproject/_variables.scss**
-* Theme-agnostic fixes should be made in the main theme at **./scss/molgenis**
-* Molgenis theme variables start with the **mg-** prefix
-* Molgenis theme variables are in **./scss/molgenis/_variables.scss**
-* Do not use Bootstrap variables in themes directly if you don't need to;
-* use the **mg-** prefixed Molgenis theme variables instead
-* Bootstrap-3 variables are in **./node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss**
-* Bootstrap-4 variables are in **./node_modules/bootstrap-scss/_variables.scss**
-* Bootstrap-3 variables are customized in **./scss/molgenis/theme-3/_variables.scss**
-* Bootstrap-4 variables are customized in **./scss/molgenis/theme-4/_variables.scss**
-* Small theme-agnostic Bootstrap-agnostic selectors are in **scss/molgenis/_custom.scss**
-* Extensive theme-agnostic Bootstrap-agnostic selectors are in **scss/molgenis/elements/_some-page-element.scss**
-* Small theme-agnostic Bootstrap-3 specific selectors are in **scss/molgenis/theme-3/_custom.scss**
-* Extensive theme-agnostic Bootstrap-3 specific selectors are in **scss/molgenis/theme-3/elements/_some-page-element.scss**
-* Theme-agnostic Bootstrap-4 specific selectors are in **scss/molgenis/theme-4/_custom.scss**
-* Extensive theme-agnostic Bootstrap-4 specific selectors are in **scss/molgenis/theme-4/elements/_some-page-element.scss**
+
+* Bootstrap 3 variables are in `./node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss`
+* Bootstrap 4 variables are in `./node_modules/bootstrap-scss/_variables.scss`
+* `scss/molgenis/theme-3/_theme.scss` is the root of the Molgenis Bootstrap 3 theme
+* `scss/molgenis/theme-4/_theme.scss` is the root of the Molgenis Bootstrap 4 theme
+* Bootstrap 3 variables are customized in `./scss/molgenis/theme-3/_variables.scss`
+* Bootstrap 4 variables are customized in `./scss/molgenis/theme-4/_variables.scss`
+* `scss/molgenis/_variables.scss` contains themable variables that can be overridden in `./themes/mytheme/_variables.scss`
+* Theme-agnostic fixes MUST be made in the main theme at `./scss/molgenis`
+* Theme variables that differ between Bootstrap 3 and 4 start with a `mg-` prefix
+* Theme variables that are similar in Bootstrap 3 and 4 are used directly without `mg-` prefix
+* Do NOT use variables in themes that are not already in `scss/molgenis/_variables.scss`
+* Keep `scss/molgenis/_variables.scss` small and tidy
+
+This is mainly legacy. Custom selectors should be removed in the long run,
+or moved to Vue theme-agnostic component styling:
+
+* Generic selectors Bootstrap 3: `scss/molgenis/theme-3/_custom.scss`
+* Molgenis elements Bootstrap 3: `scss/molgenis/theme-3/modules/_some-page-element.scss`
+* Molgenis modules Bootstrap 3: `scss/molgenis/theme-3/modules/_some-module.scss`
+
+* Generic selectors Bootstrap 4: `scss/molgenis/theme-4/_custom.scss`
+* Molgenis elements Bootstrap 4: `scss/molgenis/theme-4/modules/_some-page-element.scss`
+* Molgenis modules Bootstrap 4: `scss/molgenis/theme-4/modules/_some-module.scss`
+
+* Generic selectors Bootstrap 3+4: `scss/molgenis/_custom.scss`
+* Molgenis elements Bootstrap 3+4: `scss/molgenis/elements/_some-page-element.scss`
 ```
 
 </details>
 
-## Publishing
+## Distribution
 
-### Distribution
+### Npm/Unpkg
 
 The generated theme CSS files are published to [npm](http://npmjs.com/@molgenis-ui/molgenis-theme)
 as soon as a new fix/feat [commit](https://github.com/molgenis/molgenis-theme/actions?query=workflow%3ACI)
 is detected on the master branch. [Unpkg](https://unpkg.com/browse/@molgenis-ui/molgenis-theme@latest/)
-is then used to serve the CSS files directly from this npm package. For instance, the default
-urls for the Molgenis-blue theme are:
+is then used to serve the CSS files directly. The default urls for the
+Molgenis-blue theme are:
 
 ```bash
 /@molgenis-ui/molgenis-theme/dist/themes/mg-molgenis-blue-4.css
 /@molgenis-ui/molgenis-theme/dist/themes/mg-molgenis-blue-3.css
 ```
 
-To use the local files during development(using the proxy from molgenis-theme),
-simply change the theme urls to:
-
-```bash
-/themes/mg-molgenis-blue-4.css
-/themes/mg-molgenis-blue-3.css
-```
+In the long run, it would be preferable to serve stylesheets dynamically. We
+would then loose npm's versioning, but that would be replaced by a situation
+where a customer has much more control over the theme.
 
 ### Dynamic Themes
 
-This is a Proof-of-Concept theme service, that generates theme files on-the-fly.
-The idea is that customers can create themes themselves from a (TBD) theme-manager,
-which lets them change a certain set of variables. In this case; instead of requesting CSS files,
-a Molgenis instance would just post a set of variables to this service. The accompanying
-theme file is then generated, cached and served accordingly.
-
-Usage:
+This is a simple theming service that can be used as a backend for a to-be-written
+theming manager frontend. In this situation, themes are no longer published
+through npm. Instead, themes are generated on request. Customers can change
+theme variables themselves through the theme-manager UI.
 
 * Start the SCSS service
 
   ```bash
-  yarn serve
+  yarn service
   ```
 
-* Post a request body to the [theme endpoint](http://localhost:8080/theme) with a tool like Postman:
+> The theme-manager posts a request body like this to the [theming service endpoint](http://localhost:3030/theme):
 
   ```json
   {
-    "name": "molgenis-red",
-    "version": 4,
-    "mg-color-primary": "#005c8f",
-    "mg-color-primary-light": "#0069a4"
+    "name": "molgenis-blue",
+    "variables": {
+      "mg-color-primary": "#f00",
+      "mg-color-primary-contrast": "#ff0",
+      "mg-color-secondary": "#00f",
+      "mg-color-secondary-contrast": "#0ff"
+    }
   }
   ```
 
-> Depending on the version (3 or 4), either the generated Bootstrap 3 or Bootstrap 4
-  version is returned. Post validation is still a bit flunky, so it's easy to break.
+The response is:
+
+```json
+{
+    "name": "molgenis-blue",
+    "urls": [
+        "mg-molgenis-blue-3-1614770277098.css",
+        "mg-molgenis-blue-3-1614770277098.css"
+    ],
+    "timestamp": 1614770277098
+}
+```
+
+* Go to the current theme-manager and choose *Use a custom theme*, fill in:
+
+```bash
+/generated/mg-molgenis-blue-4-1614770277098.css
+/generated/mg-molgenis-blue-3-1614770277098.css
+```
+
+:tada: Congratulations! You just generated a dynamic theme.
