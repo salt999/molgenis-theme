@@ -61,7 +61,6 @@
     ],
     "order/properties-alphabetical-order": true,
     "property-no-unknown": true,
-    "property-no-vendor-prefix": false,
     "rule-empty-line-before": [
       "always-multi-line",
       {

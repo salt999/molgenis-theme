@@ -55,8 +55,8 @@ $mg-font-base: 'IBM Plex Sans' !default;
 $mg-font-sans-serif: 'IBM Plex Sans' !default;
 $mg-font-mono: 'IBM Plex Mono' !default;
 
-$mg-header-bg: $mg-color-tertiary;
-$mg-header-color: $mg-color-tertiary-contrast;
+$mg-header-bg: $mg-color-tertiary !default;
+$mg-header-color: $mg-color-tertiary-contrast !default;
 $mg-header-font: 'Bebas Neue' !default;
 $mg-header-height: 50px !default;
 
