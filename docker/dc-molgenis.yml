@@ -19,7 +19,7 @@ services:
       - MINIO_ACCESS_KEY=molgenis
       - MINIO_SECRET_KEY=molgenis
       - "CATALINA_OPTS=-Xmx2g -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled"
-    image: registry.molgenis.org/molgenis/molgenis-app:dev
+    image: molgenis/molgenis-app:8.6-latest
     networks:
       - mg_projects
     ports:
