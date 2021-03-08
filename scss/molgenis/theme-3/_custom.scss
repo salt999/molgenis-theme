@@ -1,9 +1,9 @@
 .select2-results {
-    background: $mg-page-bg;
+    background: $well-bg;
 
     .select2-highlighted {
-        background: $mg-color-tertiary !important;
-        color: $mg-color-tertiary-contrast !important;
+        background: $mg-color-secondary !important;
+        color: $mg-color-secondary-contrast !important;
     }
 }
 
@@ -26,18 +26,16 @@ a:focus,
 
     &.panel-primary {
         .panel-heading {
-            background: $mg-color-tertiary;
+            background: $mg-color-secondary;
             border-bottom: 1px solid $mg-border-color;
-            color: $mg-header-color;
-            font-size: $mg-font-size-large;
+            color: $mg-color-secondary-contrast;
             font-weight: bold;
-            height: $mg-header-height;
-            line-height: $mg-header-height;
+            height: 50px;
+            line-height: 50px;
             padding: 0 $mg-spacer;
 
             .panel-title {
                 display: inline-block;
-                font-size: $mg-font-size-large;
                 text-align: center;
                 vertical-align: middle;
             }
@@ -48,7 +46,7 @@ a:focus,
 .data-table-container {
     // Data Explorer 1 table container
     > div {
-        background: $mg-page-bg;
+        background: $well-bg;
     }
 
     table {
@@ -91,7 +89,6 @@ table.table {
 body {
     .nav-tabs {
         li {
-            font-size: $mg-font-size-small;
             font-weight: 600;
             margin-bottom: -3px;
 
@@ -106,7 +103,7 @@ body {
 
 
 .nav-pills[role='tablist']:not(.nav-stacked) {
-    border-bottom: 1px solid $mg-color-tertiary;
+    border-bottom: 1px solid $mg-color-secondary;
 }
 
 .well {
@@ -119,16 +116,10 @@ body {
 }
 
 .modal-header {
-    // background: $mg-color-tertiary;
     border-bottom: 0;
     color: $mg-color-text;
 }
 
 .well-sm {
     padding: $mg-spacer $mg-spacer;
-}
-
-::selection {
-    background: $mg-color-tertiary;
-    color: $mg-color-tertiary-contrast;
 }

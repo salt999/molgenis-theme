@@ -28,7 +28,7 @@
     }
 
     .validation-errors-anchor {
-        color: $mg-color-white !important;
+        color: $mg-color-primary-contrast !important;
     }
 
     .validation-error-messages-table {
@@ -40,7 +40,7 @@
     .highlight {
         background-color: $mg-color-primary;
         border-radius: 2px;
-        color: $mg-color-white;
+        color: $mg-color-primary-contrast;
         padding: 3px;
     }
 

@@ -1,13 +1,6 @@
-.list-group-item,
-.table {
-    font-family: $mg-font-sans-serif;
-}
-
 .dropdown-toggle {
-    // background: $mg-body-bg;
-
     input {
-        background: $mg-body-bg;
+        background: $body-bg;
     }
 
     &::after {
@@ -26,6 +19,12 @@
 .dropdown-menu {
     // Bootstrap 4 doesn't add a shadow.
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+
+    .dropdown-item:hover {
+        a {
+            color: $mg-color-secondary-contrast;
+        }
+    }
 
     a {
         height: 35px;

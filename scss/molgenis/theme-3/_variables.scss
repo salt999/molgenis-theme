@@ -2,7 +2,8 @@ $border-radius-base: $mg-border-radius !default;
 $border-radius-small: $mg-border-radius / 2 !default;
 $border-radius-large: $mg-border-radius * 2 !default;
 
-$brand-info: $mg-color-primary;
+$brand-info: $mg-color-primary !default;
+$brand-warning: $mg-color-warning !default;
 $brand-primary: $mg-color-primary !default;
 $brand-success: $mg-color-success !default;
 
@@ -15,14 +16,15 @@ $gray-lighter: $mg-color-grey-100;
 
 $grid-float-breakpoint: 1000px;
 $grid-float-breakpoint-max: 1300px;
-$grid-gutter-width: 16px;
+
+$input-height-base: 36px;
 
 $icon-font-path: $mg-font-path;
 
 $input-border-radius: 0;
 $input-border-radius-large: 0;
 $input-border-radius-small: 0;
-$input-border-focus: $mg-color-primary;
+$input-border-focus: $mg-color-secondary;
 
 $pager-border-radius: $mg-border-radius;
 
@@ -30,12 +32,14 @@ $panel-body-padding: $mg-spacer;
 $panel-border-radius: 0;
 $panel-heading-padding: 0;
 $panel-primary-border: 0;
-$panel-primary-heading-bg: $mg-header-bg;
-$panel-primary-text: $mg-header-color;
+$panel-primary-heading-bg: $mg-color-secondary;
+$panel-primary-text: $mg-color-secondary-contrast;
 
-// TODO: Remove important, once theme-loading is cleaned up.
-// See https://wiki.gcc.rug.nl/ticket/7600
-$navbar-default-link-active-bg: $mg-navbar-link-active-bg !important;
+// Bootstrap 4 uses 1rem; Bootstrap 3 doesn't use REM calculations,
+// so we use the default of 16px here.
+$font-size-base: 16px;
+
+$navbar-default-link-active-bg: $mg-navbar-link-active-bg;
 $navbar-default-link-active-color: $mg-navbar-link-active-color;
 $navbar-default-link-color: $mg-navbar-link-color;
 $navbar-default-link-hover-bg: $mg-navbar-link-hover-bg;
@@ -44,7 +48,7 @@ $navbar-default-link-hover-color: $mg-navbar-link-hover-color;
 $navbar-height: $mg-navbar-height;
 
 $nav-tabs-border-color: $mg-color-grey-200;
-$nav-tabs-active-link-hover-bg: $mg-color-white !default;
+$nav-tabs-active-link-hover-bg: $mg-color-primary-contrast !default;
 $nav-tabs-active-link-hover-color: $mg-color-grey-800 !default;
 $nav-tabs-active-link-hover-border-color: $mg-border-color;
 $nav-tabs-border-color: $mg-border-color;
@@ -53,7 +57,7 @@ $nav-tabs-border-color: $mg-border-color;
 
 $table-bg-accent: none !default;
 
-$card-bg: $mg-page-bg !default;
+$card-bg: $well-bg !default;
 $card-color: $mg-color-grey-400;
 
 $well-border: $mg-color-grey-200;
@@ -65,7 +69,7 @@ $well-border: $mg-border-color;
 
 // More contrast for badges.
 $badge-bg: $mg-color-grey-700;
-$pager-bg: $mg-body-bg;
+$pager-bg: $body-bg;
 
 $pager-disabled-color: lighten(desaturate($mg-color-primary, 100%), 10%);
 
@@ -75,12 +79,12 @@ $navbar-collapse-max-height: unset;
 // breakpoint than usual is used instead.
 $grid-float-breakpoint: 1127px;
 
-$nav-pills-active-link-hover-bg: $mg-color-tertiary;
+$nav-pills-active-link-hover-bg: $mg-color-secondary;
 $nav-pills-active-link-hover-color: $mg-color-text;
 
 // $btn-primary-color: $mg-color-text;
 $nav-tabs-link-hover-border-color: none;
-$modal-content-bg: $mg-page-bg;
+$modal-content-bg: $well-bg;
 
 $btn-danger-bg: $mg-color-danger;
 
@@ -90,19 +94,16 @@ $btn-default-color: $mg-color-grey-100 !default;
 
 $btn-primary-bg: $mg-color-primary;
 $btn-primary-color: $mg-color-primary-contrast;
-
-// $btn-success-bg: $mg-color-primary;
 $btn-success-color: $mg-color-primary-contrast;
-// $btn-success-border: $mg-color-primary-contrast;
 
 $btn-info-bg: $mg-color-secondary;
 $bgn-info-color: $mg-color-secondary-contrast;
 
 $dropdown-link-color: $mg-color-text;
-$dropdown-bg: $mg-page-bg;
-$panel-bg: $mg-body-bg;
+$dropdown-bg: $well-bg;
+$panel-bg: $body-bg;
 $legend-color: $mg-color-primary;
 $legend-border-color: $mg-border-color;
 $hr-border: $mg-border-color;
 
-$nav-pills-active-link-hover-color: $mg-color-tertiary-contrast;
+$nav-pills-active-link-hover-color: $mg-color-secondary-contrast;

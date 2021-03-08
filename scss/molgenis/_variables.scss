@@ -1,31 +1,31 @@
 /**
-* This file contains mg- prefixed variables that are 'public'
-* variables to other themes. All Themes inheriting from this
-* base theme should stay away from using Bootstrap variables
-* directly. The reason is that the base theme takes care
-* of the subtle differences between Bootstrap 3 and 4;
-* both are being used in Molgenis.
+* This is the Molgenis theme public interface; theme implementations
+* MUST only use variables that are found here. Please refrain
+* from using other Bootstrap variables directly, just because you can.
+*
+* The reasoning behind this is that only the base theme should take care
+* of the subtle differences between Bootstrap 3 and 4. This way we can
+* limit the customizability of each end-user theme, while keeping all
+* the themes consistent(and easier to maintain).
+*
+* In the long run, we should move the theme configuration to the
+* customer frontend, so we don't have to manually publish themes
+* through npm/unpkg anymore. To be able to do this, a tidy theme
+* definition is a prerequisite.
+*
+* About these variables: the mg- prefixed variables are not shared between
+* Bootstrap 3 and 4. Variables without the prefix ARE shared between both
+* Bootstrap versions. For more information, checkout the Bootstrap variable
+* definitions at:
+* node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss (Bootstrap 3)
+* node_modules/bootstrap-scss/_variables.scss (Bootstrap 4)
 */
-$mg-body-bg: #fefefe !default;
-$mg-page-bg: #f8f9fa !default;
+$body-bg: #fff !default;
+$well-bg: #f8f9fa !default;
+
 $mg-border-color: #e9ecef !default;
-$mg-border-radius: 0 !default;
+$mg-border-radius: 4px !default;
 $mg-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) !default;
-
-$mg-color-danger: #f36969 !default;
-$mg-color-grey-100: #fafafa !default;
-$mg-color-grey-200: #e9ecef !default;
-$mg-color-grey-300: #dee2e6 !default;
-$mg-color-grey-400: #ced4da !default;
-$mg-color-grey-500: #adb5bd !default;
-$mg-color-grey-600: #6c757d !default;
-$mg-color-grey-700: #495057 !default;
-$mg-color-grey-800: #343a40 !default;
-$mg-color-grey-900: #212529 !default;
-
-
-$mg-color-text: $mg-color-grey-700 !default;
-$mg-color-text-muted: $mg-color-grey-500 !default;
 
 $mg-color-primary: #017ffd !default;
 $mg-color-primary-contrast: #dbedff !default;
@@ -33,55 +33,13 @@ $mg-color-primary-contrast: #dbedff !default;
 $mg-color-secondary: #005ec4 !default;
 $mg-color-secondary-contrast: #dbedff !default;
 
-$mg-color-tertiary: lighten($mg-color-primary, 43%) !default;
-$mg-color-tertiary-contrast: $mg-color-text !default;
-
 $mg-color-info: $mg-color-secondary !default;
 $mg-color-success: #67b660 !default;
-$mg-color-warning: $mg-color-danger;
-$mg-color-white: #fff !default;
+$mg-color-danger: #f36969 !default;
+$mg-color-warning: #ec6707 !default;
 
-// Font config:
-// Rem units are assumed but not applied here. This makes it easier to
-// calculate between px (Bootstrap 3) and rem (Bootstrap 4).
-$mg-font-path: '/@molgenis-ui/molgenis-theme/dist/fonts/';
+// Default Bootstrap 4 font; Bootstrap 3 has Helvetica Neue otherwise.
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !default;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace !default;
 
-$mg-font-size-large: 0.95 * $mg-unit !default;
-$mg-font-size-base: 0.9 * $mg-unit !default;
-$mg-font-size-small: 0.8 * $mg-unit !default;
-$mg-font-size-mini: 0.7 * $mg-unit !default;
-
-$mg-font-base: 'IBM Plex Sans' !default;
-$mg-font-sans-serif: 'IBM Plex Sans' !default;
-$mg-font-mono: 'IBM Plex Mono' !default;
-
-$mg-header-bg: $mg-color-tertiary !default;
-$mg-header-color: $mg-color-tertiary-contrast !default;
-$mg-header-font: 'Bebas Neue' !default;
-$mg-header-height: 50px !default;
-
-// Dimensions:
-$mg-input-height: 35px !default;
-$mg-spacer: 16px !default;
-
-// Navigation bar variables:
-$mg-navbar-bg: #fff !default;
-$mg-navbar-brand-bg: transparent !default;
-$mg-navbar-height: 50px !default;
-$mg-navbar-font-weight: 400 !default;
-$mg-navbar-font-size: $mg-font-size-large;
-$mg-navbar-link-active-bg: $mg-color-tertiary !default;
-$mg-navbar-link-active-color: $mg-color-text !default;
-$mg-navbar-link-color: $mg-color-text !default;
-$mg-navbar-link-hover-bg: $mg-color-tertiary !default;
-$mg-navbar-link-hover-color: $mg-color-text !default;
-
-$nav-link-hover-bg: none;
-
-$mg-dropdown-bg: $mg-navbar-bg !default;
-// These defaults work with light-colored $mg-navbar-bg.
-// Override these variables with dark-colored navbars.
-$mg-dropdown-color: $mg-navbar-link-color !default;
-@import './variables-shared';
-
-$table-color: $mg-color-text;
+@import './variables-private';

@@ -16,11 +16,11 @@ body {
 
     .CodeMirror-gutter-filler,
     .CodeMirror-scrollbar-filler {
-        background-color: $mg-page-bg;;
+        background-color: $well-bg;
     }
 
     .CodeMirror-gutters {
-        background-color: $mg-page-bg;
+        background-color: $well-bg;
         border-right: 1px solid $mg-border-color;
         white-space: nowrap;
     }
@@ -165,7 +165,7 @@ body {
     }
 
     .CodeMirror {
-        background: $mg-body-bg;
+        background: $body-bg;
         overflow: hidden;
         position: relative;
     }

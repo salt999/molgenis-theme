@@ -2,7 +2,7 @@
     .data-table-container {
         .pull-right,
         .form-group {
-            line-height: $mg-header-height;
+            line-height: 50px;
             padding: 0 $mg-spacer / 2;
         }
 
@@ -12,7 +12,7 @@
     }
 
     #module-nav {
-        background: $mg-page-bg;
+        background: $well-bg;
         padding: $mg-spacer;
     }
 
@@ -39,8 +39,8 @@
         #entity-class-description,
         #entity-class-name {
             display: inline-block;
-            height: $mg-header-height;
-            line-height: $mg-header-height;
+            height: 50px;
+            line-height: 50px;
             margin: 0;
             padding: 0;
         }
@@ -62,7 +62,6 @@
                 }
 
                 #entity-class-description {
-                    font-size: $mg-font-size-mini;
                     font-weight: 600;
                     margin-left: $mg-spacer;
                     white-space: nowrap;
@@ -96,12 +95,6 @@
         span:hover {
             color: $mg-color-primary;
             cursor: pointer;
-        }
-    }
-
-    #feature-select {
-        .control-label {
-            line-height: $mg-input-height;
         }
     }
 
@@ -167,9 +160,8 @@
     }
 
     #feature-selection .molgenis-tree {
-        height: 367px;
         margin-bottom: 10px;
-        overflow: auto;
+        overflow-x: auto;
     }
 
     #aggregatesContainer {
@@ -182,7 +174,7 @@
 
         th {
             background-color: $mg-color-primary;
-            color: $mg-color-white;
+            color: $mg-color-primary-contrast;
         }
     }
 
@@ -270,7 +262,6 @@
     .select2-container {
         min-width: 16rem;
     }
-
 
     .molgenis-xrefmrefsearch .add-ref-query-part,
     .remove-ref-query-part {

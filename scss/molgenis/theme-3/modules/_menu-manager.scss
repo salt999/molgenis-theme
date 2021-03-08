@@ -37,7 +37,7 @@
                 padding: 0;
 
                 &.vertical li {
-                    background: lighten($mg-page-bg, 10%);
+                    background: lighten($well-bg, 10%);
                 }
 
                 .node {
@@ -47,7 +47,7 @@
                     padding: $mg-spacer / 4;
 
                     &.highlight {
-                        background: $mg-page-bg;
+                        background: $well-bg;
 
 
                         > span {
