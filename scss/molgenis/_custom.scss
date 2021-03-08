@@ -45,6 +45,7 @@ select {
 .navbar-brand {
     align-items: center;
     background: $mg-navbar-brand-bg;
+    display: flex;
     line-height: $mg-navbar-height;
     padding: 0 $mg-spacer;
     vertical-align: middle;
