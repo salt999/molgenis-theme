@@ -11,16 +11,17 @@ export const scssRender = async function(themeFile, cssTarget, options) {
     // when using Sass' data option, instead of file. The data option
     // is needed to be able to prepend data.
     const sourcePath = path.dirname(themeFile)
-    options.includePaths.push(sourcePath)
+    const includePaths = [sourcePath].concat(options.includePaths)
 
     let themeData = await fs.readFile(themeFile, 'utf-8')
     if (options.prependData) {
         themeData = options.prependData + themeData
     }
+
     return new Promise((resolve, reject) => {
         sass.render({
             data: themeData,
-            includePaths: options.includePaths,
+            includePaths,
             outFile: cssTarget,
             sourceMap: !options.optimize,
             sourceMapContents: true,
@@ -38,12 +39,10 @@ export const scssRender = async function(themeFile, cssTarget, options) {
             } else {
                 if (!sassObj) return reject('invalid scss')
                 cssRules = sassObj.css
-                if (options.write) promises.push(fs.writeFile(`${cssTarget}.map`, sassObj.map))
+                promises.push(fs.writeFile(`${cssTarget}.map`, sassObj.map))
             }
 
-            if (options.write) {
-                promises.push(fs.writeFile(cssTarget, cssRules))
-            }
+            promises.push(fs.writeFile(cssTarget, cssRules))
             await Promise.all(promises)
             resolve({size: cssRules.length, rules: cssRules})
         })

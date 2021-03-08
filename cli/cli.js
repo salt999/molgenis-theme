@@ -85,10 +85,8 @@ tasks.dev = new Task('dev', async function() {
 
 tasks.scss = new Task('scss', async function(ep) {
     let theme = ep.raw
-
     const scssOptions = {
         includePaths: settings.includePaths,
-        write: true,
         optimize: settings.optimize,
     }
 
