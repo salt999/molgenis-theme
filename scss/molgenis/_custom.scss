@@ -42,17 +42,17 @@ select {
     box-shadow: none !important;
 }
 
-.navbar-brand {
+.navbar .navbar-brand {
     align-items: center;
-    background: $mg-navbar-brand-bg;
+    background: $mg-logo-bg;
     display: flex;
+    height: $mg-navbar-height;
     line-height: $mg-navbar-height;
     padding: 0 $mg-spacer;
-    vertical-align: middle;
 
     &:focus,
     &:hover {
-        background: $mg-navbar-brand-bg !important;
+        background: $mg-logo-bg;
     }
 
     img.molgenis-navbar-logo {

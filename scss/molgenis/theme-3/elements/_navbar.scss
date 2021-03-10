@@ -1,7 +1,6 @@
 .navbar-default {
     background: $mg-navbar-bg;
     border: 0;
-    box-shadow: 0 1px 1px $mg-border-color;
     min-height: $mg-navbar-height;
 
     .navbar-nav {
@@ -58,12 +57,13 @@
     #logout-form {
         button {
             background: none;
-            border-color: $mg-color-secondary-contrast;
-            color: $mg-color-secondary-contrast;
+            border-color: $mg-navbar-link-color;
+            color: $mg-navbar-link-color;
 
             &:hover {
-                background: $mg-color-secondary-contrast;
-                color: $mg-color-secondary;
+                background: $mg-color-primary;
+                border-color: $mg-color-primary;
+                color: $mg-color-primary-contrast;
             }
         }
     }

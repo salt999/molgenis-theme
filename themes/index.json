@@ -12,7 +12,7 @@
     "bbmri-eric": {
         "name": "BBMRI ERIC",
         "share": false,
-        "url": "https://directory.bbmri-eric.eu/"
+        "url": "https://bbmri-acc.gcc.rug.nl/"
     },
     "bbmri-nl": {
         "name": "BBMRI NL",

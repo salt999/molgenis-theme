@@ -18,26 +18,49 @@ $text-muted: $mg-color-grey-500 !default;
 $mg-spacer: 16px !default;
 $mg-font-path: '/@molgenis-ui/molgenis-theme/dist/fonts/' !default;
 
-// Navigation bar variables:
-$mg-navbar-bg: $mg-color-secondary;
-$mg-navbar-brand-bg: transparent;
 $mg-navbar-height: 50px;
 $mg-navbar-font-weight: 400;
+
+// Default navbar style ('brand') applies strong branding colors in the navbar.
+// This works with bright colored themes like molgenis-blue & molgenis-green.
+$mg-navbar-bg: $mg-color-secondary;
 $mg-navbar-link-active-bg: $mg-color-primary;
-$mg-navbar-link-active-color: $mg-color-secondary-contrast;
+$mg-navbar-link-active-color: $mg-color-primary-contrast;
 $mg-navbar-link-color: $mg-color-secondary-contrast;
-$mg-navbar-link-hover-bg: $mg-color-secondary;
+$mg-navbar-link-hover-bg: $mg-color-primary;
 $mg-navbar-link-hover-color: $mg-color-secondary-contrast;
 
-$mg-dropdown-bg: $body-bg !default;
-$mg-dropdown-color: $mg-color-text !default;
+$mg-dropdown-bg: $body-bg;
+$mg-dropdown-color: $mg-color-text;
 
-// Shared Bootstrap 3/4 variables:
-$dropdown-link-active-bg: $mg-color-secondary;
-$dropdown-link-active-color: $mg-navbar-link-active-color;
-$dropdown-link-color: $mg-dropdown-color;
-$dropdown-link-hover-bg: $mg-navbar-link-hover-bg;
-$dropdown-link-hover-color: $mg-navbar-link-hover-color;
+// These two variables are not used in the current Molgenis menu,
+// because the menu-items don't get an .active class as it should.
+$dropdown-link-active-bg: $mg-color-primary;
+$dropdown-link-active-color: $mg-color-primary-contrast;
+
+$dropdown-link-color: $mg-color-text;
+$dropdown-link-hover-bg: $mg-color-primary;
+$dropdown-link-hover-color: $mg-color-primary-contrast;
+
+// A more subtle navbar variant that works with lighter designs:
+@if $mg-navbar-style == 'light' {
+    $mg-navbar-bg: $mg-color-grey-200;
+    $mg-navbar-link-active-bg: transparent;
+    $mg-navbar-link-active-color: $mg-color-primary;
+    $mg-navbar-link-color: $mg-color-grey-700;
+    $mg-navbar-link-hover-bg: transparent;
+    $mg-navbar-link-hover-color: $mg-color-primary;
+
+    $dropdown-link-active-bg: transparent;
+    $dropdown-link-active-color: $mg-color-primary;
+    $dropdown-link-color: $mg-color-text;
+    $dropdown-link-hover-bg: transparent;
+    $dropdown-link-hover-color: $mg-color-primary;
+}
+
+// Use $mg-navbar-style to fit with the logo; this option is to override the
+// logo background. Use it as a last resort, or better, don't use it.
+$mg-logo-bg: transparent !default;
 
 $table-cell-padding: $mg-spacer / 2;
 $table-condensed-cell-padding: 10px;

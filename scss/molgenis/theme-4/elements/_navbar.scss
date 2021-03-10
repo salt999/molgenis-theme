@@ -6,7 +6,6 @@
     // its container height. The Bootstrap 3 variant does not, which
     // makes the navbar shift height between pages otherwise.
     border-bottom: 0 !important;
-    box-shadow: 0 1px 1px $mg-border-color;
 
     .form-inline {
         height: 100%;
@@ -76,12 +75,13 @@
 
         .btn,
         button {
-            border-color: $mg-color-secondary-contrast !important;
-            color: $mg-color-secondary-contrast;
+            border-color: $mg-navbar-link-color;
+            color: $mg-navbar-link-color;
 
             &:hover {
-                background: $mg-color-secondary-contrast;
-                color: $mg-color-secondary;
+                background: $mg-color-primary;
+                border-color: $mg-color-primary;
+                color: $mg-color-primary-contrast;
             }
         }
     }

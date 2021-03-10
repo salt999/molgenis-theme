@@ -2,10 +2,11 @@ $border-radius-base: $mg-border-radius !default;
 $border-radius-small: $mg-border-radius / 2 !default;
 $border-radius-large: $mg-border-radius * 2 !default;
 
-$brand-info: $mg-color-primary !default;
-$brand-warning: $mg-color-warning !default;
 $brand-primary: $mg-color-primary !default;
 $brand-success: $mg-color-success !default;
+$brand-info: $mg-color-primary !default;
+$brand-warning: $mg-color-warning !default;
+$brand-danger: $mg-color-danger !default;
 
 $gray-base: $mg-color-text;
 $gray-darker: $mg-color-grey-900;
