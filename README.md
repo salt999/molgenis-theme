@@ -1,12 +1,11 @@
 # Molgenis Theme
 
-This is the Bootstrap-based Molgenis SCSS theme generator. Its purpose is to
-streamline the theming workflow for all Molgenis sites by:
+Molgenis-theme is the SCSS/Bootstrap-based Molgenis theming source. Its purpose
+is to streamline the theming workflow by:
 
 * Simplifying the creation of new themes
-* Keeping existing themes maintainable
-* Keeping existing themes consistent by applying fixes to the base theme
-* Providing a better frontend developer experience using a proxy/reload tool chain
+* Making existing themes maintainable & consistent
+* Providing a better frontend developer styling experience
 * Establishing and simplifying the publishing & distibution workflow
 
 ## Prerequisites
@@ -43,12 +42,16 @@ environment file; the **.env** file. It has the following options:
 # Docker-specific; just ignore this.
 COMPOSE_IGNORE_ORPHANS=True
 COMPOSE_PROJECT_NAME=mg_projects
-# use with 'yarn proxy'
+
+# Remote proxy only; use with 'yarn proxy'
 MG_PROXY=https://master.dev.molgenis.org
-# Use with 'yarn proxy-services-molgenis'
-# MG_PROXY=http://molgenis:8080
-# Use with 'yarn proxy-services'
+# Docker host ip; use with 'yarn proxy-services'
 # MG_PROXY=http://172.19.0.1:8080
+# Docker service molgenis host; Use with 'yarn proxy-services-molgenis'
+# MG_PROXY=http://molgenis:8080
+
+# URL to the theme generator service from the NGINX docker container.
+MG_PROXY_THEMEGEN=http://172.18.0.1:3030
 
 # (!) The theme to serve and watch. Please note that
 # you need to restart both the docker services and
@@ -130,29 +133,21 @@ or moved to Vue theme-agnostic component styling:
 
 ## Distribution
 
-### Npm/Unpkg
-
 The generated theme CSS files are published to [npm](http://npmjs.com/@molgenis-ui/molgenis-theme)
 as soon as a new fix/feat [commit](https://github.com/molgenis/molgenis-theme/actions?query=workflow%3ACI)
 is detected on the master branch. [Unpkg](https://unpkg.com/browse/@molgenis-ui/molgenis-theme@latest/)
-is then used to serve the CSS files directly. The default urls for the
-Molgenis-blue theme are:
+is used to serve the CSS files directly. The default urls for the Molgenis-blue theme are:
 
 ```bash
 /@molgenis-ui/molgenis-theme/dist/themes/mg-molgenis-blue-4.css
 /@molgenis-ui/molgenis-theme/dist/themes/mg-molgenis-blue-3.css
 ```
 
-In the long run, it would be preferable to serve stylesheets dynamically. We
-would then loose npm's versioning, but that would be replaced by a situation
-where a customer has much more control over the theme.
-
-### Dynamic Themes
-
-This is a simple theming service that can be used as a backend for a to-be-written
-theming manager frontend. In this situation, themes are no longer published
-through npm. Instead, themes are generated on request. Customers can change
-theme variables themselves through the theme-manager UI.
+A new feature is to serve stylesheets dynamically. We would still have a set of
+versioned and published themes to choose from, but also the option to generate
+a theme from the Molgenis UI on-the-fly. This makes it easy for customers to
+setup their own theme with just a few clicks. This requires a simple theming
+service backend and a new [theming manager frontend](https://github.com/molgenis/molgenis-frontend/tree/poc/generated-themes).
 
 * Start the SCSS service
 

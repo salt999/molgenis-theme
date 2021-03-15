@@ -36,6 +36,7 @@ export const buildInfo = async function(cli) {
                 label: chalk.bold('env'),
                 nodes: [
                     {label: `${'MG_PROXY'.padEnd(15, ' ')} ${cli.settings.MG_PROXY}`},
+                    {label: `${'MG_PROXY_THEMEGEN'.padEnd(15, ' ')} ${cli.settings.MG_PROXY_THEMEGEN}`},
                     {label: `${'MG_THEME'.padEnd(15, ' ')} ${cli.settings.MG_THEME}`}
                 ]
             }

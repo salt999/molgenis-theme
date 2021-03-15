@@ -34,11 +34,11 @@ server {
   }
 
   # Rewrite in case of using a remote proxy; e.g. master.dev.molgenis.org
-  location ~ ^/@molgenis-ui/molgenis-theme/dist/themes/mg-${MG_THEME}-(?<version>[0-9]+).(?<extension>[a-z]+.[a-z]+) {
+  location ~ ^/@molgenis-ui/molgenis-theme/dist/themes/(?<filename>[\w-]+\.[\w\.]+) {
       root /usr/share/nginx/html/;
       add_header Last-Modified $date_gmt;
       add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
-      rewrite ^ /dist/themes/mg-${MG_THEME}-$version.$extension break;
+      rewrite ^ /dist/themes/$filename break;
   }
 
   location /@molgenis-ui/molgenis-theme/dist/themes/index.json {
@@ -46,9 +46,16 @@ server {
       rewrite ^ /dist/themes/index.json break;
   }
 
-  # SCSS Service; this should point to a centralized service proxy in production.
-  location /dynamic {
-      root /usr/share/nginx/html/;
+  # SCSS Service; Static CSS endpoint.
+  # This points to a centralized service proxy in production.
+  location ~ ^/themes/generated/(?<filename>[\w-]+\.css) {
+      root /usr/share/nginx/html/dynamic;
+      rewrite ^ /$filename break;
+  }
+
+  # SCSS Service; POST endpoint.
+  location /themes {
+      proxy_pass ${MG_PROXY_THEMEGEN};
   }
 
   location /@molgenis-ui/ {
@@ -63,5 +70,10 @@ server {
       proxy_pass ${MG_PROXY};
       proxy_buffers 8 24k;
       proxy_buffer_size 2k;
+      # MG_PROXY is a Molgenis instance / Webpack dev-server (e.g. DE2)
+
+      proxy_http_version 1.1;
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection "upgrade";
   }
 }

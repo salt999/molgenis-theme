@@ -1,6 +1,5 @@
 import bodyParser from 'body-parser'
 import express from 'express'
-import fs from 'fs-extra'
 import Joi from '@hapi/joi'
 import mkdirp from 'mkdirp'
 import path from 'path'
@@ -17,6 +16,7 @@ const validator = Joi.object({
         'mg-color-primary-contrast': Joi.string().required(),
         'mg-color-secondary': Joi.string().required(),
         'mg-color-secondary-contrast': Joi.string().required(),
+        'mg-navbar-style': Joi.string().required(),
     }).required()
 })
 
@@ -39,7 +39,7 @@ export default async function(settings) {
     const app = express()
     app.use(bodyParser.json())
 
-    app.post('/theme', async function(req, res, next) {
+    app.post('/themes', async function(req, res, next) {
         const startTime = performance.now()
         const validated = validator.validate(req.body)
         if (validated.error) {
@@ -67,7 +67,8 @@ export default async function(settings) {
         logger.info(`generated theme '${parsed.name}' in ${spendTime}`)
         res.end(JSON.stringify({
             name: parsed.name,
-            urls: [b3File, b3File],
+            themeUrl: `mg-${parsed.name}-4-${timestamp}.css`,
+            themeUrlLegacy: `mg-${parsed.name}-3-${timestamp}.css`,
             timestamp
         }))
     })
