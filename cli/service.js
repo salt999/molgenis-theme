@@ -1,6 +1,6 @@
 import bodyParser from 'body-parser'
 import express from 'express'
-import Joi from '@hapi/joi'
+import Joi from 'joi'
 import mkdirp from 'mkdirp'
 import path from 'path'
 import { performance } from 'perf_hooks'

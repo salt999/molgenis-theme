@@ -1,6 +1,15 @@
 FROM node:15
 EXPOSE 3030
+
+# Add Tini
+ENV TINI_VERSION v0.19.0
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
+RUN chmod +x /tini
+ENTRYPOINT ["/tini", "--"]
+
 WORKDIR /usr/src/app
 COPY . /usr/src/app
 RUN yarn
-CMD [ "yarn", "service"]
+
+# Run your program under Tini
+CMD ["yarn", "service"]
