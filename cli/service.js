@@ -28,7 +28,7 @@ function sassVariables(variables) {
 
 export default async function(settings) {
     // Make sure the generated directory exists:
-    const cssDir = path.join(settings.dir.base, 'dynamic')
+    const cssDir = path.join(settings.dir.base, 'generated')
     await mkdirp(cssDir)
 
     const scssOptions = {

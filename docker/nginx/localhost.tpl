@@ -49,7 +49,7 @@ server {
   # SCSS Service; Static CSS endpoint.
   # This points to a centralized service proxy in production.
   location ~ ^/themes/generated/(?<filename>[\w-]+\.css) {
-      root /usr/share/nginx/html/dynamic;
+      root /usr/share/nginx/html/generated;
       rewrite ^ /$filename break;
   }
 
