@@ -46,14 +46,7 @@ server {
       rewrite ^ /dist/themes/index.json break;
   }
 
-  # SCSS Service; Static CSS endpoint.
-  # This points to a centralized service proxy in production.
-  location ~ ^/themes/generated/(?<filename>[\w-]+\.css) {
-      root /usr/share/nginx/html/generated;
-      rewrite ^ /$filename break;
-  }
-
-  # SCSS Service; POST endpoint.
+  # SCSS Service; POST endpoint & /themes/generated GET
   location /themes {
       proxy_pass ${MG_PROXY_THEMEGEN};
   }

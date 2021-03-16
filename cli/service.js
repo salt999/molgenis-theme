@@ -38,6 +38,7 @@ export default async function(settings) {
 
     const app = express()
     app.use(bodyParser.json())
+    app.use('/themes/generated', express.static('generated'))
 
     app.post('/themes', async function(req, res, next) {
         const startTime = performance.now()
@@ -72,7 +73,6 @@ export default async function(settings) {
             timestamp
         }))
     })
-
 
     app.listen(3030, () => {
         console.log("service listening on port 3030")
