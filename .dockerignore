@@ -1,6 +1,7 @@
-node_modules
-yarn.lock
-.env
-.git
-.github
-.vscode
+*
+!.env.defaults
+!cli
+!fonts
+!scss
+!themes
+!package.json
