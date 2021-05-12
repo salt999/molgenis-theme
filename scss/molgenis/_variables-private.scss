@@ -23,11 +23,11 @@ $mg-navbar-font-weight: 400;
 
 // Default navbar style ('brand') applies strong branding colors in the navbar.
 // This works with bright colored themes like molgenis-blue & molgenis-green.
-$mg-navbar-bg: $mg-color-secondary;
-$mg-navbar-link-active-bg: $mg-color-primary;
-$mg-navbar-link-active-color: $mg-color-primary-contrast;
+$mg-navbar-bg: #598c68;
+$mg-navbar-link-active-bg: #71b485;
+$mg-navbar-link-active-color: #dbedff;
 $mg-navbar-link-color: $mg-color-secondary-contrast;
-$mg-navbar-link-hover-bg: $mg-color-primary;
+$mg-navbar-link-hover-bg: #71b485;
 $mg-navbar-link-hover-color: $mg-color-secondary-contrast;
 
 $mg-dropdown-bg: $body-bg;
@@ -35,27 +35,27 @@ $mg-dropdown-color: $mg-color-text;
 
 // These two variables are not used in the current Molgenis menu,
 // because the menu-items don't get an .active class as it should.
-$dropdown-link-active-bg: $mg-color-primary;
-$dropdown-link-active-color: $mg-color-primary-contrast;
+$dropdown-link-active-bg: #71b485;
+$dropdown-link-active-color: #dbedff;
 
 $dropdown-link-color: $mg-color-text;
-$dropdown-link-hover-bg: $mg-color-primary;
-$dropdown-link-hover-color: $mg-color-primary-contrast;
+$dropdown-link-hover-bg: #71b485;
+$dropdown-link-hover-color: #dbedff;
 
 // A more subtle navbar variant that works with lighter designs:
 @if $mg-navbar-style == 'light' {
     $mg-navbar-bg: $mg-color-grey-200;
     $mg-navbar-link-active-bg: transparent;
-    $mg-navbar-link-active-color: $mg-color-primary;
+    $mg-navbar-link-active-color: #71b485;
     $mg-navbar-link-color: $mg-color-grey-700;
     $mg-navbar-link-hover-bg: transparent;
-    $mg-navbar-link-hover-color: $mg-color-primary;
+    $mg-navbar-link-hover-color: #71b485;
 
     $dropdown-link-active-bg: transparent;
-    $dropdown-link-active-color: $mg-color-primary;
+    $dropdown-link-active-color: #71b485;
     $dropdown-link-color: $mg-color-text;
     $dropdown-link-hover-bg: transparent;
-    $dropdown-link-hover-color: $mg-color-primary;
+    $dropdown-link-hover-color: #71b485;
 }
 
 // Use $mg-navbar-style to fit with the logo; this option is to override the
@@ -65,14 +65,14 @@ $mg-logo-bg: transparent !default;
 $table-cell-padding: $mg-spacer / 2;
 $table-condensed-cell-padding: 10px;
 
-$input-bg: $body-bg;
-$input-disabled-bg: $body-bg;
+$input-bg: $body-sec-bg;
+$input-disabled-bg: $body-sec-bg;
 $input-border: $mg-border-color;
-$link-color: $mg-color-primary !default;
+$link-color: #2aaae6;
 $input-color: $mg-color-text;
 
 $pagination-active-bg: $mg-color-grey-900 !default;
-$pagination-active-color: $mg-color-primary-contrast !default;
+$pagination-active-color: #dbedff !default;
 
 $pagination-border: $mg-border-color;
 $pagination-disabled-border: $mg-border-color;
@@ -80,7 +80,7 @@ $pagination-disabled-border: $mg-border-color;
 $pagination-hover-bg: $well-bg;
 $pagination-hover-border: $mg-border-color;
 
-$table-bg: $body-bg;
+$table-bg: $body-sec-bg;
 $jumbotron-bg: $well-bg;
 $popover-bg: $well-bg;
 $popover-border-color: $mg-border-color;

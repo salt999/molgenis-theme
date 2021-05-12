@@ -20,17 +20,18 @@
 * node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss (Bootstrap 3)
 * node_modules/bootstrap-scss/_variables.scss (Bootstrap 4)
 */
-$body-bg: #fff !default;
+$body-bg: #f4f4e1 !default;
 $well-bg: #f8f9fa !default;
+$body-sec-bg: #fcfcf5 !default;
 
-$mg-border-color: #e9ecef !default;
+$mg-border-color: #989b9e !default;
 $mg-border-radius: 4px !default;
 $mg-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) !default;
 
-$mg-color-primary: #017ffd !default;
+$mg-color-primary: #71b485;
 $mg-color-primary-contrast: #dbedff !default;
 
-$mg-color-secondary: #005ec4 !default;
+$mg-color-secondary: #598c68 !default;
 $mg-color-secondary-contrast: #dbedff !default;
 
 $mg-color-info: $mg-color-secondary !default;
@@ -44,5 +45,59 @@ $font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mon
 
 // Supported navbar styles: 'brand', 'light'
 $mg-navbar-style: 'brand' !default;
+
+.molgenis-header-container .navbar {
+    padding-left: 250px;
+    padding-right: 250px;
+}
+
+.table {
+    background-color: #f0efef;
+}
+
+
+#ressource_types {
+    background-color: rgb(255, 255, 255);
+}
+
+#country {
+    background-color: rgb(255, 255, 255);
+}
+
+#search {
+    background-color: rgb(0, 0, 255);
+}
+
+.custom-control-input {
+    background-color: rgb(255, 255, 255);
+}
+
+.form-control {
+    background-color: rgb(255, 255, 255);
+}
+
+#biobank-table {
+    background-color: #f9f9f9;
+}
+
+#disease-table {
+    background-color: #f9f9f9;
+}
+
+#general-info-table {
+    background-color: rgb(255, 255, 255);
+}
+
+#general-info-table td {
+    padding: 0;
+}
+
+#organisation-card {
+    background-color: #e2e3ce;
+}
+
+#image-header {
+    background-color: rgb(255, 255, 255);
+} 
 
 @import './variables-private';
